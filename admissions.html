@@ -1,0 +1,206 @@
+<!-- Admissions Page for Gopherwood School -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Gopherwood School</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14532d;
+            --secondary: #4ca44c;
+            --accent: #e6efc2;
+            --banner: #ffe066;
+            --highlight: #e63946;
+            --white: #fff;
+            --text: #222;
+        }
+        body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; }
+        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--highlight); }
+        main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
+        h1 { color: var(--primary); }
+        .admission-links { margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem; }
+        .admission-links a { background: var(--banner); color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+        .admission-links a:hover { background: var(--primary); color: var(--white); }
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.2rem 2vw;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 0.5rem;
+                display: none;
+                background: var(--white);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+                border-radius: 0 0 12px 12px;
+                z-index: 99;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .nav-toggle span {
+            height: 3px;
+            width: 28px;
+            background: var(--primary);
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="schoollogo.jpg" alt="Gopherwood School Logo" style="height:44px;width:auto;margin-right:1rem;vertical-align:middle;border-radius:8px;background:#fff;box-shadow:0 1px 6px rgba(20,83,45,0.08);">
+        <div class="logo">Gopherwood School</div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="test1.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1 style="color:var(--primary);font-size:2.1rem;font-weight:800;margin-bottom:0.7rem;text-align:center;">Admissions</h1>
+        <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
+            <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.2rem;">Admission into all classes is currently ongoing! We welcome applications from families who share our vision for academic excellence and holistic development. Please review the steps below to begin your child's journey at Gopherwood School.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-bottom:2.5rem;">
+            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">1</div>
+                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Purchase Admission Form</h2>
+                <p style="font-size:1.02rem;line-height:1.6;">Obtain the admission form from the school or download it online. Complete the form with accurate information.</p>
+                <a href="#" style="margin-top:0.7rem;background:var(--banner);color:var(--primary);padding:0.7rem 1.5rem;border-radius:7px;font-weight:700;text-decoration:none;transition:background 0.2s;">Download Form</a>
+            </div>
+            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">2</div>
+                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Submit Completed Form</h2>
+                <p style="font-size:1.02rem;line-height:1.6;">Return the completed form to the school office with all required documents (birth certificate, passport photos, previous school results, etc).</p>
+            </div>
+            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">3</div>
+                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Entrance Assessment</h2>
+                <p style="font-size:1.02rem;line-height:1.6;">Your child will be invited for an entrance assessment and interview. The date will be communicated after form submission.</p>
+            </div>
+            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">4</div>
+                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Admission Offer</h2>
+                <p style="font-size:1.02rem;line-height:1.6;">Successful candidates will receive an admission offer. Acceptance and payment of fees will secure your child's place.</p>
+            </div>
+        </div>
+        <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
+            <h3 style="color:var(--primary);font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Need Help?</h3>
+            <p style="font-size:1.05rem;">For more information, please call <a href="tel:+2348057713103" style="color:var(--secondary);font-weight:700;text-decoration:none;">0805 771 3103</a> or email <a href="mailto:info@gopherwoodschool.edu" style="color:var(--secondary);font-weight:700;text-decoration:none;">info@gopherwoodschool.edu</a>.</p>
+        </div>
+        <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
+            <a href="#" style="background:var(--highlight);color:var(--white);padding:1rem 2.5rem;border-radius:30px;font-weight:700;font-size:1.1rem;text-decoration:none;transition:background 0.2s;">Apply Online</a>
+        </div>
+        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin:3.5rem 0 2.5rem 0;">
+            <!-- Facilities -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">FACILITIES</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <ul style="font-size:1.08rem;line-height:1.7;color:var(--text);padding-left:1.2em;">
+                    <li>Spacious and well-equipped classrooms with air conditioners.</li>
+                    <li>Modern and audio-visual teaching aids.</li>
+                    <li>Computer based teaching equipment.</li>
+                    <li>Well-equipped sickbay with qualified nurses</li>
+                    <li>Ultramodern laboratories.</li>
+                    <li>New fleet of air conditioner buses for effective transportation.</li>
+                    <li>World class Boarding facilities.</li>
+                    <li>Constant power supply (Powered by 100KVA Generator & 40KVA Inverters)</li>
+                    <li>NURSERY/PRIMARY</li>
+                </ul>
+            </div>
+            <!-- Teaching Staff -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">TEACHING STAFF</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Our Academic members of staff are professionals in their various field. Specialist teachers are however employed to teach Mathematics, English Language, French, Music, Fine Art, ICT, Computer Science and Primary Sciences. In addition, Our Nursery School Teachers are Montessori trained, and we have specialists teaching Mathematics, English Languages and Sciences.</p>
+            </div>
+        </section>
+        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">
+            <!-- Pre-School -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">PRE-SCHOOL</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Preschool group consists of children of ages 3 months to 1 year for the crèche and 1 to 3 in the preschool 1 and 2 classes. These classes are essentially play groups with the help of experienced supervisor Who ensure cleanliness, safety and comfort of these children at all times. Pupils are introduced to the Montessori tools under the guidance of trained Montessori teachers.</p>
+            </div>
+            <!-- Nursery -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">NURSERY</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">This school consists of children between the ages 3 to 5. Formal academic work starts under the guidance of Montessori trained class teachers and at least two class assistants.</p>
+            </div>
+        </section>
+        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">
+            <!-- Primary -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">PRIMARY</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Children admitted into the primary school must be above 5 years old. We encourage the class teaching system whereby pupils learn from their class teachers by direct contact through examples.</p>
+            </div>
+            <!-- Staffing -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">STAFFING</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">The management of Gopherwood School places a high premium on professionalism in staff recruitment. This way, we have gathered a team of loving, self-motivated qualified and experienced teaching staff for the following subjects:</p>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Mathematics, English Language, Literature-In-English, Biology, Physics, Chemistry, Yoruba, Computer Studies, ICT, Christian Religious Knowledge, Islamic Religious Knowledge, Government, Economics, Geography, Book-Keeping, Store Management, Insurance, Marketing, Financial Accounting, Agricultural Science, Food and Nutrition, Civic Education, Further Mathematics, Commerce and Home Management.</p>
+            </div>
+        </section>
+        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">
+            <!-- Secondary -->
+            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
+                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">SECONDARY</h2>
+                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Children admitted into the secondary school must be above
+                Mathematics, English Language, Literature-In-English, Biology, Physics, Chemistry, Yoruba, Computer Studies, ICT, Christian Religious Knowledge, Islamic Religious Knowledge, Government, Economics, Geography, Book-Keeping, Store Management, Insurance, Marketing, Financial Accounting, Agricultural Science, Food and Nutrition, Civic Education, Further Mathematics, Commerce and Home Management.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
+    </footer>
+    <script>
+    // Mobile nav toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        var navToggle = document.getElementById('nav-toggle');
+        var navLinks = document.getElementById('nav-links');
+        if(navToggle && navLinks) {
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+    });
+    </script>
+</body>
+</html>

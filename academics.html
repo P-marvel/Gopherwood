@@ -1,0 +1,126 @@
+<!-- Academics Page for Gopherwood School -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Gopherwood School</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14532d;
+            --secondary: #4ca44c;
+            --accent: #e6efc2;
+            --banner: #ffe066;
+            --highlight: #e63946;
+            --white: #fff;
+            --text: #222;
+        }
+        body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; }
+        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--highlight); }
+        main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
+        h1 { color: var(--primary); }
+        .academics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .academic-card { background: var(--accent); border-radius: 12px; padding: 1.5rem 1rem; box-shadow: 0 1px 6px rgba(20,83,45,0.06); text-align: center; }
+        .academic-card h3 { color: var(--secondary); margin-bottom: 0.7rem; }
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.2rem 2vw;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 0.5rem;
+                display: none;
+                background: var(--white);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+                border-radius: 0 0 12px 12px;
+                z-index: 99;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .nav-toggle span {
+            height: 3px;
+            width: 28px;
+            background: var(--primary);
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="schoollogo.jpg" alt="Gopherwood School Logo" style="height:44px;width:auto;margin-right:1rem;vertical-align:middle;border-radius:8px;background:#fff;box-shadow:0 1px 6px rgba(20,83,45,0.08);">
+        <div class="logo">Gopherwood School</div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="test1.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Academics</h1>
+        <div class="academics-grid">
+            <div class="academic-card">
+                <h3>Pre-School</h3>
+                <p>Our Montessori Pre-School lays the foundation for a lifetime of learning, encouraging independence and creativity.</p>
+            </div>
+            <div class="academic-card">
+                <h3>Primary School</h3>
+                <p>Child-centered education that fosters creativity, critical thinking, and academic excellence.</p>
+            </div>
+            <div class="academic-card">
+                <h3>College</h3>
+                <p>Top-tier secondary education with a focus on academic excellence, innovation, and character development.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
+    </footer>
+    <script>
+    // Mobile nav toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        var navToggle = document.getElementById('nav-toggle');
+        var navLinks = document.getElementById('nav-links');
+        if(navToggle && navLinks) {
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+    });
+    </script>
+</body>
+</html>

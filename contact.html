@@ -1,0 +1,197 @@
+<!-- Contact Page for Gopherwood School -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Gopherwood School</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14532d;
+            --secondary: #4ca44c;
+            --accent: #e6efc2;
+            --banner: #ffe066;
+            --highlight: #e63946;
+            --white: #fff;
+            --text: #222;
+        }
+        body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; }
+        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--highlight); }
+        main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
+        h1 { color: var(--primary); }
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin-bottom: 1.5rem; }
+        .contact-form input, .contact-form textarea { padding: 0.8rem; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 1rem; font-family: inherit; }
+        .contact-form textarea { min-height: 90px; resize: vertical; }
+        .contact-form button { background: var(--primary); color: var(--white); border: none; border-radius: 30px; padding: 0.8rem 0; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+        .contact-form button:hover { background: var(--highlight); color: var(--white); }
+        .contact-info { color: var(--primary); }
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
+
+        @media (max-width: 700px) {
+            main > div {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 0;
+            }
+            main {
+                padding: 1.2rem 2vw;
+            }
+            section[style*='background:var(--primary)'] {
+                max-width: 100%;
+                min-width: 0;
+                border-radius: 12px;
+                padding: 1.2rem 1rem 1rem 1rem;
+            }
+            section[style*='background:var(--white)'] {
+                max-width: 100%;
+                min-width: 0;
+                border-radius: 12px;
+                padding: 1.2rem 1rem 1rem 1rem;
+            }
+            .contact-form input, .contact-form textarea {
+                font-size: 1rem;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.2rem 2vw;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 0.5rem;
+                display: none;
+                background: var(--white);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+                border-radius: 0 0 12px 12px;
+                z-index: 99;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+        }
+        @media (max-width: 400px) {
+            main {
+                padding: 0.5rem 0.5vw;
+            }
+            main > div {
+                gap: 0.7rem;
+            }
+            section[style*='background:var(--primary)'],
+            section[style*='background:var(--white)'] {
+                padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+                border-radius: 8px;
+            }
+            h2, h3 {
+                font-size: 1.1rem !important;
+            }
+            .contact-form input, .contact-form textarea {
+                font-size: 0.95rem;
+            }
+        }
+        /* Responsive Google Map */
+        @media (max-width: 700px) {
+            iframe {
+                height: 180px !important;
+            }
+        }
+        @media (max-width: 400px) {
+            iframe {
+                height: 120px !important;
+            }
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .nav-toggle span {
+            height: 3px;
+            width: 28px;
+            background: var(--primary);
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="schoollogo.jpg" alt="Gopherwood School Logo" style="height:44px;width:auto;margin-right:1rem;vertical-align:middle;border-radius:8px;background:#fff;box-shadow:0 1px 6px rgba(20,83,45,0.08);">
+        <div class="logo">Gopherwood School</div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="test1.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;">
+            <!-- Contact Info Card -->
+            <section style="flex:1 1 320px;min-width:300px;max-width:370px;background:var(--primary);color:var(--white);border-radius:18px;padding:2.2rem 2rem 2rem 2rem;box-shadow:0 2px 12px rgba(20,83,45,0.10);display:flex;flex-direction:column;gap:1.2rem;">
+                <h2 style="color:var(--banner);font-size:1.5rem;margin:0 0 1.2rem 0;font-weight:800;letter-spacing:1px;">Contact Information</h2>
+                <div style="font-size:1.08rem;line-height:1.7;">
+                    <p style="margin:0 0 0.7rem 0;"><strong>Address:</strong><br>2A Yinusa Adeniji St, Allen, Ikeja 100271, Lagos</p>
+                    <p style="margin:0 0 0.7rem 0;"><strong>Email:</strong><br><a href="mailto:gopherwoodschool@yahoo.com" style="color:var(--banner);text-decoration:none;">gopherwoodschool@yahoo.com</a></p>
+                    <p style="margin:0 0 0.7rem 0;"><strong>Phone:</strong><br><a href="tel:+2348057713103" style="color:var(--banner);text-decoration:none;">+234 805 771 3103</a></p>
+                </div>
+                <div style="margin-top:1.2rem;">
+                    <h3 style="font-size:1.08rem;color:var(--banner);margin:0 0 0.5rem 0;font-weight:700;">School Hours</h3>
+                    <p style="margin:0;font-size:1rem;">Mon - Fri: 7:00am - 5:00pm<br>Sat - Sun: Closed</p>
+                </div>
+            </section>
+            <!-- Contact Form Card -->
+            <section style="flex:1 1 350px;min-width:320px;max-width:480px;background:var(--white);border-radius:18px;padding:2.2rem 2rem 2rem 2rem;box-shadow:0 2px 12px rgba(20,83,45,0.10);display:flex;flex-direction:column;justify-content:center;">
+                <h2 style="color:var(--primary);font-size:1.5rem;margin:0 0 1.2rem 0;font-weight:800;letter-spacing:1px;">Send Us a Message</h2>
+                <form method="post" action="form.php" class="contact-form" id="contact-form" style="gap:1.1rem;max-width:none;margin-bottom:0;">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+        <!-- Embedded Google Map -->
+        <div style="margin-top:2.5rem;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(20,83,45,0.10);">
+            <iframe src="https://www.google.com/maps?q=2A+Yinusa+Adeniji+St,+Allen,+Ikeja+100271,+Lagos&output=embed" width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
+    </footer>
+    <script>
+        // Mobile nav toggle only, removed form JS handler to allow real submission
+        document.addEventListener('DOMContentLoaded', function() {
+            var navToggle = document.getElementById('nav-toggle');
+            var navLinks = document.getElementById('nav-links');
+            if(navToggle && navLinks) {
+                navToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
