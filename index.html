@@ -33,7 +33,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            width: 100%;
         }
         .logo {
             font-weight: 700;
@@ -502,6 +501,384 @@
         height: 16px;
     }
 }
+.advanced-welcome {
+    position: relative;
+    min-height: 420px;
+    padding: 0;
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(20,83,45,0.09);
+    background: linear-gradient(120deg, #e6efc2 60%, #ffe066 100%);
+}
+.welcome-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(20,83,45,0.08) 60%, rgba(230,239,194,0.7) 100%);
+    z-index: 1;
+}
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.5rem 4vw 2.5rem 4vw;
+    gap: 2.5rem;
+}
+.welcome-left {
+    flex: 1 1 340px;
+    min-width: 270px;
+    max-width: 540px;
+}
+.welcome-right {
+    flex: 1 1 320px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+}
+.welcome-left h2 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.1rem;
+    line-height: 1.18;
+    letter-spacing: 1px;
+}
+.welcome-highlight {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.welcome-school {
+    color: var(--primary);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 0.2rem;
+}
+.welcome-quote {
+    font-size: 1.13rem;
+    color: #2d3a2e;
+    background: rgba(255,255,255,0.85);
+    border-left: 5px solid var(--secondary);
+    padding: 1.1rem 1.2rem 1.1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    margin-top: 0.2rem;
+    position: relative;
+    box-shadow: 0 1px 8px rgba(20,83,45,0.06);
+}
+.quote-icon {
+    color: var(--banner);
+    font-size: 1.5rem;
+    vertical-align: middle;
+    margin: 0 0.2rem;
+}
+.welcome-values {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+.welcome-values li {
+    font-size: 1.08rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+.welcome-values li span {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+.welcome-cta {
+    margin-top: 0.7rem;
+    font-size: 1.13rem;
+    padding: 0.9rem 2.3rem;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+}
+.welcome-cta:hover {
+    background: var(--highlight);
+    color: var(--white);
+}
+.welcome-img-card {
+    position: relative;
+    width: 260px;
+    height: 220px;
+    border-radius: 18px;
+    overflow: visible;
+    box-shadow: 0 4px 24px rgba(20,83,45,0.13);
+    background: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.welcome-img.main-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(20,83,45,0.13);
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    z-index: 2;
+    border: 4px solid var(--white);
+}
+.welcome-img.overlay-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    position: absolute;
+    left: -30px;
+    top: 18px;
+    z-index: 1;
+    border: 3px solid var(--accent);
+    box-shadow: 0 1px 8px rgba(20,83,45,0.08);
+    opacity: 0.93;
+}
+.welcome-img.overlay-img2 {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    position: absolute;
+    right: -22px;
+    bottom: 18px;
+    z-index: 3;
+    border: 2px solid var(--banner);
+    box-shadow: 0 1px 8px rgba(20,83,45,0.08);
+    opacity: 0.93;
+}
+.welcome-badge {
+    margin-top: 1.7rem;
+    background: var(--banner);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.07rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 22px;
+    box-shadow: 0 1px 8px rgba(20,83,45,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    letter-spacing: 1px;
+}
+.badge-icon {
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+}
+@media (max-width: 900px) {
+    .welcome-content {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2.2rem 2vw 1.5rem 2vw;
+    }
+    .welcome-img-card {
+        width: 210px;
+        height: 170px;
+    }
+    .welcome-img.main-img {
+        width: 130px;
+        height: 130px;
+        left: 30px;
+    }
+    .welcome-img.overlay-img {
+        width: 70px;
+        height: 70px;
+        left: -18px;
+        top: 10px;
+    }
+    .welcome-img.overlay-img2 {
+        width: 50px;
+        height: 50px;
+        right: -12px;
+        bottom: 10px;
+    }
+}
+@media (max-width: 600px) {
+    .advanced-welcome {
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+    .welcome-content {
+        padding: 1.2rem 1vw 1.2rem 1vw;
+    }
+    .welcome-left h2 {
+        font-size: 1.3rem;
+    }
+    .welcome-school {
+        font-size: 1.5rem;
+    }
+    .welcome-img-card {
+        width: 120px;
+        height: 90px;
+    }
+    .welcome-img.main-img {
+        width: 60px;
+        height: 60px;
+        left: 20px;
+    }
+    .welcome-img.overlay-img {
+        width: 38px;
+        height: 38px;
+        left: -8px;
+        top: 4px;
+    }
+    .welcome-img.overlay-img2 {
+        width: 28px;
+        height: 28px;
+        right: -6px;
+        bottom: 4px;
+    }
+    .welcome-badge {
+        font-size: 0.97rem;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/* Themed Section Styles for Facilities, Testimonials, News & Events */
+.themed-section {
+  background: linear-gradient(120deg, var(--accent) 70%, var(--banner) 100%);
+  border-radius: 18px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 12px rgba(20,83,45,0.07);
+  padding: 3rem 2vw 2.5rem 2vw;
+}
+
+.themed-section h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.facility-list,
+.testimonial-list,
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.facility-item,
+.testimonial-item,
+.event-item {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(20,83,45,0.08);
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: slideIn 1.2s ease-in-out forwards;
+  border-left: 5px solid var(--secondary);
+}
+
+.facility-item:hover,
+.testimonial-item:hover,
+.event-item:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(20,83,45,0.13);
+}
+
+.facility-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+}
+
+.facility-item h3,
+.event-item h3 {
+  color: var(--secondary);
+  margin-bottom: 0.7rem;
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
+.testimonial-item p,
+.event-item p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.testimonial-item strong {
+  color: var(--primary);
+  font-size: 1.01rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .themed-section {
+    padding: 2rem 1vw 1.5rem 1vw;
+    border-radius: 12px;
+  }
+  .facility-item img {
+    height: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .themed-section {
+    padding: 1.2rem 0.5vw 1.2rem 0.5vw;
+    border-radius: 8px;
+  }
+  .facility-list,
+  .testimonial-list,
+  .event-list {
+    gap: 1rem;
+    padding: 0;
+  }
+  .facility-item img {
+    height: 90px;
+  }
+  .facility-item,
+  .testimonial-item,
+  .event-item {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .themed-section h2 {
+    font-size: 1.2rem;
+  }
+}
     </style>
 </head>
 <body>
@@ -514,13 +891,19 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="academics.html">Academics</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+                <ul class="dropdown-content">
+                    <li><a href="academics.html">Academics Overview</a></li>
+                    <li><a href="extracurriculars.html">Extracurriculars</a></li>
+                </ul>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
         </nav>
     <header class="hero">
         <div class="hero-content" id="home">
@@ -531,48 +914,117 @@
     </header>
     <main>
              
+        <section id="welcome" class="welcome-section advanced-welcome">
+  <div class="welcome-bg"></div>
+  <div class="welcome-content">
+    <div class="welcome-left">
+      <h2>
+        <span class="welcome-highlight">Welcome to</span><br>
+        <span class="welcome-school">Gopherwood School</span>
+      </h2>
+      <p class="welcome-quote">
+        <span class="quote-icon">&#10077;</span>
+        Welcome to <strong>Gopherwood School</strong>, where we blend the best of British and Nigerian curricula to deliver exceptional educational excellence for your child. <br>Like the biblical Gopherwood tree that provided strength and protection, we offer a solid foundation where young minds develop and achieve their full potential.
+<br><br>Our certified teachers don't just educate—they inspire curiosity and guide students toward academic success, while our well-equipped laboratories provide hands-on learning experiences that bring science to life. At Gopherwood, we believe every child deserves an education that's both academically rigorous and personally enriching.
+Experience excellence in education. Discover Gopherwood School.
+Where strength meets nurture, and potential becomes reality.
 
+        
+        <span class="quote-icon">&#10078;</span>
+      </p>
+      <ul class="welcome-values">
+        <li><span>&#10003;</span> Solid educational foundation for every child</li>
+        <li><span>&#10003;</span> Nurturing strength, resilience, and excellence</li>
+        <li><span>&#10003;</span> Guided by faith and purpose</li>
+      </ul>
+      <a href="#admissions" class="cta-btn welcome-cta">Experience Gopherwood</a>
+    </div>
+    <div class="welcome-right">
+      <div class="welcome-img-card">
+        <img src="images/students.jpeg" alt="Gopherwood Students" class="welcome-img main-img">
+        <img src="images/building.webp" alt="School Building" class="welcome-img overlay-img">
+        <img src="images/learning.jpg" alt="Learning in Action" class="welcome-img overlay-img2">
+      </div>
+      <div class="welcome-badge">
+        <span class="badge-icon">&#127891;</span>
+        <span>Strength for Excellence</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section id="about" class="section about">
-            <h2>About Us</h2>
-            <p>Gopherwood School is a premier institution dedicated to nurturing young minds through innovative teaching, holistic development, and a commitment to academic excellence. Our mission is to inspire students to reach their full potential in a supportive and inclusive environment.</p>
-        </section>
-        <section id="academics" class="section academics">
-            <h2>Academics</h2>
-            <div class="academics-grid">
-                <div class="academic-card">
-                    <h3>Pre-School</h3>
-                    <p>Foundational learning with a focus on creativity, literacy, and numeracy. A nurturing environment where curiosity blooms through play-based learning, fostering early literacy, numeracy, and imaginative expression.</p>
-                </div>
-                <div class="academic-card">
-                    <h3>Foundation School</h3>
-                    <p>A transformative journey blending rigorous academics with life skills, empowering students to think critically, collaborate, and embrace future challenges.</p>
-                </div>
-                <div class="academic-card">
-                    <h3>Primary School</h3>
-                    <p>Comprehensive curriculum preparing students for higher education and beyond</p>
-                </div>
-                <div class="academic-card">
-                    <h3>College</h3>
-                    <p>A launchpad for innovation and self-expression, blending STEM exploration with vibrant arts, music, and athletics. Students sharpen leadership skills in labs, and competitive arenas, forging a path where analytical thinking and creativity converge.
+<section id="facilities" class="section facilities themed-section">
+  <div class="container">
+    <h2>Our Facilities</h2>
+    <div class="facility-list">
+      <div class="facility-item">
+        <img src="images/library.jpg" alt="School Library" />
+        <h3>Modern Library</h3>
+        <p>Fosters reading and research with rich learning resources.</p>
+      </div>
+      <div class="facility-item">
+        <img src="images/science-lab.jpg" alt="Science Lab" />
+        <h3>Science Laboratory</h3>
+        <p>Practical scientific exploration and learning for all ages.</p>
+      </div>
+      <div class="facility-item">
+        <img src="images/ict-lab.jpg" alt="ICT Lab" />
+        <h3>ICT Lab</h3>
+        <p>Digital literacy and hands-on computer training.</p>
+      </div>
+      <div class="facility-item">
+        <img src="images/playground.jpg" alt="Playground" />
+        <h3>Playground</h3>
+        <p>Outdoor fun for physical and social development.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-</p>
-                </div>
-            </div>
-        </section>
+<section id="testimonials" class="section testimonials themed-section">
+  <div class="container">
+    <h2>What Parents Say</h2>
+    <div class="testimonial-list">
+      <div class="testimonial-item">
+        <p>"Gopherwood School has been a blessing to our family. My son is more confident and focused!"</p>
+        <strong>— Mrs. Adebayo, Parent</strong>
+      </div>
+      <div class="testimonial-item">
+        <p>"The teachers are truly committed. I’ve seen real growth in my daughter’s academics and character."</p>
+        <strong>— Mr. Uche, Parent</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news-events" class="section news-events themed-section">
+  <div class="container">
+    <h2>News & Events</h2>
+    <div class="event-list">
+      <div class="event-item">
+        <h3>End-of-Term Celebration – July 20</h3>
+        <p>Join us for a colorful display of learning and student talents.</p>
+      </div>
+      <div class="event-item">
+        <h3>Admissions Now Open for 2025</h3>
+        <p>Apply now for Nursery, Primary and Secondary classes.</p>
+      </div>
+      <div class="event-item">
+        <h3>Parent-Teacher Forum – August 10</h3>
+        <p>An important event for parents to interact with educators and assess student progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+       
+        
         <section id="admissions" class="section admissions">
             <h2>Admissions</h2>
             <p>Join our community of learners! Applications for the 2025/2026 academic year are now open.</p>
-            <a href="#contact" class="cta-btn">Contact Admissions</a>
+            <a href="contact.html" class="cta-btn">Contact Admissions</a>
         </section>
-        <section id="news" class="section news">
-            <h2>Latest News</h2>
-            <ul class="news-list">
-                <li><strong>May 2025:</strong> Gopherwood School wins National Science Olympiad!</li>
-                <li><strong>April 2025:</strong> New arts center inaugurated by the Mayor.</li>
-                <li><strong>March 2025:</strong> Admissions open for the next academic session.</li>
-            </ul>
-        </section>
+        
         <section id="contact" class="section contact">
             <h2>Contact Us</h2>
             <form class="contact-form" id="contact-form">
@@ -581,11 +1033,7 @@
                 <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
-            <div class="contact-info">
-                <p><strong>Address:</strong> 123 Gopher Lane, City, Country</p>
-                <p><strong>Email:</strong> info@gopherwoodschool.edu</p>
-                <p><strong>Phone:</strong> +123 456 7890</p>
-            </div>
+            
         </section>
     </main>
     <footer>

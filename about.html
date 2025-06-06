@@ -179,6 +179,18 @@
                 font-size: 1.1rem !important;
             }
         }
+        .sectionn{
+            flex:1 1 300px; 
+            min-width:280px; 
+            background: var(--white); 
+            border-radius: 14px; 
+            box-shadow: 0 2px 12px rgba(20,83,45,0.07); 
+            padding: 2rem 1.5rem; 
+            margin-bottom: 2rem;
+        }
+        #mov{
+            display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;
+        }
         
     </style>
 </head>
@@ -193,18 +205,30 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="academics.html">Academics</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+                <ul class="dropdown-content">
+                    <li><a href="academics.html">Academics Overview</a></li>
+                    <li><a href="extracurriculars.html">Extracurriculars</a></li>
+                </ul>
+            </li>
             <li><a href="admissions.html">Admissions</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <main>
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-            <section style="flex:1 1 300px; min-width:280px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2rem 1.5rem; margin-bottom: 2rem;">
+         <section id="about" class="sectionn about" style="color: var(--text)black;">
+            <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">About Us</h2>
+            <p> <strong>Gopherwood School</strong> is named after the biblical Gopherwood tree from Genesis 6:14, which symbolizes strength, durability, and protection. The school is a premier educational institution focused on nurturing students through innovative teaching, holistic development, and academic excellence in a supportive, inclusive environment.
+<br><br>Like the biblical wood that withstood the great flood, the school aims to build resilient students with strong character who can navigate life's challenges. The institution emphasizes providing a solid educational foundation, embracing innovation while maintaining timeless principles, and creating a safe space where every student can discover their potential.
+<br><br>The school's commitment is to shape tomorrow's leaders by developing not just academic skills, but also character, creativity, critical thinking, and compassion—making it more than just an educational institution, but a community dedicated to building strong, capable individuals who will positively impact the world.</p>
+        </section>
+        <div id="mov">
+            <section class="sectionn" >
                 <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">OUR CORE VALUES</h2>
                 <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Excellence</li>
+                    <li  style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Excellence</li>
                     <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Forgiveness</li>
                     <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Love</li>
                     <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Integrity</li>
@@ -212,14 +236,14 @@
                     <li style="display:flex;align-items:center;padding:0.5rem 0;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Tolerance</li>
                 </ul>
             </section>
-            <section style="flex:1 1 300px; min-width:280px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2rem 1.5rem; margin-bottom: 2rem;">
+            <section class="sectionn" >
                 <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">OUR MISSION</h2>
                 <ul style="list-style:none; padding:0; margin:0;">
                     <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To provide an impeccable British education in a Nigerian cultural setting.</li>
                     <li style="display:flex;align-items:flex-start;padding:0.5rem 0;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To equip adequately and properly motivated, confident, stable, and balanced individuals that can match their peers in any sphere globally.</li>
                 </ul>
             </section>
-            <section style="flex:1 1 340px; min-width:320px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2rem 1.5rem; margin-bottom: 2rem;">
+            <section class="sectionn" >
                 <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">OUR AIMS ARE</h2>
                 <ul style="list-style:none; padding:0; margin:0;">
                     <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To establish a very happy, secure, well-ordered, and stimulating environment.</li>
@@ -237,7 +261,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
                 <div style="flex:1 1 260px; min-width:240px; max-width:300px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 1.5rem 1rem; text-align:center;">
                     <div style="width:90px;height:90px;margin:0 auto 1rem auto;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(20,83,45,0.08);overflow:hidden;">
-                        <img src="images/jane-doe.jpg" alt="Dr. Jane Doe" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                        <img src="images/bello.jpeg" alt="Dr. Jane Doe" class="management-profile-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;cursor:pointer;">
                     </div>
                     <h3 style="margin:0.5rem 0 0.2rem 0;color:var(--primary);font-size:1.1rem;">Dr. Jane Doe</h3>
                     <p style="margin:0;color:var(--secondary);font-size:0.98rem;">Principal</p>
@@ -245,7 +269,7 @@
                 </div>
                 <div style="flex:1 1 260px; min-width:240px; max-width:300px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 1.5rem 1rem; text-align:center;">
                     <div style="width:90px;height:90px;margin:0 auto 1rem auto;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(20,83,45,0.08);overflow:hidden;">
-                        <img src="images/john-smith.jpg" alt="Mr. John Smith" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                        <img src="images/john-smith.jpg" alt="Mr. John Smith" class="management-profile-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;cursor:pointer;">
                     </div>
                     <h3 style="margin:0.5rem 0 0.2rem 0;color:var(--primary);font-size:1.1rem;">Mr. John Smith</h3>
                     <p style="margin:0;color:var(--secondary);font-size:0.98rem;">Vice Principal</p>
@@ -253,7 +277,7 @@
                 </div>
                 <div style="flex:1 1 260px; min-width:240px; max-width:300px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 1.5rem 1rem; text-align:center;">
                     <div style="width:90px;height:90px;margin:0 auto 1rem auto;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(20,83,45,0.08);overflow:hidden;">
-                        <img src="images/mary-johnson.jpg" alt="Mrs. Mary Johnson" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                        <img src="images/mary-johnson.jpg" alt="Mrs. Mary Johnson" class="management-profile-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;cursor:pointer;">
                     </div>
                     <h3 style="margin:0.5rem 0 0.2rem 0;color:var(--primary);font-size:1.1rem;">Mrs. Mary Johnson</h3>
                     <p style="margin:0;color:var(--secondary);font-size:0.98rem;">Administrator</p>
@@ -261,6 +285,11 @@
                 </div>
             </div>
         </section>
+        <!-- Profile Picture Modal -->
+        <div id="profile-modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); justify-content:center; align-items:center;">
+            <span id="close-profile-modal" style="position:absolute;top:30px;right:40px;font-size:2.5rem;color:#fff;cursor:pointer;">&times;</span>
+            <img id="profile-modal-img" src="" alt="Profile" style="max-width:90vw;max-height:80vh;border-radius:16px;box-shadow:0 4px 32px rgba(0,0,0,0.25);background:#fff;">
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
@@ -316,6 +345,20 @@
                 this.style.transform = 'scale(1.13) rotate(-6deg)';
             });
         });
+
+        // Profile picture modal logic
+        document.querySelectorAll('.management-profile-img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                document.getElementById('profile-modal-img').src = this.src;
+                document.getElementById('profile-modal').style.display = 'flex';
+            });
+        });
+        document.getElementById('close-profile-modal').onclick = function() {
+            document.getElementById('profile-modal').style.display = 'none';
+        };
+        document.getElementById('profile-modal').onclick = function(e) {
+            if(e.target === this) this.style.display = 'none';
+        };
     });
     </script>
 </body>

@@ -61,8 +61,6 @@
             padding: 6rem 0 4rem 0;
             text-align: center;
             position: relative;
-            width: 100%;
-            height: auto
         }
         .hero-content {
             max-width: 700px;
@@ -82,7 +80,6 @@
         #home{
             background: linear-gradient(rgba(20,83,45,0.7),rgba(76,164,76,0.6));
             padding-bottom: 30px;
-            border-radius: 20px;
         }
         .cta-btn {
             background: var(--banner);
@@ -277,7 +274,7 @@
             border-radius: 2px;
             transition: 0.3s;
         }
-        @media (max-width: 700px) {
+        @media (max-width: 769px) {
             .nav-toggle {
                 display: flex;
             }
@@ -390,7 +387,8 @@
             opacity: 1;
             transform: none;
         }
-       #social-media-bar {
+        /* Social Media Bar Styles */
+        #social-media-bar {
             position: fixed;
             top: 50%;
             right: 0;
@@ -399,7 +397,7 @@
             flex-direction: column;
             gap: 1.1rem;
             z-index: 9998;
-            background: rgba(230,57,70,0.85);
+            background: rgba(134, 22, 22, 0.85);
             border-radius: 16px 0 0 16px;
             box-shadow: 0 2px 16px rgba(20,83,45,0.13);
             padding: 0.7rem 0.3rem 0.7rem 0.4rem;
@@ -434,9 +432,9 @@
         }
         .social-icon.facebook:hover { background: #1877f3; }
         .social-icon.facebook:hover svg { fill: #fff; animation: bounce 0.5s; }
-        .social-icon.twitter:hover { background: #1da1f2; }
-        .social-icon.twitter:hover svg { fill: #fff; animation: bounce 0.5s; }
-        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+        .social-icon.youtube:hover { background: #ff0000; }
+        .social-icon.youtube:hover svg { fill: #fff; animation: bounce 0.5s; }
+        .social-icon.instagram:hover {background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
         .social-icon.instagram:hover svg { fill: #fff; animation: bounce 0.5s; }
         .social-icon.email:hover { background: var(--highlight);}
         .social-icon.email:hover svg { fill: #fff; animation: bounce 0.5s; }
@@ -494,7 +492,6 @@
     }
 }
 
-
 .navbar {
     background: var(--white);
     box-shadow: 0 2px 8px rgba(20,83,45,0.04);
@@ -538,3 +535,48 @@
         display: flex;
     }
 }
+
+
+
+        .dropdown {
+            position: relative;
+        }
+        .dropbtn::after {
+            content: " ▼";
+            font-size: 0.7em;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            min-width: 180px;
+            box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+            border-radius: 0 0 12px 12px;
+            z-index: 1000;
+            margin-top: 0.5rem;
+            left: 0;
+            padding: 0.5rem 0;
+        }
+        .dropdown-content li {
+            list-style: none;
+        }
+        .dropdown-content a {
+            color: var(--primary);
+            padding: 0.7rem 1.2rem;
+            display: block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.15s;
+        }
+        .dropdown-content a:hover {
+            background: var(--accent);
+        }
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+        }
+
+
+
+
+      
