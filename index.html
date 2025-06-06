@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gopherwood School</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         :root {
             --primary: #14532d; /* dark green */
@@ -32,6 +33,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            width: 100%;
         }
         .logo {
             font-weight: 700;
@@ -283,7 +285,7 @@
             border-radius: 2px;
             transition: 0.3s;
         }
-        @media (max-width: 700px) {
+        @media (max-width: 769px) {
             .nav-toggle {
                 display: flex;
             }
@@ -396,6 +398,110 @@
             opacity: 1;
             transform: none;
         }
+        /* Social Media Bar Styles */
+        #social-media-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            z-index: 9998;
+            background: rgba(134, 22, 22, 0.85);
+            border-radius: 16px 0 0 16px;
+            box-shadow: 0 2px 16px rgba(20,83,45,0.13);
+            padding: 0.7rem 0.3rem 0.7rem 0.4rem;
+            transition: right 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.2s;
+        }
+        #social-media-bar:hover {
+            right: 0.5rem;
+            box-shadow: 0 4px 24px rgba(20,83,45,0.18);
+        }
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: 0 1px 6px rgba(20,83,45,0.08);
+            transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            outline: none;
+        }
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+            transition: fill 0.22s;
+        }
+        .social-icon.facebook:hover { background: #1877f3; }
+        .social-icon.facebook:hover svg { fill: #fff; animation: bounce 0.5s; }
+        .social-icon.twitter:hover { background: #1da1f2; }
+        .social-icon.twitter:hover svg { fill: #fff; animation: bounce 0.5s; }
+        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
+        .social-icon.instagram:hover svg { fill: #fff; animation: bounce 0.5s; }
+        .social-icon.email:hover { background: var(--highlight);}
+        .social-icon.email:hover svg { fill: #fff; animation: bounce 0.5s; }
+        @keyframes bounce {
+            0% { transform: scale(1);}
+            30% { transform: scale(1.18);}
+            60% { transform: scale(0.93);}
+            100% { transform: scale(1);}
+        }
+        /* Responsive Social Media Bar */
+       @media (max-width: 769px) {
+    #social-media-bar {
+        bottom: 0.7rem;
+        top: auto;
+        right: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        border-radius: 16px 16px 0 0;
+        padding: 0.5rem 1rem;
+        width: auto;
+        max-width: 90vw;
+    }
+}
+
+/* Small Devices */
+@media (max-width: 500px) {
+    #social-media-bar {
+        padding: 0.4rem 0.6rem;
+        gap: 0.6rem;
+    }
+    .social-icon {
+        width: 34px;
+        height: 34px;
+    }
+    .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Extra Small Devices (e.g., <375px) */
+@media (max-width: 375px) {
+    #social-media-bar {
+        gap: 0.5rem;
+        padding: 0.3rem 0.4rem;
+    }
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
     </style>
 </head>
 <body>
@@ -417,7 +523,6 @@
             </ul>
         </nav>
     <header class="hero">
-        
         <div class="hero-content" id="home">
             <h1>Welcome to Gopherwood School</h1>
             <p>We Empower Mind and Hearts to Build Strength for Excellence</p>
@@ -425,6 +530,9 @@
         </div>
     </header>
     <main>
+             
+
+
         <section id="about" class="section about">
             <h2>About Us</h2>
             <p>Gopherwood School is a premier institution dedicated to nurturing young minds through innovative teaching, holistic development, and a commitment to academic excellence. Our mission is to inspire students to reach their full potential in a supportive and inclusive environment.</p>
@@ -483,6 +591,24 @@
     <footer>
         <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
     </footer>
+
+<div id="social-media-bar">
+    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
+    </a>
+    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
+    </a>
+    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
+        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
+    </a>
+</div>
+
+
+
     <!-- Admissions Popup Modal -->
     <div id="admissions-modal" style="display:flex;align-items:center;justify-content:center;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(20,83,45,0.32);">
         <div style="display:flex;flex-direction:row;max-width:650px;width:95vw;background:var(--white);border-radius:18px;box-shadow:0 8px 32px rgba(20,83,45,0.18);overflow:hidden;">
@@ -496,93 +622,6 @@
             </div>
         </div>
     </div>
-    <script>
-        // Mobile nav toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navLinks = document.getElementById('nav-links');
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    if(window.innerWidth <= 700) navLinks.classList.remove('active');
-                }
-            });
-        });
-
-        // Contact form submission (demo only)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for contacting Gopher Wood School! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Section reveal on scroll (fade/slide in)
-        function revealSections() {
-            document.querySelectorAll('.section').forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-        window.addEventListener('scroll', revealSections);
-        window.addEventListener('DOMContentLoaded', revealSections);
-
-        // Animated counters for stats
-        function animateCounter(el, to) {
-            let start = 0;
-            const duration = 1200;
-            const step = Math.ceil(to / (duration / 16));
-            function update() {
-                start += step;
-                if (start >= to) {
-                    el.textContent = to;
-                } else {
-                    el.textContent = start;
-                    requestAnimationFrame(update);
-                }
-            }
-            update();
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.counter').forEach(counter => {
-                animateCounter(counter, parseInt(counter.dataset.to, 10));
-            });
-        });
-
-        // Admissions popup modal logic
-        function showAdmissionsModal() {
-            const modal = document.getElementById('admissions-modal');
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        function closeAdmissionsModal() {
-            const modal = document.getElementById('admissions-modal');
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            showAdmissionsModal();
-            document.getElementById('modal-close-btn').onclick = closeAdmissionsModal;
-            document.getElementById('admissions-modal').addEventListener('click', function(e) {
-                if (e.target === this) closeAdmissionsModal();
-            });
-            // Fix: Add handler for CONTACT US button in modal
-            var contactBtn = document.getElementById('modal-contact-btn');
-            if (contactBtn) {
-                contactBtn.onclick = function() {
-                    closeAdmissionsModal();
-                    window.location.href = 'contact.html';
-                };
-            }
-        });
-    </script>
+    <script src="script.js">    </script>
 </body>
 </html>

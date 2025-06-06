@@ -18,11 +18,14 @@
             --text: #222;
         }
         body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; }
-        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); display: flex; align-items: center; }
+        .logo img { height: 44px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #fff; box-shadow: 0 1px 6px rgba(20,83,45,0.08);}
         .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
         .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--highlight); }
+        .nav-toggle { display: none; flex-direction: column; cursor: pointer; margin-left: auto; }
+        .nav-toggle span { height: 3px; width: 28px; background: var(--primary); margin: 4px 0; border-radius: 2px; transition: 0.3s; }
         main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
         h1 { color: var(--primary); }
         .news-list { list-style: none; padding: 0; }
@@ -30,6 +33,71 @@
         .news-list a { color: var(--primary); text-decoration: underline; }
         .news-list a:hover { color: var(--highlight); }
         footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.2rem;
+        }
+        .blog-card {
+            background: var(--accent);
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(20,83,45,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s;
+        }
+        .blog-card:hover {
+            box-shadow: 0 4px 18px rgba(20,83,45,0.13);
+        }
+        .blog-img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 1.3rem 1.2rem 1.2rem 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-meta {
+            font-size: 0.98rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+        }
+        .blog-desc {
+            font-size: 1.08rem;
+            color: var(--text);
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+        .blog-readmore {
+            align-self: flex-start;
+            background: var(--highlight);
+            color: var(--white);
+            padding: 0.5rem 1.3rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .blog-readmore:hover {
+            background: var(--primary);
+        }
+        .featured {
+            grid-column: span 2;
+        }
+        @media (max-width: 900px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .featured { grid-column: span 1; }
+        }
         @media (max-width: 700px) {
             .navbar {
                 flex-direction: column;
@@ -56,34 +124,37 @@
             .nav-toggle {
                 display: flex;
             }
+            main {
+                padding: 1rem 2vw;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
         }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: auto;
+        @media (max-width: 500px) {
+            .logo img {
+                height: 32px;
+            }
+            main {
+                padding: 0.5rem 0.5vw;
+            }
+            .blog-card {
+                padding: 0.5rem 0.2rem;
+            }
         }
-        .nav-toggle span {
-            height: 3px;
-            width: 28px;
-            background: var(--primary);
-            margin: 4px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
+        
     </style>
 </head>
 <body>
     <nav class="navbar">
-        
-        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo" > Gopherwood School</div>
-        <div class="nav-toggle" id="nav-toggle">
+        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo"> Gopherwood School</div>
+        <div class="nav-toggle" id="nav-toggle" tabindex="0" aria-label="Open navigation" aria-expanded="false" role="button">
             <span></span>
             <span></span>
             <span></span>
         </div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="test1.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="academics.html">Academics</a></li>
             <li><a href="admissions.html">Admissions</a></li>
@@ -92,27 +163,262 @@
         </ul>
     </nav>
     <main>
-        <h1>Latest News</h1>
-        <ul class="news-list">
-            <li><strong>May 2025:</strong> Gopherwood School wins National Science Olympiad! <a href="#">Read More</a></li>
-            <li><strong>April 2025:</strong> New arts center inaugurated by the Mayor. <a href="#">Read More</a></li>
-            <li><strong>March 2025:</strong> Admissions open for the next academic session. <a href="#">Read More</a></li>
-        </ul>
+        <h1>Gopherwood School News & Blog</h1>
+        <div class="blog-grid">
+            <!-- Featured Blog Post -->
+            <div class="blog-card featured">
+                <img class="blog-img" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80" alt="Science Olympiad Winners">
+                <div class="blog-content">
+                    <div class="blog-meta">May 2025 &bull; Academics</div>
+                    <div class="blog-title">Gopherwood Wins National Science Olympiad!</div>
+                    <div class="blog-desc">
+                        Our students have emerged as national champions at the 2025 Science Olympiad, showcasing their brilliance and teamwork. The competition, held in Abuja, saw Gopherwood School outperform over 50 schools nationwide. Congratulations to our science team and their dedicated teachers!
+                    </div>
+                    <a class="blog-readmore" href="#">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 2 -->
+            <div class="blog-card">
+                <img class="blog-img" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Arts Center Opening">
+                <div class="blog-content">
+                    <div class="blog-meta">April 2025 &bull; Events</div>
+                    <div class="blog-title">New Arts Center Inaugurated</div>
+                    <div class="blog-desc">
+                        The Mayor of Lagos officially opened our state-of-the-art Arts Center. The facility will nurture creativity in music, drama, and fine arts, providing students with world-class resources and opportunities for self-expression.
+                    </div>
+                    <a class="blog-readmore" href="#">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 3 -->
+            <div class="blog-card">
+                <img class="blog-img" src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80" alt="Admissions Open">
+                <div class="blog-content">
+                    <div class="blog-meta">March 2025 &bull; Admissions</div>
+                    <div class="blog-title">Admissions Open for 2025/2026 Session</div>
+                    <div class="blog-desc">
+                        We are now accepting applications for the next academic session. Explore our holistic curriculum, vibrant community, and excellent facilities. Secure your child’s place at Gopherwood School today!
+                    </div>
+                    <a class="blog-readmore" href="admissions.html">Apply Now</a>
+                </div>
+            </div>
+            <!-- Blog Post 4 -->
+            <div class="blog-card">
+                <img class="blog-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Sports Day">
+                <div class="blog-content">
+                    <div class="blog-meta">February 2025 &bull; Sports</div>
+                    <div class="blog-title">Annual Sports Day: Fun & Fitness</div>
+                    <div class="blog-desc">
+                        Our annual Sports Day was a huge success! Students, staff, and parents enjoyed a day of friendly competition, teamwork, and celebration of healthy living. See highlights and winners from the event.
+                    </div>
+                    <a class="blog-readmore" href="#">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 5 -->
+            <div class="blog-card">
+                <img class="blog-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="STEM Club">
+                <div class="blog-content">
+                    <div class="blog-meta">January 2025 &bull; Clubs</div>
+                    <div class="blog-title">STEM Club Launches Robotics Program</div>
+                    <div class="blog-desc">
+                        The Gopherwood STEM Club has launched a new robotics program, giving students hands-on experience with coding, engineering, and problem-solving. The club meets every Friday after school.
+                    </div>
+                    <a class="blog-readmore" href="#">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Post 6 -->
+            <div class="blog-card">
+                <img class="blog-img" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80" alt="Community Service">
+                <div class="blog-content">
+                    <div class="blog-meta">December 2024 &bull; Community</div>
+                    <div class="blog-title">Students Give Back: Community Service Day</div>
+                    <div class="blog-desc">
+                        Our students participated in a Community Service Day, volunteering at local shelters and organizing a donation drive. We are proud of their compassion and leadership!
+                    </div>
+                    <a class="blog-readmore" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
     </footer>
+    <!-- Blog Modal -->
+    <div id="blog-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(20,83,45,0.32);align-items:center;justify-content:center;">
+      <div id="blog-modal-content" style="background:var(--white);border-radius:18px;box-shadow:0 8px 32px rgba(20,83,45,0.18);padding:2.2rem 2rem;max-width:600px;width:94vw;max-height:90vh;overflow-y:auto;position:relative;">
+        <button id="blog-modal-close" aria-label="Close" style="position:absolute;top:18px;right:22px;background:none;border:none;font-size:1.7rem;color:var(--primary);font-weight:700;cursor:pointer;line-height:1;">&times;</button>
+        <div id="blog-modal-body"></div>
+      </div>
+    </div>
+
+    <div id="social-media-bar">
+    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
+    </a>
+    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
+    </a>
+    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
+        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
+    </a>
+</div>
+
     <script>
-    // Mobile nav toggle
-    document.addEventListener('DOMContentLoaded', function() {
-        var navToggle = document.getElementById('nav-toggle');
-        var navLinks = document.getElementById('nav-links');
-        if(navToggle && navLinks) {
-            navToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-        }
+const blogPosts = [
+  {
+    title: "Gopherwood Wins National Science Olympiad!",
+    date: "May 2025",
+    category: "Academics",
+    img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80",
+    content: `<p>Our students have emerged as national champions at the 2025 Science Olympiad, showcasing their brilliance and teamwork. The competition, held in Abuja, saw Gopherwood School outperform over 50 schools nationwide. Congratulations to our science team and their dedicated teachers!</p>
+    <ul>
+      <li>Gold medals in Physics and Chemistry</li>
+      <li>Special recognition for innovation in Biology</li>
+      <li>Teamwork and leadership awards</li>
+    </ul>
+    <p>We thank our staff and parents for their support. The future is bright for Gopherwood scientists!</p>`
+  },
+  {
+    title: "New Arts Center Inaugurated",
+    date: "April 2025",
+    category: "Events",
+    img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
+    content: `<p>The Mayor of Lagos officially opened our state-of-the-art Arts Center. The facility will nurture creativity in music, drama, and fine arts, providing students with world-class resources and opportunities for self-expression.</p>
+    <ul>
+      <li>Modern music studios and art rooms</li>
+      <li>Drama theatre with 200-seat capacity</li>
+      <li>Workshops with visiting artists</li>
+    </ul>
+    <p>We invite parents and students to explore the new center and join our creative programs!</p>`
+  },
+  {
+    title: "Admissions Open for 2025/2026 Session",
+    date: "March 2025",
+    category: "Admissions",
+    img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80",
+    content: `<p>We are now accepting applications for the next academic session. Explore our holistic curriculum, vibrant community, and excellent facilities. Secure your child’s place at Gopherwood School today!</p>
+    <ul>
+      <li>Modern classrooms and labs</li>
+      <li>Experienced, caring teachers</li>
+      <li>Rich extracurricular activities</li>
+    </ul>
+    <p><a href="admissions.html" style="color:var(--highlight);font-weight:700;">Apply Now</a> or visit our campus for a tour.</p>`
+  },
+  {
+    title: "Annual Sports Day: Fun & Fitness",
+    date: "February 2025",
+    category: "Sports",
+    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+    content: `<p>Our annual Sports Day was a huge success! Students, staff, and parents enjoyed a day of friendly competition, teamwork, and celebration of healthy living.</p>
+    <ul>
+      <li>Track and field events</li>
+      <li>Parent-student relays</li>
+      <li>Healthy snacks and fun games</li>
+    </ul>
+    <p>Congratulations to all winners and participants!</p>`
+  },
+  {
+    title: "STEM Club Launches Robotics Program",
+    date: "January 2025",
+    category: "Clubs",
+    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
+    content: `<p>The Gopherwood STEM Club has launched a new robotics program, giving students hands-on experience with coding, engineering, and problem-solving. The club meets every Friday after school.</p>
+    <ul>
+      <li>Build and program robots</li>
+      <li>Compete in local and national contests</li>
+      <li>Mentorship from industry experts</li>
+    </ul>
+    <p>All interested students are welcome to join!</p>`
+  },
+  {
+    title: "Students Give Back: Community Service Day",
+    date: "December 2024",
+    category: "Community",
+    img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80",
+    content: `<p>Our students participated in a Community Service Day, volunteering at local shelters and organizing a donation drive. We are proud of their compassion and leadership!</p>
+    <ul>
+      <li>Donations to local charities</li>
+      <li>Visits to elderly homes</li>
+      <li>Environmental clean-up projects</li>
+    </ul>
+    <p>Thank you to all volunteers and supporters!</p>`
+  }
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Hamburger menu
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  if(navToggle && navLinks) {
+      navToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', !expanded);
+      });
+      navToggle.addEventListener('keypress', function(e) {
+          if (e.key === "Enter" || e.key === " ") {
+              navLinks.classList.toggle('active');
+              var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+              navToggle.setAttribute('aria-expanded', !expanded);
+          }
+      });
+  }
+
+  // Blog modal logic
+  const modal = document.getElementById('blog-modal');
+  const modalBody = document.getElementById('blog-modal-body');
+  const modalClose = document.getElementById('blog-modal-close');
+  const readMoreLinks = document.querySelectorAll('.blog-readmore');
+
+  readMoreLinks.forEach((link, idx) => {
+    link.addEventListener('click', function(e) {
+      // Only open modal for links with href="#"
+      if(link.getAttribute('href') === "#") {
+        e.preventDefault();
+        const post = blogPosts[idx];
+        modalBody.innerHTML = `
+          <img src="${post.img}" alt="${post.title}" style="width:100%;max-height:260px;object-fit:cover;border-radius:10px;margin-bottom:1.2rem;">
+          <div style="color:var(--secondary);font-size:1.05rem;margin-bottom:0.5rem;">${post.date} &bull; ${post.category}</div>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:0.7rem;">${post.title}</div>
+          <div style="font-size:1.13rem;color:var(--text);line-height:1.7;">${post.content}</div>
+        `;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
     });
-    </script>
+  });
+
+  modalClose.onclick = function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+  modal.onclick = function(e) {
+    if(e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Social icons animation
+  document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
+      icon.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.13) rotate(-6deg)';
+          this.style.boxShadow = '0 4px 18px rgba(20,83,45,0.18)';
+      });
+      icon.addEventListener('mouseleave', function() {
+          this.style.transform = '';
+          this.style.boxShadow = '';
+      });
+      icon.addEventListener('mousedown', function() {
+          this.style.transform = 'scale(0.97)';
+      });
+      icon.addEventListener('mouseup', function() {
+          this.style.transform = 'scale(1.13) rotate(-6deg)';
+      });
+  });
+});
+</script>
 </body>
 </html>

@@ -17,12 +17,22 @@
             --white: #fff;
             --text: #222;
         }
-        body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; }
-        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        html {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; min-height: 100vh;}
+        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; position: relative;}
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); display: flex; align-items: center;}
+        .logo img { height: 44px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #fff; box-shadow: 0 1px 6px rgba(20,83,45,0.08);}
         .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
         .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--highlight); }
+        .nav-toggle { display: none; flex-direction: column; cursor: pointer; margin-left: auto; }
+        .nav-toggle span { height: 3px; width: 28px; background: var(--primary); margin: 4px 0; border-radius: 2px; transition: 0.3s; }
         main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
         h1 { color: var(--primary); }
         .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin-bottom: 1.5rem; }
@@ -31,32 +41,24 @@
         .contact-form button { background: var(--primary); color: var(--white); border: none; border-radius: 30px; padding: 0.8rem 0; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
         .contact-form button:hover { background: var(--highlight); color: var(--white); }
         .contact-info { color: var(--primary); }
-        footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
-
-        @media (max-width: 700px) {
-            main > div {
-                flex-direction: column;
-                gap: 1.2rem;
-                padding: 0;
-            }
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; border-radius: 0 0 18px 18px; }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
             main {
+                max-width: 98vw;
+                padding: 2rem 1vw;
+            }
+        }
+        @media (max-width: 900px) {
+            .navbar {
                 padding: 1.2rem 2vw;
             }
-            section[style*='background:var(--primary)'] {
-                max-width: 100%;
-                min-width: 0;
-                border-radius: 12px;
-                padding: 1.2rem 1rem 1rem 1rem;
+            main {
+                padding: 1.5rem 1vw;
             }
-            section[style*='background:var(--white)'] {
-                max-width: 100%;
-                min-width: 0;
-                border-radius: 12px;
-                padding: 1.2rem 1rem 1rem 1rem;
-            }
-            .contact-form input, .contact-form textarea {
-                font-size: 1rem;
-            }
+        }
+        @media (max-width: 700px) {
             .navbar {
                 flex-direction: column;
                 align-items: flex-start;
@@ -82,6 +84,30 @@
             .nav-toggle {
                 display: flex;
             }
+            main > div {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 0;
+            }
+            main {
+                padding: 1.2rem 2vw;
+            }
+            section[style*='background:var(--primary)'] {
+                max-width: 100%;
+                min-width: 0;
+                border-radius: 12px;
+                padding: 1.2rem 1rem 1rem 1rem;
+            }
+            section[style*='background:var(--white)'] {
+                max-width: 100%;
+                min-width: 0;
+                border-radius: 12px;
+                padding: 1.2rem 1rem 1rem 1rem;
+            }
+            .contact-form input, .contact-form textarea {
+                font-size: 1rem;
+            }
+           
         }
         @media (max-width: 400px) {
             main {
@@ -101,6 +127,9 @@
             .contact-form input, .contact-form textarea {
                 font-size: 0.95rem;
             }
+            iframe {
+                height: 120px !important;
+            }
         }
         /* Responsive Google Map */
         @media (max-width: 700px) {
@@ -108,32 +137,12 @@
                 height: 180px !important;
             }
         }
-        @media (max-width: 400px) {
-            iframe {
-                height: 120px !important;
-            }
-        }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: auto;
-        }
-        .nav-toggle span {
-            height: 3px;
-            width: 28px;
-            background: var(--primary);
-            margin: 4px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        
-        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo" > Gopherwood School</div>
-        <div class="nav-toggle" id="nav-toggle">
+        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo"> Gopherwood School</div>
+        <div class="nav-toggle" id="nav-toggle" tabindex="0" aria-label="Open navigation" aria-expanded="false" role="button">
             <span></span>
             <span></span>
             <span></span>
@@ -184,75 +193,105 @@
     </footer>
 
     <div id="thankyou-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(20,83,45,0.32);align-items:center;justify-content:center;">
-  <div style="background:var(--white);border-radius:18px;box-shadow:0 8px 32px rgba(20,83,45,0.18);padding:2.2rem 2rem;max-width:350px;width:90vw;text-align:center;position:relative;">
-    <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">&#10003;</div>
-    <div style="font-size:1.25rem;font-weight:700;color:var(--primary);margin-bottom:1.1rem;">Thank you for contacting us!</div>
-    <div style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">Your response has been received. We will get back to you soon.</div>
-    <button id="thankyou-close-btn" style="background:var(--highlight);color:var(--white);font-weight:700;font-size:1.08rem;padding:0.6rem 2rem;border:none;border-radius:6px;cursor:pointer;transition:background 0.2s;">Close</button>
-  </div>
+      <div style="background:var(--white);border-radius:18px;box-shadow:0 8px 32px rgba(20,83,45,0.18);padding:2.2rem 2rem;max-width:350px;width:90vw;text-align:center;position:relative;">
+        <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">&#10003;</div>
+        <div style="font-size:1.25rem;font-weight:700;color:var(--primary);margin-bottom:1.1rem;">Thank you for contacting us!</div>
+        <div style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">Your response has been received. We will get back to you soon.</div>
+        <button id="thankyou-close-btn" style="background:var(--highlight);color:var(--white);font-weight:700;font-size:1.08rem;padding:0.6rem 2rem;border:none;border-radius:6px;cursor:pointer;transition:background 0.2s;">Close</button>
+      </div>
+    </div>
+
+    <div id="social-media-bar">
+    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
+    </a>
+    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
+    </a>
+    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
+        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
+    </a>
 </div>
 
+
     <script>
-        // Mobile nav toggle only, removed form JS handler to allow real submission
-        document.addEventListener('DOMContentLoaded', function() {
-            var navToggle = document.getElementById('nav-toggle');
-            var navLinks = document.getElementById('nav-links');
-            if(navToggle && navLinks) {
-                navToggle.addEventListener('click', function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var navToggle = document.getElementById('nav-toggle');
+        var navLinks = document.getElementById('nav-links');
+        if(navToggle && navLinks) {
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', !expanded);
+            });
+            // Accessibility: allow Enter/Space to toggle
+            navToggle.addEventListener('keypress', function(e) {
+                if (e.key === "Enter" || e.key === " ") {
                     navLinks.classList.toggle('active');
-                });
-            }
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-    var navToggle = document.getElementById('nav-toggle');
-    var navLinks = document.getElementById('nav-links');
-    if(navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-    }
-
-    // Thank you popup logic for AJAX form submission
-    var form = document.getElementById('contact-form');
-    var thankyouModal = document.getElementById('thankyou-modal');
-    var thankyouCloseBtn = document.getElementById('thankyou-close-btn');
-
-    if(form && thankyouModal && thankyouCloseBtn) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(form);
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(function(response) {
-                if(response.ok) {
-                    thankyouModal.style.display = 'flex';
-                    form.reset();
-                } else {
-                    response.json().then(function(data) {
-                        alert(data.error || "There was an error submitting the form.");
-                    });
+                    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !expanded);
                 }
-            })
-            .catch(function() {
-                alert("There was an error submitting the form.");
+            });
+        }
+        // Social icons animation
+        document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.13) rotate(-6deg)';
+                this.style.boxShadow = '0 4px 18px rgba(20,83,45,0.18)';
+            });
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+            icon.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.97)';
+            });
+            icon.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1.13) rotate(-6deg)';
             });
         });
 
-        thankyouCloseBtn.onclick = function() {
-            thankyouModal.style.display = 'none';
-        };
-        // Also close modal if user clicks outside the modal box
-        thankyouModal.onclick = function(e) {
-            if(e.target === thankyouModal) thankyouModal.style.display = 'none';
-        };
-    }
-});
+        // Thank you popup logic for AJAX form submission
+        var form = document.getElementById('contact-form');
+        var thankyouModal = document.getElementById('thankyou-modal');
+        var thankyouCloseBtn = document.getElementById('thankyou-close-btn');
 
+        if(form && thankyouModal && thankyouCloseBtn) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(response) {
+                    if(response.ok) {
+                        thankyouModal.style.display = 'flex';
+                        form.reset();
+                    } else {
+                        response.json().then(function(data) {
+                            alert(data.error || "There was an error submitting the form.");
+                        });
+                    }
+                })
+                .catch(function() {
+                    alert("There was an error submitting the form.");
+                });
+            });
+
+            thankyouCloseBtn.onclick = function() {
+                thankyouModal.style.display = 'none';
+            };
+            // Also close modal if user clicks outside the modal box
+            thankyouModal.onclick = function(e) {
+                if(e.target === thankyouModal) thankyouModal.style.display = 'none';
+            };
+        }
+    });
     </script>
 </body>
 </html>
