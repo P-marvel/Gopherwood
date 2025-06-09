@@ -28,11 +28,10 @@
         .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; position: relative;}
         .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); display: flex; align-items: center;}
         .logo img { height: 44px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #fff; box-shadow: 0 1px 6px rgba(20,83,45,0.08);}
-        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
-        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
+       /*av-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--highlight); }
         .nav-toggle { display: none; flex-direction: column; cursor: pointer; margin-left: auto; }
-        .nav-toggle span { height: 3px; width: 28px; background: var(--primary); margin: 4px 0; border-radius: 2px; transition: 0.3s; }
+        .nav-toggle span { height: 3px; width: 28px; background: var(--primary); margin: 4px 0; border-radius: 2px; transition: 0.3s; }*/
         main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
         h1 { color: var(--primary); }
         .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin-bottom: 1.5rem; }
@@ -51,15 +50,15 @@
             }
         }
         @media (max-width: 900px) {
-            .navbar {
+           /* .navbar {
                 padding: 1.2rem 2vw;
-            }
+            }*/
             main {
                 padding: 1.5rem 1vw;
             }
         }
         @media (max-width: 700px) {
-            .navbar {
+           /* .navbar {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 1.2rem 2vw;
@@ -83,7 +82,7 @@
             }
             .nav-toggle {
                 display: flex;
-            }
+            }*/
             main > div {
                 flex-direction: column;
                 gap: 1.2rem;
@@ -140,28 +139,39 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo"> Gopherwood School</div>
-        <div class="nav-toggle" id="nav-toggle" tabindex="0" aria-label="Open navigation" aria-expanded="false" role="button">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
-                <ul class="dropdown-content">
-                    <li><a href="academics.html">Academics Overview</a></li>
-                    <li><a href="extracurriculars.html">Extracurriculars</a></li>
-                </ul>
-            </li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar" aria-label="Main Navigation">
+  <div class="logo">
+    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
+    Gopherwood School
+  </div>
+  <div
+    class="nav-toggle"
+    id="nav-toggle"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+    tabindex="0"
+    role="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+      <ul id="dropdownn" class="dropdown-content">
+        <li><a href="academics.html">Academics Overview</a></li>
+        <li><a href="extracurriculars.html">Extracurriculars</a></li>
+      </ul>
+    </li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
     <main>
         <div style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;">
             <!-- Contact Info Card -->
@@ -224,24 +234,45 @@
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var navToggle = document.getElementById('nav-toggle');
-        var navLinks = document.getElementById('nav-links');
-        if(navToggle && navLinks) {
-            navToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', !expanded);
-            });
-            // Accessibility: allow Enter/Space to toggle
-            navToggle.addEventListener('keypress', function(e) {
-                if (e.key === "Enter" || e.key === " ") {
-                    navLinks.classList.toggle('active');
-                    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-                    navToggle.setAttribute('aria-expanded', !expanded);
-                }
-            });
-        }
+    
+    
+        const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownContent = document.querySelector(".dropdown-content");
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !expanded);
+    navLinks.classList.toggle("active");
+    navToggle.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", false);
+      dropdownContent.classList.remove("show");
+    }
+  });
+
+  dropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownContent.classList.toggle("show");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-page");
+    }
+  });
+
+
+
+
+
         // Social icons animation
         document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
             icon.addEventListener('mouseenter', function() {
@@ -297,7 +328,7 @@
                 if(e.target === thankyouModal) thankyouModal.style.display = 'none';
             };
         }
-    });
+    
     </script>
 </body>
 </html>

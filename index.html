@@ -54,17 +54,7 @@
             font-weight: 700;
             letter-spacing: 0.5px;
         }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 3vw;
-            background: var(--white);
-            box-shadow: 0 2px 8px rgba(20,83,45,0.04);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+       
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
@@ -79,6 +69,69 @@
             border-radius:8px;
             background:#fff;
             box-shadow:0 1px 6px rgba(20,83,45,0.08);
+        }
+
+
+
+        .nav-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(20, 83, 45, 0.1);
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  .dropdown-content.show {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .nav-links a.active-page {
+    color: var(--highlight);
+    font-weight: bold;
+    position: relative;
+  }
+  .nav-links a.active-page::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--highlight);
+    left: 0;
+    bottom: -4px;
+    border-radius: 4px;
+  }
+
+
+
+
+         /*.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 3vw;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(20,83,45,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .nav-links {
             list-style: none;
@@ -96,6 +149,52 @@
         .nav-links a:hover {
             color: var(--highlight);
         }
+        /* Mobile nav toggle 
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .nav-toggle span {
+            height: 3px;
+            width: 28px;
+            background: var(--primary);
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        @media (max-width: 769px) {
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                background: var(--white);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
+                border-radius: 0 0 12px 12px;
+                z-index: 99;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+         @media (max-width: 700px) {
+             .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }*/
         .hero {
             background: url('/images/headerimg1.JPG') center/cover no-repeat;
             color: var(--white);
@@ -275,17 +374,9 @@
             font-size: 1rem;
             margin-top: 2rem;
         }
+       
         @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                margin-top: 0.5rem;
-            }
+           
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -305,40 +396,7 @@
                 padding: 0.7rem 1vw;
             }
         }
-        /* Mobile nav toggle */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: auto;
-        }
-        .nav-toggle span {
-            height: 3px;
-            width: 28px;
-            background: var(--primary);
-            margin: 4px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-        @media (max-width: 769px) {
-            .nav-toggle {
-                display: flex;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                background: var(--white);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-                border-radius: 0 0 12px 12px;
-                z-index: 99;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-        }
+        
         /* Admissions Modal Styles */
         #admissions-modal {
             align-items: center;
@@ -961,30 +1019,47 @@
     </style>
 </head>
 <body>
+    
+
+
+
+
+
     <nav class="navbar" aria-label="Main Navigation">
-        <div class="logo">
-            <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">Gopherwood School
-        </div>
-        <div class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" tabindex="0" role="button">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-                <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
-                <ul id="dropdownn" class="dropdown-content">
-                    <li><a href="academics.html">Academics Overview</a></li>
-                    <li><a href="extracurriculars.html">Extracurriculars</a></li>
-                </ul>
-            </li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <div class="logo">
+    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
+    Gopherwood School
+  </div>
+  <div
+    class="nav-toggle"
+    id="nav-toggle"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+    tabindex="0"
+    role="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+      <ul id="dropdownn" class="dropdown-content">
+        <li><a href="academics.html">Academics Overview</a></li>
+        <li><a href="extracurriculars.html">Extracurriculars</a></li>
+      </ul>
+    </li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+    
+
     <header class="hero" aria-label="School Welcome Banner">
         <div class="hero-content" id="home">
             <h1>Welcome to Gopherwood School</h1>
@@ -1093,7 +1168,9 @@
 
         <!-- Interactive Gallery/Carousel -->
         <section id="gallery" class="section themed-section" aria-labelledby="gallery-heading">
-            <h2 id="gallery-heading">Gallery</h2>
+            <h2 id="gallery-heading">Gallery <a href="extracurriculars.html" class="cta-btn" style="margin-left:1rem;font-size:1rem;padding:0.5rem 1.2rem;vertical-align:middle;" aria-label="See all news and events" target="_blank" rel="noopener noreferrer">
+                See All
+            </a></h2>
             <div class="gallery-carousel" tabindex="0" aria-label="School Facilities Gallery" style="position:relative;max-width:600px;margin:auto;">
                 <img src="images/headerimg3.JPG" alt="Modern Library" class="gallery-img" style="width:100%;display:block;border-radius:16px;">
                 <img src="images/music5.JPG" alt="Science Lab" class="gallery-img" style="width:100%;display:none;border-radius:16px;">
@@ -1238,61 +1315,21 @@ document.addEventListener('DOMContentLoaded', renderHomepageNews);
             <div style="flex:1.2;padding:2.2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;justify-content:center;">
                 <div style="font-size:0.98rem;font-weight:600;letter-spacing:1px;color:var(--secondary);margin-bottom:0.5rem;">ADMISSION IS OPEN!</div>
                 <div style="font-size:1.65rem;font-weight:800;color:var(--primary);line-height:1.18;margin-bottom:1.1rem;">Don't miss the opportunity to give your child the gift of a quality education.</div>
-                <div style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">For inquiries and to schedule a campus tour, please contact our admissions office.</div>
+                <div style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">For inquiries and to schedule a school tour, please contact our admissions office.</div>
                 <button id="modal-contact-btn" style="background:var(--highlight);color:var(--white);font-weight:700;font-size:1.08rem;padding:0.7rem 2.2rem;border:none;border-radius:6px;cursor:pointer;transition:background 0.2s;">CONTACT US</button>
                 <button id="modal-close-btn" aria-label="Close admissions popup" style="position:absolute;top:18px;right:22px;background:none;border:none;font-size:1.7rem;color:var(--primary);font-weight:700;cursor:pointer;line-height:1;">&times;</button>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
 
-        <script src="news-data.js"></script>
 
-    <script src="script.js"></script>
-    <script>
-// filepath: c:\PMA\DOCUMENTS\RND DOC\empty\Web dev projects\Gopher wood school\index.html
-// Hero backgrounds and popup texts
-const heroBackgrounds = [
-    {
-        img: "images/headerimg1.JPG",
-        text: "An environment where every child thrives."
-    },
-    {
-        img: "images/headerimg2.jpeg",
-        text: "World-class facilities for world-class learning."
-    },
-    {
-        img: "images/headerimg3.JPG",
-        text: "Building character, creativity, and confidence."
-    }
-];
 
-let heroIdx = 0;
-const heroSection = document.querySelector('.hero');
-const popupText = document.getElementById('hero-popup-text');
 
-function updateHero() {
-    // Change background
-    heroSection.style.background = `url('${heroBackgrounds[heroIdx].img}') center/cover no-repeat`;
-    // Animate popup text
-    popupText.style.opacity = 0;
-    setTimeout(() => {
-        popupText.textContent = heroBackgrounds[heroIdx].text;
-        popupText.style.opacity = 1;
-    }, 400);
-    // Next index
-    heroIdx = (heroIdx + 1) % heroBackgrounds.length;
-}
 
-// Initial load
-document.addEventListener('DOMContentLoaded', () => {
-    updateHero();
-    setInterval(updateHero, 6000); // Change every 6 seconds
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="script.js"></script>
+    
 </body>
 </html>

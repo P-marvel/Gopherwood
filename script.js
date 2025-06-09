@@ -1,21 +1,35 @@
-// Mobile nav toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navLinks = document.getElementById('nav-links');
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownContent = document.querySelector(".dropdown-content");
+  const currentPage = window.location.pathname.split("/").pop();
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    if(window.innerWidth <= 700) navLinks.classList.remove('active');
-                }
-            });
-        });
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !expanded);
+    navLinks.classList.toggle("active");
+    navToggle.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", false);
+      dropdownContent.classList.remove("show");
+    }
+  });
+
+  dropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownContent.classList.toggle("show");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-page");
+    }
+  });
 
         // Contact form submission (demo only)
         document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -101,6 +115,45 @@
     icon.addEventListener('mouseup', function() {
         this.style.transform = 'scale(1.13) rotate(-6deg)';
     });
+});
+
+
+const heroBackgrounds = [
+    {
+        img: "images/headerimg1.JPG",
+        text: "An environment where every child thrives."
+    },
+    {
+        img: "images/headerimg2.jpeg",
+        text: "World-class facilities for world-class learning."
+    },
+    {
+        img: "images/headerimg3.JPG",
+        text: "Building character, creativity, and confidence."
+    }
+];
+
+let heroIdx = 0;
+const heroSection = document.querySelector('.hero');
+const popupText = document.getElementById('hero-popup-text');
+
+function updateHero() {
+    // Change background
+    heroSection.style.background = `url('${heroBackgrounds[heroIdx].img}') center/cover no-repeat`;
+    // Animate popup text
+    popupText.style.opacity = 0;
+    setTimeout(() => {
+        popupText.textContent = heroBackgrounds[heroIdx].text;
+        popupText.style.opacity = 1;
+    }, 400);
+    // Next index
+    heroIdx = (heroIdx + 1) % heroBackgrounds.length;
+}
+
+// Initial load
+document.addEventListener('DOMContentLoaded', () => {
+    updateHero();
+    setInterval(updateHero, 6000); // Change every 6 seconds
 });
 
 

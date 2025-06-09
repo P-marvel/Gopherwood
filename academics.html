@@ -186,28 +186,39 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo"> Gopherwood School</div>
-        <div class="nav-toggle" id="nav-toggle" tabindex="0" aria-label="Open navigation" aria-expanded="false" role="button">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
-                <ul class="dropdown-content">
-                    <li><a href="academics.html">Academics Overview</a></li>
-                    <li><a href="extracurriculars.html">Extracurriculars</a></li>
-                </ul>
-            </li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar" aria-label="Main Navigation">
+  <div class="logo">
+    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
+    Gopherwood School
+  </div>
+  <div
+    class="nav-toggle"
+    id="nav-toggle"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+    tabindex="0"
+    role="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+      <ul id="dropdownn" class="dropdown-content">
+        <li><a href="academics.html">Academics Overview</a></li>
+        <li><a href="extracurriculars.html">Extracurriculars</a></li>
+      </ul>
+    </li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
     <main>
         <h1>Academics</h1>
         <div class="academics-grid">
@@ -250,24 +261,38 @@
 </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var navToggle = document.getElementById('nav-toggle');
-        var navLinks = document.getElementById('nav-links');
-        if(navToggle && navLinks) {
-            navToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', !expanded);
-            });
-            // Accessibility: allow Enter/Space to toggle
-            navToggle.addEventListener('keypress', function(e) {
-                if (e.key === "Enter" || e.key === " ") {
-                    navLinks.classList.toggle('active');
-                    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-                    navToggle.setAttribute('aria-expanded', !expanded);
-                }
-            });
-        }
+   const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownContent = document.querySelector(".dropdown-content");
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !expanded);
+    navLinks.classList.toggle("active");
+    navToggle.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", false);
+      dropdownContent.classList.remove("show");
+    }
+  });
+
+  dropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownContent.classList.toggle("show");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-page");
+    }
+  });
         // Social icons animation
         document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
             icon.addEventListener('mouseenter', function() {
@@ -285,7 +310,7 @@
                 this.style.transform = 'scale(1.13) rotate(-6deg)';
             });
         });
-    });
+    
     </script>
 </body>
 </html>

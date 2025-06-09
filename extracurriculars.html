@@ -22,17 +22,7 @@
             background: var(--accent);
             color: var(--text);
         }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 3vw;
-            background: var(--white);
-            box-shadow: 0 2px 8px rgba(20,83,45,0.04);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
@@ -48,36 +38,7 @@
             border-radius: 8px;
             background: #fff;
         }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--highlight);
-        }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: auto;
-        }
-        .nav-toggle span {
-            height: 3px;
-            width: 28px;
-            background: var(--primary);
-            margin: 4px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
+        
         main {
             max-width: 1100px;
             margin: 2rem auto;
@@ -202,28 +163,39 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo"> Gopherwood School</div>
-        <div class="nav-toggle" id="nav-toggle" tabindex="0" aria-label="Open navigation" aria-expanded="false" role="button">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
-                <ul class="dropdown-content">
-                    <li><a href="academics.html">Academics Overview</a></li>
-                    <li><a href="extracurriculars.html">Extracurriculars</a></li>
-                </ul>
-            </li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar" aria-label="Main Navigation">
+  <div class="logo">
+    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
+    Gopherwood School
+  </div>
+  <div
+    class="nav-toggle"
+    id="nav-toggle"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+    tabindex="0"
+    role="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+      <ul id="dropdownn" class="dropdown-content">
+        <li><a href="academics.html">Academics Overview</a></li>
+        <li><a href="extracurriculars.html">Extracurriculars</a></li>
+      </ul>
+    </li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
     <!-- Social Media Bar -->
     <div id="social-media-bar">
         <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
@@ -269,7 +241,7 @@
                     <img src="images/arts5.jpg" class="activity-img slide" alt="Art 1" style="display:block;">
                     <img src="images/arts2.jpg" class="activity-img slide" alt="Art 2" style="display:none;">
                     <img src="images/arts3.jpg" class="activity-img slide" alt="Art 3" style="display:none;">
-                    <img src="images/arts1.jpg" class="activity-img slide" alt="Art 3" style="display:none;">
+                    <img src="images/arts1.jpg" class="activity-img slide" alt="Art 4" style="display:none;">
                 </div>
                 <div class="activity-content">
                     <div class="activity-title">Art & Creativity</div>
@@ -292,8 +264,8 @@
                     <img src="images/drama1.jpg" class="activity-img slide" alt="Drama 1" style="display:block;">
                     <img src="images/drama2.jpg" class="activity-img slide" alt="Drama 2" style="display:none;">
                     <img src="images/drama3.jpg" class="activity-img slide" alt="Drama 3" style="display:none;">
-                    <img src="images/drama4.jpg" class="activity-img slide" alt="Drama 3" style="display:none;">
-                    <img src="images/drama5.jpg" class="activity-img slide" alt="Drama 3" style="display:none;">
+                    <img src="images/drama4.jpg" class="activity-img slide" alt="Drama 4" style="display:none;">
+                    <img src="images/drama5.jpg" class="activity-img slide" alt="Drama 5" style="display:none;">
                 </div>
                 <div class="activity-content">
                     <div class="activity-title">Drama & Debate</div>
@@ -305,6 +277,7 @@
                     <img src="images/fieldtrip1.jpg" class="activity-img slide" alt="Field Trip 1" style="display:block;">
                     <img src="images/fieldtrip2.jpg" class="activity-img slide" alt="Field Trip 2" style="display:none;">
                     <img src="images/fieldtrip3.jpg" class="activity-img slide" alt="Field Trip 3" style="display:none;">
+                    <img src="images/fieldtrip4.jpg" class="activity-img slide" alt="Field Trip 3" style="display:none;">
                 </div>
                 <div class="activity-content">
                     <div class="activity-title">Field Trips & Excursions</div>
@@ -391,24 +364,38 @@
     }
     </style>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Hamburger menu
-        var navToggle = document.getElementById('nav-toggle');
-        var navLinks = document.getElementById('nav-links');
-        if(navToggle && navLinks) {
-            navToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', !expanded);
-            });
-            navToggle.addEventListener('keypress', function(e) {
-                if (e.key === "Enter" || e.key === " ") {
-                    navLinks.classList.toggle('active');
-                    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-                    navToggle.setAttribute('aria-expanded', !expanded);
-                }
-            });
-        }
+   const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownContent = document.querySelector(".dropdown-content");
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !expanded);
+    navLinks.classList.toggle("active");
+    navToggle.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", false);
+      dropdownContent.classList.remove("show");
+    }
+  });
+
+  dropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownContent.classList.toggle("show");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active-page");
+    }
+  });
 
         // Slideshow logic for each activity card (auto only, no buttons)
         document.querySelectorAll('.slideshow-container').forEach(function(container) {
@@ -482,7 +469,7 @@
             if(e.key === "ArrowRight") modalNext.click();
             if(e.key === "Escape") closeModal.click();
         });
-    });
+    
     </script>
 </body>
 </html>
