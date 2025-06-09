@@ -2,11 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- SEO & Accessibility -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gopherwood School</title>
+    <title>Gopherwood School | Strength for Excellence</title>
+    <meta name="description" content="Gopherwood School offers a blend of British and Nigerian curricula, nurturing academic excellence, character, and creativity.">
+    <meta name="keywords" content="Gopherwood School, Lagos, British curriculum, Nigerian curriculum, education, primary, secondary, nursery">
+    <meta property="og:title" content="Gopherwood School | Strength for Excellence">
+    <meta property="og:description" content="A leading school in Lagos offering a blend of British and Nigerian curricula.">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <link rel="canonical" href="https://yourdomain.com/">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <style>
         :root {
             --primary: #14532d; /* dark green */
@@ -17,11 +35,24 @@
             --white: #fff;
             --text: #222;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             margin: 0;
             font-family: 'Montserrat', Arial, sans-serif;
             background: var(--accent);
             color: var(--text);
+        }
+        body, input, textarea, button {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         .navbar {
             display: flex;
@@ -267,6 +298,11 @@
             .stats {
                 flex-direction: column;
                 gap: 1.2rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .section, .themed-section, main {
+                padding: 0.7rem 1vw;
             }
         }
         /* Mobile nav toggle */
@@ -620,54 +656,60 @@
 }
 .welcome-img-card {
     position: relative;
-    width: 260px;
-    height: 220px;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 10 / 9; /* maintains width-to-height ratio */
     border-radius: 18px;
     overflow: visible;
-    box-shadow: 0 4px 24px rgba(20,83,45,0.13);
+    box-shadow: 0 4px 24px rgba(20, 83, 45, 0.13);
     background: #fff;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    margin: 0 auto;
 }
+
 .welcome-img.main-img {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(20,83,45,0.13);
+    box-shadow: 0 2px 12px rgba(20, 83, 45, 0.13);
     position: absolute;
-    left: 40px;
+    left: 14%;
     bottom: 0;
     z-index: 2;
     border: 4px solid var(--white);
 }
+
 .welcome-img.overlay-img {
-    width: 110px;
-    height: 110px;
+    width: 60%;
+    height: auto;
     object-fit: cover;
     border-radius: 12px;
     position: absolute;
-    left: -30px;
-    top: 18px;
+    left: -10%;
+    top: 5%;
     z-index: 1;
     border: 3px solid var(--accent);
-    box-shadow: 0 1px 8px rgba(20,83,45,0.08);
+    box-shadow: 0 1px 8px rgba(20, 83, 45, 0.08);
     opacity: 0.93;
 }
+
 .welcome-img.overlay-img2 {
-    width: 80px;
-    height: 80px;
+    width: 43%;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
     position: absolute;
-    right: -22px;
-    bottom: 18px;
+    right: -36%;
+    bottom: -10%;
     z-index: 3;
     border: 2px solid var(--banner);
-    box-shadow: 0 1px 8px rgba(20,83,45,0.08);
+    box-shadow: 0 1px 8px rgba(20, 83, 45, 0.08);
     opacity: 0.93;
 }
+
 .welcome-badge {
     margin-top: 1.7rem;
     background: var(--banner);
@@ -693,25 +735,12 @@
         padding: 2.2rem 2vw 1.5rem 2vw;
     }
     .welcome-img-card {
+        display: none;
         width: 210px;
         height: 170px;
     }
-    .welcome-img.main-img {
-        width: 130px;
-        height: 130px;
-        left: 30px;
-    }
-    .welcome-img.overlay-img {
-        width: 70px;
-        height: 70px;
-        left: -18px;
-        top: 10px;
-    }
-    .welcome-img.overlay-img2 {
-        width: 50px;
-        height: 50px;
-        right: -12px;
-        bottom: 10px;
+    .mobile-only{
+        display: block;
     }
 }
 @media (max-width: 600px) {
@@ -879,23 +908,74 @@
     font-size: 1.2rem;
   }
 }
+
+/* Animations and effects */
+.floating-img {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in 1s forwards;
+}
+
+.fade-in-delay2 {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in 1.5s forwards;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Optional: improve text responsiveness */
+.welcome-section h2 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
+.welcome-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+.welcome-values li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Button hover effect */
+.cta-btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.cta-btn:hover {
+  background-color: #2c3e50;
+  transform: scale(1.05);
+}
+
     </style>
 </head>
 <body>
-    <nav class="navbar">
-            
-            <div class="logo"><img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo" >Gopherwood School</div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-links">
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="logo">
+            <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">Gopherwood School
+        </div>
+        <div class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" tabindex="0" role="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li class="dropdown">
-                <a href="#" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
-                <ul class="dropdown-content">
+                <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurriculars</a>
+                <ul id="dropdownn" class="dropdown-content">
                     <li><a href="academics.html">Academics Overview</a></li>
                     <li><a href="extracurriculars.html">Extracurriculars</a></li>
                 </ul>
@@ -904,158 +984,252 @@
             <li><a href="news.html">News</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        </nav>
-    <header class="hero">
+    </nav>
+    <header class="hero" aria-label="School Welcome Banner">
         <div class="hero-content" id="home">
             <h1>Welcome to Gopherwood School</h1>
             <p>We Empower Mind and Hearts to Build Strength for Excellence</p>
+            <div id="hero-popup-text" style="font-size:1.2rem;font-weight:600;margin-top:1.5rem;background:rgba(255,255,255,0.85);color:#14532d;padding:0.7rem 1.2rem;border-radius:12px;box-shadow:0 2px 8px rgba(20,83,45,0.08);display:inline-block;opacity:0;transition:opacity 0.7s;"></div>
             <a href="#admissions" class="cta-btn">Apply Now</a>
         </div>
     </header>
     <main>
-             
-        <section id="welcome" class="welcome-section advanced-welcome">
+       
+        <!-- Welcome Section -->
+<section id="welcome" class="welcome-section advanced-welcome" aria-labelledby="welcome-heading">
   <div class="welcome-bg"></div>
   <div class="welcome-content">
-    <div class="welcome-left">
-      <h2>
+    <div class="welcome-left" data-aos="fade-right" data-aos-duration="1000">
+      <h2 id="welcome-heading">
         <span class="welcome-highlight">Welcome to</span><br>
         <span class="welcome-school">Gopherwood School</span>
       </h2>
-      <p class="welcome-quote">
-        <span class="quote-icon">&#10077;</span>
-        Welcome to <strong>Gopherwood School</strong>, where we blend the best of British and Nigerian curricula to deliver exceptional educational excellence for your child. <br>Like the biblical Gopherwood tree that provided strength and protection, we offer a solid foundation where young minds develop and achieve their full potential.
-<br><br>Our certified teachers don't just educate—they inspire curiosity and guide students toward academic success, while our well-equipped laboratories provide hands-on learning experiences that bring science to life. At Gopherwood, we believe every child deserves an education that's both academically rigorous and personally enriching.
-Experience excellence in education. Discover Gopherwood School.
-Where strength meets nurture, and potential becomes reality.
 
-        
-        <span class="quote-icon">&#10078;</span>
+      <p class="welcome-quote" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
+        <span class="quote-icon">&#10077;</span>
+                        Welcome to <strong>Gopherwood School</strong>, where we blend the best of British and Nigerian curricula to deliver exceptional educational excellence for your child. <br>Like the biblical Gopherwood tree that provided strength and protection, we offer a solid foundation where young minds develop and achieve their full potential.
+                        <br><br>Our certified teachers don't just educate—they inspire curiosity and guide students toward academic success, while our well-equipped laboratories provide hands-on learning experiences that bring science to life. At Gopherwood, we believe every child deserves an education that's both academically rigorous and personally enriching.
+                        Experience excellence in education. Discover Gopherwood School.
+                        Where strength meets nurture, and potential becomes reality.
+                        <span class="quote-icon">&#10078;</span>
       </p>
-      <ul class="welcome-values">
+
+      <ul class="welcome-values" data-aos="fade-up" data-aos-delay="400">
         <li><span>&#10003;</span> Solid educational foundation for every child</li>
         <li><span>&#10003;</span> Nurturing strength, resilience, and excellence</li>
         <li><span>&#10003;</span> Guided by faith and purpose</li>
       </ul>
-      <a href="#admissions" class="cta-btn welcome-cta">Experience Gopherwood</a>
+
+      <a href="#admissions" class="cta-btn welcome-cta" data-aos="zoom-in" data-aos-delay="600">Experience Gopherwood</a>
     </div>
-    <div class="welcome-right">
+
+    <div class="welcome-right" data-aos="fade-left" data-aos-duration="1000">
       <div class="welcome-img-card">
-        <img src="images/students.jpeg" alt="Gopherwood Students" class="welcome-img main-img">
-        <img src="images/building.webp" alt="School Building" class="welcome-img overlay-img">
-        <img src="images/learning.jpg" alt="Learning in Action" class="welcome-img overlay-img2">
+        <img src="images/students.jpg" alt="Gopherwood Students" class="welcome-img main-img floating-img">
+        <img src="images/building.webp" alt="School Building" class="welcome-img overlay-img fade-in-delay">
+        <img src="images/learning.jpg" alt="Learning in Action" class="welcome-img overlay-img2 fade-in-delay2">
       </div>
-      <div class="welcome-badge">
+
+
+      <div class="mobile-only">
+            <lottie-player
+                src="https://assets4.lottiefiles.com/packages/lf20_kkflmtur.json"
+                background="transparent"
+                speed="1"
+                style="width: 280px; height: 280px; margin: auto;"
+                loop
+                autoplay>
+            </lottie-player>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    </div>
+
+
+      <div class="welcome-badge" data-aos="zoom-in-up" data-aos-delay="800">
         <span class="badge-icon">&#127891;</span>
         <span>Strength for Excellence</span>
       </div>
     </div>
   </div>
-</section>
+</section> 
 
-<section id="facilities" class="section facilities themed-section">
-  <div class="container">
-    <h2>Our Facilities</h2>
-    <div class="facility-list">
-      <div class="facility-item">
-        <img src="images/library.jpg" alt="School Library" />
-        <h3>Modern Library</h3>
-        <p>Fosters reading and research with rich learning resources.</p>
-      </div>
-      <div class="facility-item">
-        <img src="images/science-lab.jpg" alt="Science Lab" />
-        <h3>Science Laboratory</h3>
-        <p>Practical scientific exploration and learning for all ages.</p>
-      </div>
-      <div class="facility-item">
-        <img src="images/ict-lab.jpg" alt="ICT Lab" />
-        <h3>ICT Lab</h3>
-        <p>Digital literacy and hands-on computer training.</p>
-      </div>
-      <div class="facility-item">
-        <img src="images/playground.jpg" alt="Playground" />
-        <h3>Playground</h3>
-        <p>Outdoor fun for physical and social development.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="testimonials" class="section testimonials themed-section">
-  <div class="container">
-    <h2>What Parents Say</h2>
-    <div class="testimonial-list">
-      <div class="testimonial-item">
-        <p>"Gopherwood School has been a blessing to our family. My son is more confident and focused!"</p>
-        <strong>— Mrs. Adebayo, Parent</strong>
-      </div>
-      <div class="testimonial-item">
-        <p>"The teachers are truly committed. I’ve seen real growth in my daughter’s academics and character."</p>
-        <strong>— Mr. Uche, Parent</strong>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="news-events" class="section news-events themed-section">
-  <div class="container">
-    <h2>News & Events</h2>
-    <div class="event-list">
-      <div class="event-item">
-        <h3>End-of-Term Celebration – July 20</h3>
-        <p>Join us for a colorful display of learning and student talents.</p>
-      </div>
-      <div class="event-item">
-        <h3>Admissions Now Open for 2025</h3>
-        <p>Apply now for Nursery, Primary and Secondary classes.</p>
-      </div>
-      <div class="event-item">
-        <h3>Parent-Teacher Forum – August 10</h3>
-        <p>An important event for parents to interact with educators and assess student progress.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-       
-        
-        <section id="admissions" class="section admissions">
-            <h2>Admissions</h2>
-            <p>Join our community of learners! Applications for the 2025/2026 academic year are now open.</p>
-            <a href="contact.html" class="cta-btn">Contact Admissions</a>
+
+
+
+
+
+
+        <!-- Facilities Section -->
+        <section id="facilities" class="section facilities themed-section" aria-labelledby="facilities-heading">
+            <div class="container">
+                <h2 id="facilities-heading">Our Facilities</h2>
+                <div class="facility-list">
+                    <div class="facility-item">
+                        <img src="images/library.jpg" alt="School Library" />
+                        <h3>Modern Library</h3>
+                        <p>Fosters reading and research with rich learning resources.</p>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/science-lab.jpg" alt="Science Lab" />
+                        <h3>Science Laboratory</h3>
+                        <p>Practical scientific exploration and learning for all ages.</p>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/ict-lab.jpg" alt="ICT Lab" />
+                        <h3>ICT Lab</h3>
+                        <p>Digital literacy and hands-on computer training.</p>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/playground.jpg" alt="Playground" />
+                        <h3>Playground</h3>
+                        <p>Outdoor fun for physical and social development.</p>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Interactive Gallery/Carousel -->
+        <section id="gallery" class="section themed-section" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading">Gallery</h2>
+            <div class="gallery-carousel" tabindex="0" aria-label="School Facilities Gallery" style="position:relative;max-width:600px;margin:auto;">
+                <img src="images/headerimg3.JPG" alt="Modern Library" class="gallery-img" style="width:100%;display:block;border-radius:16px;">
+                <img src="images/music5.JPG" alt="Science Lab" class="gallery-img" style="width:100%;display:none;border-radius:16px;">
+                <img src="images/teakwando.webp" alt="ICT Lab" class="gallery-img" style="width:100%;display:none;border-radius:16px;">
+                <button class="gallery-prev" aria-label="Previous image" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);background:var(--primary);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:1.5rem;cursor:pointer;z-index:2;">&#10094;</button>
+                <button class="gallery-next" aria-label="Next image" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);background:var(--primary);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:1.5rem;cursor:pointer;z-index:2;">&#10095;</button>
+            </div>
+        </section>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imgs = document.querySelectorAll('.gallery-img');
+            let idx = 0;
+            function showImg(i) {
+                imgs.forEach((img, j) => img.style.display = j === i ? 'block' : 'none');
+            }
+            document.querySelector('.gallery-prev').onclick = () => { idx = (idx-1+imgs.length)%imgs.length; showImg(idx); };
+            document.querySelector('.gallery-next').onclick = () => { idx = (idx+1)%imgs.length; showImg(idx); };
+            showImg(idx);
+        });
+        </script>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section testimonials themed-section" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <h2 id="testimonials-heading">What Parents Say</h2>
+                <div class="testimonial-list">
+                    <div class="testimonial-item">
+                        <p>"Gopherwood School has been a blessing to our family. My son is more confident and focused!"</p>
+                        <strong>— Mrs. Adebayo, Parent</strong>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"The teachers are truly committed. I’ve seen real growth in my daughter’s academics and character."</p>
+                        <strong>— Mr. Uche, Parent</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         
-        <section id="contact" class="section contact">
-            <h2>Contact Us</h2>
-            <form class="contact-form" id="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <!-- Curriculum Section -->
+        <section id="curriculum" class="section themed-section" aria-labelledby="curriculum-heading">
+            <h2 id="curriculum-heading">Our Curriculum</h2>
+            <p>We offer a blend of British and Nigerian curricula, ensuring students receive a well-rounded education.</p>
+            <ul>
+                <li><strong>Subjects:</strong> English, Mathematics, Science, ICT, Social Studies, Arts, French, Physical Education, and more.</li>
+                <li><strong>Teaching Methods:</strong> Interactive lessons, group projects, hands-on experiments, and digital learning.</li>
+                <li><strong>Structure:</strong> Nursery, Primary, and Secondary levels with continuous assessment and support.</li>
+            </ul>
+        </section>
+
+        
+
+        <!-- News & Events Section -->
+        <section id="news-events" class="section news-events themed-section" aria-labelledby="news-events-heading">
+    <div class="container">
+        <h2 id="news-events-heading">
+            News & Events
+            <a href="news.html" class="cta-btn" style="margin-left:1rem;font-size:1rem;padding:0.5rem 1.2rem;vertical-align:middle;" aria-label="See all news and events" target="_blank" rel="noopener noreferrer">
+                See All
+            </a>
+        </h2>
+        <div class="event-list" id="homepage-news-list">
+            <!-- News items will be injected here by JS -->
+        </div>
+    </div>
+</section>
+<script>
+// filepath: c:\PMA\DOCUMENTS\RND DOC\empty\Web dev projects\Gopher wood school\news-data.js
+// Shared news data for homepage and news.html
+window.newsData = [
+    {
+        title: "End-of-Term Celebration – July 20",
+        desc: "Join us for a colorful display of learning and student talents."
+    },
+    {
+        title: "Admissions Now Open for 2025",
+        desc: "Apply now for Nursery, Primary and Secondary classes."
+    },
+    {
+        title: "Parent-Teacher Forum – August 10",
+        desc: "An important event for parents to interact with educators and assess student progress."
+    }
+];
+
+// Render news on homepage
+function renderHomepageNews() {
+    const newsList = document.getElementById('homepage-news-list');
+    if (!newsList || !window.newsData) return;
+    // Show only the latest 3 news/events
+    newsList.innerHTML = window.newsData.slice(0, 3).map(item => `
+        <div class="event-item">
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+        </div>
+    `).join('');
+}
+document.addEventListener('DOMContentLoaded', renderHomepageNews);
+</script>
+
+        <!-- Admissions Section -->
+        <section id="admissions" class="section admissions" aria-labelledby="admissions-heading">
+            <h2 id="admissions-heading">Admissions</h2>
+            <p>Join our community of learners! Applications for the 2025/2026 academic year are now open.</p>
+            <a href="contact.html" class="cta-btn" target="_blank" rel="noopener noreferrer">Contact Admissions</a>
+        </section>
+
+        <!-- Contact Form Section (with Formspree) -->
+        <section id="contact" class="section contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Us</h2>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+                <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+                <textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
                 <button type="submit">Send Message</button>
             </form>
-            
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
     </footer>
 
-<div id="social-media-bar">
-    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
-        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
-    </a>
-    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
-        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
+    <div id="social-media-bar">
+        <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener noreferrer" class="social-icon facebook" aria-label="Facebook">
+            <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
+        </a>
+        <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener noreferrer" class="social-icon youtube" aria-label="YouTube">
+            <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
         <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
     </a>
-    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
-        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
-    </a>
-</div>
-
-
+        <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
+            <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
+        </a>
+    </div>
 
     <!-- Admissions Popup Modal -->
     <div id="admissions-modal" style="display:flex;align-items:center;justify-content:center;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(20,83,45,0.32);">
@@ -1070,6 +1244,55 @@ Where strength meets nurture, and potential becomes reality.
             </div>
         </div>
     </div>
-    <script src="script.js">    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+        <script src="news-data.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+// filepath: c:\PMA\DOCUMENTS\RND DOC\empty\Web dev projects\Gopher wood school\index.html
+// Hero backgrounds and popup texts
+const heroBackgrounds = [
+    {
+        img: "images/headerimg1.JPG",
+        text: "An environment where every child thrives."
+    },
+    {
+        img: "images/headerimg2.jpeg",
+        text: "World-class facilities for world-class learning."
+    },
+    {
+        img: "images/headerimg3.JPG",
+        text: "Building character, creativity, and confidence."
+    }
+];
+
+let heroIdx = 0;
+const heroSection = document.querySelector('.hero');
+const popupText = document.getElementById('hero-popup-text');
+
+function updateHero() {
+    // Change background
+    heroSection.style.background = `url('${heroBackgrounds[heroIdx].img}') center/cover no-repeat`;
+    // Animate popup text
+    popupText.style.opacity = 0;
+    setTimeout(() => {
+        popupText.textContent = heroBackgrounds[heroIdx].text;
+        popupText.style.opacity = 1;
+    }, 400);
+    // Next index
+    heroIdx = (heroIdx + 1) % heroBackgrounds.length;
+}
+
+// Initial load
+document.addEventListener('DOMContentLoaded', () => {
+    updateHero();
+    setInterval(updateHero, 6000); // Change every 6 seconds
+});
+</script>
 </body>
 </html>
