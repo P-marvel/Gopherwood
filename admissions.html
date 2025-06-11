@@ -32,6 +32,34 @@
         .admission-links a { background: var(--banner); color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
         .admission-links a:hover { background: var(--primary); color: var(--white); }
         footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
+
+
+        .admin-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2,5rem;
+        }
+        .admin-card{
+            flex: 1 1 260px;
+            min-width: 240px;
+            max-width: 340px;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(20,83,45,0.08);
+            padding: 2rem 1.2rem 1.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+
+
+
+
+
         /* Responsive Styles */
         @media (max-width: 1024px) {
             main {
@@ -136,26 +164,27 @@
     <main>
         <h1 style="color:var(--primary);font-size:2.1rem;font-weight:800;margin-bottom:0.7rem;text-align:center;">Admissions</h1>
         <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
-            <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.2rem;">Admission into all classes is currently ongoing! We welcome applications from families who share our vision for academic excellence and holistic development. Please review the steps below to begin your child's journey at Gopherwood School.</p>
+                <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.2rem;">Admission into all classes is currently ongoing! We welcome applications from families who share our vision for academic excellence and holistic development. Please review the steps below to begin your child's journey at Gopherwood School.</p>
+                <img style="width:60%;" src="images/admission.webp" alt="">
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-bottom:2.5rem;">
-            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+        <div class="admin-container" >
+            <div class="admin-card" >
                 <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">1</div>
                 <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Purchase Admission Form</h2>
                 <p style="font-size:1.02rem;line-height:1.6;">Obtain the admission form from the school or download it online. Complete the form with accurate information.</p>
                 <a href="#" style="margin-top:0.7rem;background:var(--banner);color:var(--primary);padding:0.7rem 1.5rem;border-radius:7px;font-weight:700;text-decoration:none;transition:background 0.2s;">Download Form</a>
             </div>
-            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+            <div class="admin-card">
                 <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">2</div>
                 <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Submit Completed Form</h2>
                 <p style="font-size:1.02rem;line-height:1.6;">Return the completed form to the school office with all required documents (birth certificate, passport photos, previous school results, etc).</p>
             </div>
-            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+            <div class="admin-card">
                 <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">3</div>
                 <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Entrance Assessment</h2>
                 <p style="font-size:1.02rem;line-height:1.6;">Your child will be invited for an entrance assessment and interview. The date will be communicated after form submission.</p>
             </div>
-            <div style="flex:1 1 260px;min-width:240px;max-width:340px;background:var(--white);border-radius:14px;box-shadow:0 2px 12px rgba(20,83,45,0.08);padding:2rem 1.2rem 1.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;">
+            <div class="admin-card">
                 <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">4</div>
                 <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Admission Offer</h2>
                 <p style="font-size:1.02rem;line-height:1.6;">Successful candidates will receive an admission offer. Acceptance and payment of fees will secure your child's place.</p>
@@ -211,21 +240,21 @@
             <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
                 <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">PRIMARY</h2>
                 <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Children admitted into the primary school must be above 5 years old. We encourage the class teaching system whereby pupils learn from their class teachers by direct contact through examples.</p>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Children admitted into the primary school are 5 years old and above. We encourage the class teaching system whereby pupils learn from their class teachers by direct contact through examples.</p>
             </div>
             <!-- Secondary -->
             <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
                 <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">SECONDARY</h2>
                 <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Children admitted into the secondary school must be above
-                Mathematics, English Language, Literature-In-English, Biology, Physics, Chemistry, Yoruba, Computer Studies, ICT, Christian Religious Knowledge, Islamic Religious Knowledge, Government, Economics, Geography, Book-Keeping, Store Management, Insurance, Marketing, Financial Accounting, Agricultural Science, Food and Nutrition, Civic Education, Further Mathematics, Commerce and Home Management.</p>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">At Gopherwood School, our secondary school offers a broad and balanced curriculum designed to foster academic excellence, character development, and lifelong learning. We admit students who are ready to build on a strong foundational education and grow into well-rounded individuals.
+
+Subjects offered in the secondary school include Mathematics, English Language, Literature-in-English, Biology, Physics, Chemistry, E.T.C.</p>
             </div>
             <!-- Staffing -->
             <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
                 <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">STAFFING</h2>
                 <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">The management of Gopherwood School places a high premium on professionalism in staff recruitment. This way, we have gathered a team of loving, self-motivated qualified and experienced teaching staff for the following subjects:</p>
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Mathematics, English Language, Literature-In-English, Biology, Physics, Chemistry, Yoruba, Computer Studies, ICT, Christian Religious Knowledge, Islamic Religious Knowledge, Government, Economics, Geography, Book-Keeping, Store Management, Insurance, Marketing, Financial Accounting, Agricultural Science, Food and Nutrition, Civic Education, Further Mathematics, Commerce and Home Management.</p>
+                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">The management of Gopherwood School places a high premium on professionalism in staff recruitment. This way, we have gathered a team of loving, self-motivated qualified and experienced teaching staff who teach all subjects.</p>
             </div>
         </section>
         <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">

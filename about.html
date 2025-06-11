@@ -107,6 +107,104 @@
             margin: 0.3rem;
             font-weight: 700;
         }
+.mng-sec {
+    margin: 2.5rem 0 0 0;
+}
+
+.mng-sec h2 {
+    color: var(--primary);
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Container layout */
+.mng-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+/* Profile card */
+.mng-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(20,83,45,0.07);
+    padding: 1.5rem;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* Profile image */
+.mng-profile-img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15%;
+    box-shadow: 0 1px 6px rgba(20,83,45,0.08);
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Text beside image */
+.mng-text {
+    padding-left: 1.5rem;
+    flex: 1;
+    text-align: left;
+}
+ 
+
+/* Name/title/bio */
+.mng-profile h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.2rem 0;
+}
+
+.mng-title {
+    color: var(--secondary);
+    font-size: 0.98rem;
+    margin: 0;
+}
+
+.mng-profile-bio {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin: 0.5rem 0 0 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+    .mng-profile {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.2rem;
+    }
+
+    .mng-profile-img {
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 10%;
+    }
+
+    .mng-text {
+        padding: 1.2rem 0 0 0;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
         footer {
             background: var(--primary);
             color: var(--white);
@@ -267,34 +365,47 @@
             </section>
         </div>
         <!-- Management Profiles Section -->
-        <section style="margin: 2.5rem 0 0 0;">
-            <h2 style="color: var(--primary); text-align:center; font-size:1.5rem; margin-bottom:2rem;">Meet Our Management</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-                <div style="flex:1 1 260px; min-width:240px; max-width:300px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 1.5rem 1rem; text-align:center;">
-                    <div style="width:90px;height:90px;margin:0 auto 1rem auto;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(20,83,45,0.08);overflow:hidden;">
-                        <img src="images/bello.jpeg" alt="Dr. Jane Doe" class="management-profile-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;cursor:pointer;">
+        <section class="mng-sec" >
+            <h2>Meet Our Management</h2>
+            <div class="mng-profile-container" >
+                <div class="mng-profile" >
+                    <div >
+                        <img src="images/bello.jpeg" alt="Dr. Jane Doe" class="mng-profile-img" >
                     </div>
-                    <h3 style="margin:0.5rem 0 0.2rem 0;color:var(--primary);font-size:1.1rem;">Mrs Grace Omoyemi Bello</h3>
-                    <p style="margin:0;color:var(--secondary);font-size:0.98rem;">Propritress</p>
-                    <p style="margin:0.7rem 0 0 0;font-size:0.97rem;">Mrs. Grace Omoyemi Bello is a dedicated educator with over fourteen years of experience. She began her teaching career in 1989 at Corona School, Victoria Island, and rose to the role of Junior Sectional Head. She later served as a pioneer staff member at Lekki British Junior School and Head Teacher at Lead-Forte Gate Montessori School.
+                    <div class="mng-text">
+                    <h3 >Mrs Grace Omoyemi Bello</h3>
+                    <p class="mng-title" >Propritress</p>
+                    <p class="mng-profile-bio" >Mrs. Grace Omoyemi Bello is a dedicated educator with over fourteen years of experience. She began her teaching career in 1989 at Corona School, Victoria Island, and rose to the role of Junior Sectional Head. She later served as a pioneer staff member at Lekki British Junior School and Head Teacher at Lead-Forte Gate Montessori School.
 
 She holds an M.Sc. in Educational Psychology from the University of Lagos and a B.Sc. in Physics Education from Obafemi Awolowo University. Mrs. Bello has attended several international courses in Africa and Europe, reflecting her commitment to excellence and continuous growth in education.</p>
                 </div>
-                <div style="flex:1 1 260px; min-width:240px; max-width:300px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 1.5rem 1rem; text-align:center;">
-                    <div style="width:90px;height:90px;margin:0 auto 1rem auto;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(20,83,45,0.08);overflow:hidden;">
-                        <img src="images/john-smith.jpg" alt="Mr. John Smith" class="management-profile-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;cursor:pointer;">
-                    </div>
-                    <h3 style="margin:0.5rem 0 0.2rem 0;color:var(--primary);font-size:1.1rem;">Mr. John Smith</h3>
-                    <p style="margin:0;color:var(--secondary);font-size:0.98rem;">Vice Principal</p>
-                    <p style="margin:0.7rem 0 0 0;font-size:0.97rem;">Expert in curriculum design and teacher mentorship, dedicated to fostering a culture of innovation and integrity.</p>
                 </div>
-                <div style="flex:1 1 260px; min-width:240px; max-width:300px; background: var(--white); border-radius: 14px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 1.5rem 1rem; text-align:center;">
-                    <div style="width:90px;height:90px;margin:0 auto 1rem auto;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(20,83,45,0.08);overflow:hidden;">
-                        <img src="images/mary-johnson.jpg" alt="Mrs. Mary Johnson" class="management-profile-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;cursor:pointer;">
+
+
+
+                <div id="" class="mng-profile">
+                    <div >
+                        <img style="float: right;" src="images/john-smith.jpg" alt="Mr. John Smith" class="mng-profile-img">
                     </div>
-                    <h3 style="margin:0.5rem 0 0.2rem 0;color:var(--primary);font-size:1.1rem;">Mrs. Mary Johnson</h3>
-                    <p style="margin:0;color:var(--secondary);font-size:0.98rem;">Administrator</p>
-                    <p style="margin:0.7rem 0 0 0;font-size:0.97rem;">Experienced administrator ensuring smooth school operations and a supportive environment for staff and students.</p>
+                    <div id="left-text" class="mng-text">
+                        <h3 >Mr. John Smith</h3>
+                        <p class="mng-title">Vice Principal</p>
+                        <p class="mng-profile-bio">Expert in curriculum design and teacher mentorship, dedicated to fostering a culture of innovation and integrity.</p>
+                    </div>
+
+                </div>
+
+
+
+                <div class="mng-profile" >
+                    <div >
+                        <img src="images/mary-johnson.jpg" alt="Mrs. Mary Johnson" class="mng-profile-img">
+                    </div>
+                    <div class="mng-text">
+                    <h3 >Mrs. Mary Johnson</h3>
+                    <p class="mng-title">Administrator</p>
+                    <p class="mng-profile-bio">Experienced administrator ensuring smooth school operations and a supportive environment for staff and students.</p>
+                </div>
                 </div>
             </div>
         </section>

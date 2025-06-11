@@ -865,7 +865,6 @@
 }
 
 .facility-list,
-.testimonial-list,
 .event-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -907,6 +906,12 @@
   margin-bottom: 0.7rem;
   font-size: 1.18rem;
   font-weight: 700;
+}
+
+.testimonial-list{
+  display: flex;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .testimonial-item p,
@@ -1205,6 +1210,14 @@
                         <p>"The teachers are truly committed. I’ve seen real growth in my daughter’s academics and character."</p>
                         <strong>— Mrs. Onyebuchi, Parent</strong>
                     </div>
+                    <div class="testimonial-item">
+                        <p>"The teachers are truly committed. I’ve seen real growth in my daughter’s academics and character."</p>
+                        <strong>— Mrs. Onyebuchi, Parent</strong>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"The teachers are truly committed. I’ve seen real growth in my daughter’s academics and character."</p>
+                        <strong>— Mrs. Onyebuchi, Parent</strong>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1311,7 +1324,7 @@ document.addEventListener('DOMContentLoaded', renderHomepageNews);
     <!-- Admissions Popup Modal -->
     <div id="admissions-modal" style="display:flex;align-items:center;justify-content:center;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(20,83,45,0.32);">
         <div style="display:flex;flex-direction:row;max-width:650px;width:95vw;background:var(--white);border-radius:18px;box-shadow:0 8px 32px rgba(20,83,45,0.18);overflow:hidden;">
-            <div style="flex:1;min-width:160px;background:url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;height:260px;display:block;"></div>
+            <div style="flex:1;min-width:160px;background:url('images/admission.webp') center/cover no-repeat;width:70%;height: auto; display:block;"></div>
             <div style="flex:1.2;padding:2.2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;justify-content:center;">
                 <div style="font-size:0.98rem;font-weight:600;letter-spacing:1px;color:var(--secondary);margin-bottom:0.5rem;">ADMISSION IS OPEN!</div>
                 <div style="font-size:1.65rem;font-weight:800;color:var(--primary);line-height:1.18;margin-bottom:1.1rem;">Don't miss the opportunity to give your child the gift of a quality education.</div>
