@@ -786,6 +786,108 @@
     font-size: 1.3rem;
     margin-right: 0.5rem;
 }
+
+
+
+
+.anniversary-countdown {
+          margin: 2rem auto 0 auto;
+          padding: 1.3rem 1.5rem 1.1rem 1.5rem;
+          background: linear-gradient(90deg, #ffe066 60%, #e6efc2 100%);
+          border-radius: 16px;
+          box-shadow: 0 2px 12px rgba(20,83,45,0.11);
+          max-width: 350px;
+          text-align: center;
+          animation: fadeInAnniv 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        .countdown-title {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--primary);
+          margin-bottom: 0.7rem;
+          letter-spacing: 1px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          animation: popIn 1s cubic-bezier(.4,0,.2,1);
+        }
+        .countdown-timer {
+          display: flex;
+          justify-content: center;
+          gap: 1.1rem;
+          margin-bottom: 0.7rem;
+        }
+        .countdown-timer div {
+          background: var(--white);
+          border-radius: 10px;
+          padding: 0.6rem 0.7rem;
+          min-width: 54px;
+          box-shadow: 0 1px 6px rgba(20,83,45,0.07);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          animation: bounceIn 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        .countdown-timer span {
+          display: block;
+        }
+        .countdown-timer #days,
+        .countdown-timer #hours,
+        .countdown-timer #minutes,
+        .countdown-timer #seconds {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--secondary);
+          letter-spacing: 1px;
+          margin-bottom: 0.1rem;
+          transition: color 0.3s;
+        }
+        .countdown-timer .label {
+          font-size: 0.85rem;
+          color: var(--primary);
+          font-weight: 600;
+        }
+        .countdown-footer {
+          font-size: 1rem;
+          color: #444;
+          margin-top: 0.3rem;
+          animation: fadeInAnniv 1.5s cubic-bezier(.4,0,.2,1);
+        }
+        @keyframes fadeInAnniv {
+          from { opacity: 0; transform: translateY(30px);}
+          to { opacity: 1; transform: none;}
+        }
+        @keyframes popIn {
+          from { opacity: 0; transform: scale(0.85);}
+          to { opacity: 1; transform: scale(1);}
+        }
+        @keyframes bounceIn {
+          0% { transform: scale(0.7);}
+          60% { transform: scale(1.1);}
+          100% { transform: scale(1);}
+        }
+        @media (max-width: 600px) {
+          .anniversary-countdown {
+            max-width: 98vw;
+            padding: 1rem 0.5rem;
+          }
+          .countdown-timer div {
+            min-width: 38px;
+            padding: 0.4rem 0.3rem;
+          }
+          .countdown-timer #days,
+          .countdown-timer #hours,
+          .countdown-timer #minutes,
+          .countdown-timer #seconds {
+            font-size: 1.1rem;
+          }
+        }
+
+
+
+
+
 @media (max-width: 900px) {
     .welcome-content {
         flex-direction: column;
@@ -1118,18 +1220,27 @@
       </div>
 
 
-      <div class="mobile-only">
-            <lottie-player
-                src="https://assets4.lottiefiles.com/packages/lf20_kkflmtur.json"
-                background="transparent"
-                speed="1"
-                style="width: 280px; height: 280px; margin: auto;"
-                loop
-                autoplay>
-            </lottie-player>
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      
 
-    </div>
+    <!-- Animated Anniversary Countdown -->
+      <div class="anniversary-countdown" id="anniversary-countdown" aria-live="polite">
+        <div class="countdown-title">
+          <span role="img" aria-label="Party">🎉</span>
+          <strong>School Anniversary Countdown</strong>
+          <span role="img" aria-label="Party">🎉</span>
+        </div>
+        <div class="countdown-timer">
+          <div><span id="days">00</span><span class="label">Days</span></div>
+          <div><span id="hours">00</span><span class="label">Hours</span></div>
+          <div><span id="minutes">00</span><span class="label">Minutes</span></div>
+          <div><span id="seconds">00</span><span class="label">Seconds</span></div>
+        </div>
+        <div class="countdown-footer">
+          <span>Join us on <b>August 15</b> for our Anniversary Celebration!</span>
+        </div>
+      </div>
+
+
 
 
       <div class="welcome-badge" data-aos="zoom-in-up" data-aos-delay="800">

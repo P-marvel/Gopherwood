@@ -157,3 +157,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+// Animated countdown to August 15 (this year or next if already passed)
+        function getNextAnniversary() {
+          const now = new Date();
+          let year = now.getFullYear();
+          const target = new Date(year, 7, 15, 0, 0, 0); // August is month 7 (0-based)
+          if (now > target) year++;
+          return new Date(year, 7, 15, 0, 0, 0);
+        }
+        function updateCountdown() {
+          const target = getNextAnniversary();
+          const now = new Date();
+          let diff = target - now;
+          if (diff < 0) diff = 0;
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+          document.getElementById('days').textContent = String(days).padStart(2, '0');
+          document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+          document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+          document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          updateCountdown();
+          setInterval(updateCountdown, 1000);
+        });
