@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let year = now.getFullYear();
           const target = new Date(year, 7, 15, 0, 0, 0); // August is month 7 (0-based)
           if (now > target) year++;
-          return new Date(year, 7, 15, 0, 0, 0);
+          return new Date(year, 11, 1, 0, 0, 0);
         }
         function updateCountdown() {
           const target = getNextAnniversary();
@@ -186,3 +186,136 @@ document.addEventListener('DOMContentLoaded', () => {
           updateCountdown();
           setInterval(updateCountdown, 1000);
         });
+
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('award-modal');
+  const modalImg = document.getElementById('award-modal-img');
+  document.querySelectorAll('.award-img-enlarge').forEach(img => {
+    img.addEventListener('click', function() {
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+      modal.classList.add('show');
+      modal.style.display = 'flex';
+    });
+    img.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        modal.classList.add('show');
+        modal.style.display = 'flex';
+      }
+    });
+  });
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal || e.target === modalImg) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+  // Optional: ESC key closes modal
+  document.addEventListener('keydown', function(e) {
+    if (modal.classList.contains('show') && e.key === 'Escape') {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Awards Slideshow
+  const slides = document.querySelectorAll('.award-slide');
+  const dots = document.querySelectorAll('.awards-dots .dot');
+  let current = 0;
+  let timer = null;
+
+  function showSlide(idx) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === idx ? 'flex' : 'none';
+    });
+    dots.forEach((dot, i) => {
+      dot.style.opacity = i === idx ? '1' : '0.5';
+      dot.style.background = i === idx ? 'var(--highlight)' : 'var(--secondary)';
+    });
+    current = idx;
+  }
+
+  function nextSlide() {
+    showSlide((current + 1) % slides.length);
+  }
+
+  function prevSlide() {
+    showSlide((current - 1 + slides.length) % slides.length);
+  }
+
+  document.querySelector('.awards-next').onclick = function() {
+    nextSlide();
+    resetTimer();
+  };
+  document.querySelector('.awards-prev').onclick = function() {
+    prevSlide();
+    resetTimer();
+  };
+  dots.forEach((dot, i) => {
+    dot.onclick = function() {
+      showSlide(i);
+      resetTimer();
+    };
+  });
+
+  function resetTimer() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(nextSlide, 6000);
+  }
+
+  showSlide(0);
+  timer = setInterval(nextSlide, 6000);
+
+  // Award image enlarge modal (keep this if you want image enlarge on click)
+  const modal = document.getElementById('award-modal');
+  const modalImg = document.getElementById('award-modal-img');
+  document.querySelectorAll('.award-img-enlarge').forEach(img => {
+    img.addEventListener('click', function() {
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+      modal.classList.add('show');
+      modal.style.display = 'flex';
+    });
+    img.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        modal.classList.add('show');
+        modal.style.display = 'flex';
+      }
+    });
+  });
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal || e.target === modalImg) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (modal.classList.contains('show') && e.key === 'Escape') {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+});
