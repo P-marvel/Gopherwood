@@ -319,3 +319,61 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const galleryImgs = Array.from(document.querySelectorAll('.gallery-img'));
+  const modal = document.getElementById('gallery-modal');
+  const modalImg = document.getElementById('gallery-modal-img');
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
+  const closeBtn = document.getElementById('gallery-close');
+  let currentIdx = 0;
+
+  function showModal(idx) {
+    currentIdx = idx;
+    modalImg.src = galleryImgs[idx].src;
+    modalImg.alt = galleryImgs[idx].alt;
+    modal.classList.add('show');
+    modal.style.display = 'flex';
+  }
+
+  function showPrev() {
+    currentIdx = (currentIdx - 1 + galleryImgs.length) % galleryImgs.length;
+    showModal(currentIdx);
+  }
+
+  function showNext() {
+    currentIdx = (currentIdx + 1) % galleryImgs.length;
+    showModal(currentIdx);
+  }
+
+  galleryImgs.forEach((img, idx) => {
+    img.addEventListener('click', () => showModal(idx));
+    img.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') showModal(idx);
+    });
+  });
+
+  prevBtn.onclick = function(e) { e.stopPropagation(); showPrev(); };
+  nextBtn.onclick = function(e) { e.stopPropagation(); showNext(); };
+  closeBtn.onclick = function() { modal.classList.remove('show'); modal.style.display = 'none'; modalImg.src = ''; };
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!modal.classList.contains('show')) return;
+    if (e.key === 'Escape') closeBtn.click();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+});
+
+
