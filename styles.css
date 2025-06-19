@@ -1027,6 +1027,7 @@
             .anniversary-countdown {
                 padding: 40px 20px;
                 margin: 5%;
+                height: auto;
             }
             
             .countdown-title h1 {

@@ -375,5 +375,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'ArrowRight') showNext();
   });
 });
-
+    
 
