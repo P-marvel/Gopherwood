@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function getNextAnniversary() {
           const now = new Date();
           let year = now.getFullYear();
-          const target = new Date(year, 7, 15, 0, 0, 0); // August is month 7 (0-based)
+          const target = new Date(year, 11, 1, 0, 0, 0); // August is month 7 (0-based)
           if (now > target) year++;
           return new Date(year, 11, 1, 0, 0, 0);
         }
