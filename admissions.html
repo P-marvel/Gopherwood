@@ -1,353 +1,258 @@
-<!-- Admissions Page for Gopherwood School -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admissions - Gopherwood School</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --primary: #14532d;
-            --secondary: #4ca44c;
-            --accent: #e6efc2;
-            --banner: #ffe066;
-            --highlight: #e63946;
-            --white: #fff;
-            --text: #222;
-        }
-        body { background: var(--accent); color: var(--text); font-family: 'Montserrat', Arial, sans-serif; margin: 0; }
-        .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(20,83,45,0.04); padding: 1.2rem 3vw; display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); display: flex; align-items: center; }
-        .logo img { height: 44px; width: auto; margin-right: 0.7rem; border-radius: 8px; background: #fff; box-shadow: 0 1px 6px rgba(20,83,45,0.08);}
-        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
-        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--highlight); }
-        .nav-toggle { display: none; flex-direction: column; cursor: pointer; margin-left: auto; }
-        .nav-toggle span { height: 3px; width: 28px; background: var(--primary); margin: 4px 0; border-radius: 2px; transition: 0.3s; }
-        main { max-width: 900px; margin: 2rem auto; background: var(--white); border-radius: 18px; box-shadow: 0 2px 12px rgba(20,83,45,0.07); padding: 2.5rem 2vw; }
-        h1 { color: var(--primary); }
-        .admission-links { margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem; }
-        .admission-links a { background: var(--banner); color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
-        .admission-links a:hover { background: var(--primary); color: var(--white); }
-        footer { background: var(--primary); color: var(--white); text-align: center; padding: 1.2rem 0; font-size: 1rem; margin-top: 2rem; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions - Gopherwood School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --forest: #0f3d1f; --mid-green: #4ca44c; --sage: #e6efc2; --gold: #ffe066; --red: #e63946; --white: #ffffff; --off-white: #f7f9f2; --text: #1a1a1a; --text-muted: #4a5568; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); overflow-x: hidden; }
 
+    /* NAV */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(15,61,31,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.07); transition: all 0.3s; }
+    .navbar.scrolled { height: 60px; background: rgba(15,61,31,0.99); box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand img { height: 42px; width: auto; border-radius: 6px; background: white; }
+    .nav-brand-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); line-height: 1.2; }
+    .nav-brand-text span { display: block; font-size: 0.65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0.9rem; border-radius: 8px; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active-page { color: var(--gold); background: rgba(255,224,102,0.1); }
+    .nav-links .nav-cta { background: var(--gold); color: var(--forest); font-weight: 700; }
+    .nav-links .nav-cta:hover { background: white; color: var(--forest); }
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--forest); border-radius: 12px; padding: 0.5rem; min-width: 200px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 0.6rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.88rem; background: none; }
+    .dropdown-menu a:hover { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-toggle span { width: 24px; height: 2px; background: white; border-radius: 2px; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--forest); padding: 1.5rem 5vw; gap: 0.25rem; border-bottom: 2px solid var(--mid-green); align-items: flex-start; } .dropdown-menu { position: static; background: rgba(255,255,255,0.05); box-shadow: none; border: none; margin-left: 1rem; } }
 
-        .admin-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-bottom: 2,5rem;
-        }
-        .admin-card{
-            flex: 1 1 260px;
-            min-width: 240px;
-            max-width: 340px;
-            background: var(--white);
-            border-radius: 14px;
-            box-shadow: 0 2px 12px rgba(20,83,45,0.08);
-            padding: 2rem 1.2rem 1.5rem 1.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    /* PAGE HERO */
+    .page-hero { padding: 140px 5vw 80px; background: linear-gradient(135deg, var(--forest) 0%, #1a5c35 100%); position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40%; background: linear-gradient(160deg, rgba(255,224,102,0.07), transparent); clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%); pointer-events: none; }
+    .page-hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 1rem; }
+    .page-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.75); font-weight: 300; max-width: 520px; line-height: 1.7; }
+    .open-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,224,102,0.15); border: 1px solid rgba(255,224,102,0.35); color: var(--gold); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .open-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
+    /* CONTENT */
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 80px 5vw; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-green); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--forest); line-height: 1.15; margin-bottom: 1.5rem; }
+    .prose { font-size: 1rem; color: var(--text-muted); line-height: 1.8; font-weight: 300; }
 
+    /* LEVELS */
+    .levels-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 80px; }
+    @media (max-width: 860px) { .levels-layout { grid-template-columns: 1fr; } }
+    .level-block { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(15,61,31,0.07); border: 1.5px solid var(--sage); transition: all 0.3s; }
+    .level-block:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,61,31,0.13); border-color: var(--mid-green); }
+    .level-block img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .level-block-body { padding: 1.8rem; }
+    .level-badge { display: inline-block; background: var(--sage); color: var(--forest); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 0.8rem; }
+    .level-block h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--forest); margin-bottom: 0.7rem; }
+    .level-block p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
 
+    /* FACILITIES */
+    .facilities-band { background: var(--forest); border-radius: 24px; padding: 3rem; margin-bottom: 80px; }
+    .facilities-band .section-label { color: var(--gold); }
+    .facilities-band .section-title { color: white; margin-bottom: 2rem; }
+    .fac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .fac-item { display: flex; align-items: flex-start; gap: 0.7rem; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 1rem 1.2rem; }
+    .fac-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .fac-item p { font-size: 0.9rem; color: rgba(255,255,255,0.78); line-height: 1.55; font-weight: 300; }
 
+    /* STAFF BLOCKS */
+    .staff-section { margin-bottom: 80px; }
+    .staff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr; } }
+    .staff-card { background: white; border-radius: 18px; overflow: hidden; border: 1.5px solid var(--sage); transition: all 0.3s; }
+    .staff-card:hover { border-color: var(--mid-green); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(15,61,31,0.1); }
+    .staff-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .staff-card-body { padding: 1.5rem; }
+    .staff-card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--forest); margin-bottom: 0.5rem; }
+    .staff-card-body p { font-size: 0.93rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
 
+    /* CTA BOX */
+    .cta-box { background: linear-gradient(135deg, var(--forest), #1e6b3a); border-radius: 24px; padding: 3.5rem; text-align: center; margin-bottom: 80px; position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: -40%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,224,102,0.1), transparent 70%); pointer-events: none; }
+    .cta-box h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--gold); margin-bottom: 1rem; position: relative; }
+    .cta-box p { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; font-weight: 300; position: relative; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: var(--forest); font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; transition: all 0.25s; }
+    .btn-primary:hover { background: white; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,224,102,0.35); }
 
+    #social-bar { position: fixed; right: 0; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.5rem; z-index: 900; background: var(--forest); padding: 0.75rem 0.5rem; border-radius: 14px 0 0 14px; }
+    .s-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; text-decoration: none; }
+    .s-icon svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); transition: fill 0.2s; }
+    .s-icon:hover { background: var(--gold); }
+    .s-icon:hover svg { fill: var(--forest); }
+    @media (max-width: 769px) { #social-bar { top: auto; right: auto; bottom: 0; left: 50%; transform: translateX(-50%); flex-direction: row; border-radius: 14px 14px 0 0; } }
 
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            main {
-                max-width: 98vw;
-                padding: 2rem 1vw;
-            }
-        }
-        @media (max-width: 900px) {
-            .navbar {
-                padding: 1.2rem 2vw;
-            }
-            main {
-                padding: 1.5rem 1vw;
-            }
-        }
-        @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.2rem 2vw;
-            }
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                margin-top: 0.5rem;
-                display: none;
-                background: var(--white);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-                border-radius: 0 0 12px 12px;
-                z-index: 99;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-toggle {
-                display: flex;
-            }
-            main {
-                padding: 1rem 2vw;
-            }
-            h1 {
-                font-size: 1.3rem;
-            }
-            .admission-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-        @media (max-width: 500px) {
-            .logo img {
-                height: 32px;
-            }
-            main {
-                padding: 0.5rem 0.5vw;
-            }
-            .admission-links a {
-                padding: 0.7rem 1rem;
-                font-size: 1rem;
-            }
-        }
-        
-    </style>
+    footer { background: var(--forest); padding: 40px 5vw 28px; color: rgba(255,255,255,0.6); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); }
+    .footer-brand small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; font-weight: 300; }
+    .footer-copy { font-size: 0.82rem; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main Navigation">
-  <div class="logo">
-    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
-    Gopherwood School
-  </div>
-  <div
-    class="nav-toggle"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    tabindex="0"
-    role="button"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="schoollogo.jpg" alt="Gopherwood School Logo">
+    <div class="nav-brand-text">Gopherwood School<span>Strength for Excellence</span></div>
+  </a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="dropdown">
-      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurricular</a>
-      <ul id="dropdownn" class="dropdown-content">
+      <a href="#">Academics ▾</a>
+      <ul class="dropdown-menu">
         <li><a href="academics.html">Academic Overview</a></li>
         <li><a href="extracurriculars.html">Extracurricular</a></li>
       </ul>
     </li>
-    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="admissions.html" class="active-page">Admissions</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
 
-    <main>
-        <h1 style="color:var(--primary);font-size:2.1rem;font-weight:800;margin-bottom:0.7rem;text-align:center;">Admission</h1>
-        <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
-                <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.2rem;">Admission into all classes is currently ongoing! We welcome applications from families who share our vision for academic excellence and holistic development. Please review the steps below to begin your child's journey at Gopherwood School.</p>
-                <img style="width:60%;" src="images/FLIER FOR COLLEGE.png" alt="">
-        </div>
-        <div class="admin-container" >
-            <div class="admin-card" >
-                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">1</div>
-                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Purchase Admission Form</h2>
-                <p style="font-size:1.02rem;line-height:1.6;">Obtain the admission form from the school or purchase it online. Complete the form with accurate information.</p>
-                <a target="_blank" href="https://wa.me/2349123003595" style="margin-top:0.7rem;background:var(--banner);color:var(--primary);padding:0.7rem 1.5rem;border-radius:7px;font-weight:700;text-decoration:none;transition:background 0.2s;">Purchase online</a>
-            </div>
-            <div class="admin-card">
-                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">2</div>
-                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Submit Completed Form</h2>
-                <p style="font-size:1.02rem;line-height:1.6;">Return the completed form to the school office with all required documents (birth certificate, passport photos, previous school results, etc).</p>
-            </div>
-            <div class="admin-card">
-                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">3</div>
-                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Entrance Assessment</h2>
-                <p style="font-size:1.02rem;line-height:1.6;">Your child will be invited for an entrance assessment and interview. The date will be communicated after form submission.</p>
-            </div>
-            <div class="admin-card">
-                <div style="font-size:2.2rem;color:var(--secondary);margin-bottom:0.7rem;">4</div>
-                <h2 style="color:var(--primary);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Admission Offer</h2>
-                <p style="font-size:1.02rem;line-height:1.6;">Successful candidates will receive an admission offer. Acceptance and payment of fees will secure your child's place.</p>
-            </div>
-        </div>
-        <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
-            <h3 style="color:var(--primary);font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Need Help?</h3>
-            <p style="font-size:1.05rem;">For more information, please call <a href="tel:+2348057713103" style="color:var(--secondary);font-weight:700;text-decoration:none;">0805 771 3103,</a> <a href="tel:+2348039246448" style="color:var(--secondary);font-weight:700;text-decoration:none;">0803 924 6448,</a> <a href="tel:+2348037380377" style="color:var(--secondary);font-weight:700;text-decoration:none;">0803 738 0377</a>  or email <a href="mailto:info@gopherwoodschool.edu" style="color:var(--secondary);font-weight:700;text-decoration:none;">info@gopherwoodschool.edu</a>.</p>
-        </div>
-        <div style="max-width:700px;margin:0 auto 2.2rem auto;text-align:center;">
-            <a href="#" style="background:var(--highlight);color:var(--white);padding:1rem 2.5rem;border-radius:30px;font-weight:700;font-size:1.1rem;text-decoration:none;transition:background 0.2s;">Apply Online</a>
-        </div>
-        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin:3.5rem 0 2.5rem 0;">
-            
-        </section>
-        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">
-            <!-- creche --> 
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">CRECHE</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/creche.jpg" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">This school consists of children from the ages three months to 1 year. Our Creche school provides specialized care for infants during their most critical developmental period, focusing on physical, cognitive, and social-emotional growth through individualized attention and responsive caregiving. </p>
-            </div>
-            <!-- Play-grp -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">PLAY-GROUP</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/play-group.JPG" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Play-group consists of children of ages 1 year to 3 years in the Play-group 1 and 2 classes. These classes are essentially play groups with the help of experienced supervisor Who ensure cleanliness, safety and comfort of these children at all times. Pupils are introduced to the Montessori tools under the guidance of trained Montessori teachers.</p>
-            </div>
-            <!-- Nursery -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">NURSERY</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/nursery.JPG" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">This school consists of children between the ages 3 to 5. Formal academic work starts under the guidance of Montessori trained class teachers and at least two class assistants.</p>
-            </div>
-             <!-- Primary -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">PRIMARY</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/pry.JPG" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Children admitted into the primary school are 5 years old and above. We encourage the class teaching system whereby pupils learn from their class teachers by direct contact through examples.</p>
-            </div>
-        </section>
-        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">
-           
-            <!-- College -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">COLLEGE</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/college.JPG" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">At Gopherwood School, our College offers a broad and balanced curriculum designed to foster academic excellence, character development, and lifelong learning. We admit students who are ready to build on a strong foundational education and grow into well-rounded individuals.
-
-Subjects offered in the secondary school include Mathematics, English Language, Literature-in-English, Biology, Physics, Chemistry, E.T.C.</p>
-            </div>
-            <!-- Facilities -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">FACILITIES</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <ul style="font-size:1.08rem;line-height:1.7;color:var(--text);padding-left:1.2em;">
-                    <li>Spacious and well-equipped classrooms with air conditioners.</li>
-                    <li>Modern and audio-visual teaching aids.</li>
-                    <li>Comprehensive CCTV surveillance system monitored by trained staff to ensure security and safety across all school premises.</li>
-                    <li>Computer based teaching equipment.</li>
-                    <li>Well-equipped sickbay with qualified nurses</li>
-                    <li>Ultramodern laboratories.</li>
-                    <li>New fleet of air conditioner buses for effective transportation.</li>
-                    <li>Constant power supply (Powered by 100KVA Generator)</li>
-                    <li>NURSERY/PRIMARY</li>
-                </ul>
-            </div>
-            <!-- Teaching Staff -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">TEACHING STAFF</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/teach.JPG" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">Our Academic members of staff are professionals in their various field. Specialist teachers are however employed who can teach all subjects.</p>
-            </div>
-            <!-- Non-Staffing -->
-            <div style="flex:1 1 340px;min-width:260px;max-width:540px;">
-                <h2 style="text-align:center;font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.2rem;letter-spacing:1px;">NON-STAFFING</h2>
-                <div style="width:60px;height:3px;background:var(--highlight);margin:0.5rem auto 1.2rem auto;"></div>
-                <img src="images/non-teach.JPG" style="max-width:300px; display: block; margin: 0 auto; margin-bottom: 1.2rem; border-radius: 20%;"  alt="">
-                <p style="font-size:1.08rem;line-height:1.7;color:var(--text);margin:0;">The management of Gopherwood School places a high premium on professionalism in staff recruitment. This way, we have gathered a team of loving, self-motivated qualified and experienced teaching staff.</p>
-            </div>
-        </section>
-        <section style="display:flex;flex-wrap:wrap;gap:2.5rem;align-items:stretch;justify-content:space-between;margin-bottom:2.5rem;">
-            
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
-    </footer>
-    <div id="social-media-bar">
-    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
-        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
-    </a>
-    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
-        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
-        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
-    </a>
-    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
-        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
-    </a>
+<div class="page-hero">
+  <div class="open-badge">Now Enrolling 2026/2027</div>
+  <h1>Admissions at<br>Gopherwood School</h1>
+  <p>We welcome applications from families who share our commitment to excellence, character, and lifelong learning.</p>
 </div>
 
-    <script>
-    // Mobile nav toggle
-    const navToggle = document.getElementById("nav-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const dropdown = document.querySelector(".dropdown");
-  const dropdownContent = document.querySelector(".dropdown-content");
-  const currentPage = window.location.pathname.split("/").pop();
-
-  navToggle.addEventListener("click", () => {
-    const expanded = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", !expanded);
-    navLinks.classList.toggle("active");
-    navToggle.classList.toggle("open");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-      navLinks.classList.remove("active");
-      navToggle.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", false);
-      dropdownContent.classList.remove("show");
-    }
-  });
-
-  dropdown.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownContent.classList.toggle("show");
-  });
-
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-page");
-    }
+<div class="page-content">
   
 
+  <!-- LEVELS -->
+  <div class="reveal">
+    <p class="section-label">Join Our School</p>
+    <h2 class="section-title">Admission Levels</h2>
+  </div>
 
-        // Social icons animation
-        document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.13) rotate(-6deg)';
-                this.style.boxShadow = '0 4px 18px rgba(20,83,45,0.18)';
-            });
-            icon.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
-            });
-            icon.addEventListener('mousedown', function() {
-                this.style.transform = 'scale(0.97)';
-            });
-            icon.addEventListener('mouseup', function() {
-                this.style.transform = 'scale(1.13) rotate(-6deg)';
-            });
-        });
-    });
-    </script>
+  <div class="levels-layout reveal">
+    <div class="level-block">
+      <img src="images/nursery.JPG" alt="Nursery" onerror="this.style.background='var(--sage)';this.style.height='200px';this.removeAttribute('src')">
+      <div class="level-block-body">
+        <span class="level-badge">Ages 3 – 5</span>
+        <h3>Nursery</h3>
+        <p>This school consists of children between the ages 3 to 5. Formal academic work starts under the guidance of Montessori-trained class teachers and at least two class assistants.</p>
+      </div>
+    </div>
+    <div class="level-block">
+      <img src="images/pry.JPG" alt="Primary" onerror="this.style.background='var(--sage)';this.style.height='200px';this.removeAttribute('src')">
+      <div class="level-block-body">
+        <span class="level-badge">Ages 5+</span>
+        <h3>Primary</h3>
+        <p>Children admitted into the primary school are 5 years old and above. We encourage the class teaching system whereby pupils learn from their class teachers by direct contact through examples.</p>
+      </div>
+    </div>
+    <div class="level-block">
+      <img src="images/college.JPG" alt="College" onerror="this.style.background='var(--sage)';this.style.height='200px';this.removeAttribute('src')">
+      <div class="level-block-body">
+        <span class="level-badge">Secondary</span>
+        <h3>College</h3>
+        <p>At Gopherwood School, our College offers a broad and balanced curriculum designed to foster academic excellence, character development, and lifelong learning. Subjects include Mathematics, English Language, Literature, Biology, Physics, Chemistry, and more.</p>
+      </div>
+    </div>
+    <div class="level-block" style="background: var(--forest); border-color: var(--forest);">
+      <div class="level-block-body" style="padding: 2.5rem;">
+        <div style="font-size: 0.82rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;">Ready to Apply?</div>
+        <h3 style="color: white; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">Give Your Child a World-Class Education</h3>
+        <p style="color: rgba(255,255,255,0.72); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.8rem; font-weight: 300;">Contact our admissions office today to schedule a tour, ask questions, or begin your application.</p>
+        <a href="contact.html" class="btn-primary">Contact Admissions →</a>
+      </div>
+    </div>
+  </div>
+
+<div class="reveal">
+      <img src="images/Second Flier.png" alt="Admissions Hero Image" ;this.style.height='200px';this.removeAttribute('src')" style="position: center; bottom: 0; left: 0; width: 100%; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(15,61,31,0.2);">
+
+</div>
+
+  <!-- FACILITIES -->
+  <div class="facilities-band reveal">
+    <p class="section-label">Campus</p>
+    <h2 class="section-title">Our Facilities</h2>
+    <div class="fac-grid">
+      <div class="fac-item"><div class="fac-icon">❄️</div><p>Spacious, well-equipped classrooms with air conditioners</p></div>
+      <div class="fac-item"><div class="fac-icon">📽️</div><p>Modern audio-visual teaching aids</p></div>
+      <div class="fac-item"><div class="fac-icon">📷</div><p>Comprehensive CCTV surveillance monitored by trained staff</p></div>
+      <div class="fac-item"><div class="fac-icon">💻</div><p>Computer-based teaching equipment and ICT labs</p></div>
+      <div class="fac-item"><div class="fac-icon">🏥</div><p>Well-equipped sickbay with qualified nurses</p></div>
+      <div class="fac-item"><div class="fac-icon">🔬</div><p>Ultramodern science laboratories</p></div>
+      <div class="fac-item"><div class="fac-icon">🚌</div><p>New fleet of air-conditioned buses for transportation</p></div>
+      <div class="fac-item"><div class="fac-icon">⚡</div><p>Constant power supply powered by 100KVA generator</p></div>
+    </div>
+  </div>
+
+  <!-- STAFF -->
+  <div class="staff-section reveal">
+    <p class="section-label">Our Team</p>
+    <h2 class="section-title">Teaching & Non-Teaching Staff</h2>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <img src="images/teach.JPG" alt="Teaching Staff" onerror="this.style.background='var(--sage)';this.style.height='220px';this.removeAttribute('src')">
+        <div class="staff-card-body">
+          <h3>Teaching Staff</h3>
+          <p>Our academic members of staff are professionals in their various fields. Specialist teachers are employed who can expertly teach all subjects, ensuring every student receives quality instruction.</p>
+        </div>
+      </div>
+      <div class="staff-card">
+        <img src="images/non-teach.JPG" alt="Non-Teaching Staff" onerror="this.style.background='var(--sage)';this.style.height='220px';this.removeAttribute('src')">
+        <div class="staff-card-body">
+          <h3>Non-Teaching Staff</h3>
+          <p>The management of Gopherwood School places a high premium on professionalism in staff recruitment. We have gathered a team of loving, self-motivated, qualified, and experienced support staff.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h2>Start Your Journey with Us</h2>
+    <p>Admissions for the 2026/2027 academic year are now open. Take the first step toward giving your child an exceptional education.</p>
+    <a href="contact.html" class="btn-primary">Get in Touch →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Gopherwood School<small>Strength for Excellence · Lagos, Nigeria</small></div>
+    <div class="footer-copy">&copy; 2026 Gopherwood School. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="social-bar">
+  <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener" class="s-icon" aria-label="Facebook"><svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z"/></svg></a>
+  <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener" class="s-icon" aria-label="YouTube"><svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg></a>
+  <a href="https://www.instagram.com/gopherwood.school" target="_blank" rel="noopener" class="s-icon" aria-label="Instagram"><svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z"/></svg></a>
+  <a href="mailto:gopherwoodschool@yahoo.com" class="s-icon" aria-label="Email"><svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg></a>
+</div>
+
+<script src="script.js">
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', open); });
+  document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 }).observe(el));
+</script>
 </body>
 </html>

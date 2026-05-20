@@ -1,1427 +1,547 @@
-<!-- Advanced School Website - Inspired by Honeychool -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- SEO & Accessibility -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gopherwood School | Strength for Excellence</title>
-    <meta name="description" content="Gopherwood School offers a blend of British and Nigerian curricula, nurturing academic excellence, character, and creativity.">
-    <meta name="keywords" content="Gopherwood School, Lagos, Gopher, Wood, School, British curriculum, Nigerian curriculum, education, primary, secondary, nursery">
-    <meta property="og:title" content="Gopherwood School | Strength for Excellence">
-    <meta property="og:description" content="A leading school in Lagos offering a blend of British and Nigerian curricula.">
-    <meta property="og:image" content="https://www.gopherwoodschool.com/images/og-image.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gopherwoodschool.com/">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="canonical" href="https://www.gopherwoodschool.com/">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    <style>
-        :root {
-            --primary: #14532d; /* dark green */
-            --secondary: #4ca44c; /* medium green */
-            --accent: #e6efc2; /* light green */
-            --banner: #ffe066; /* yellow */
-            --highlight: #e63946; /* red */
-            --white: #fff;
-            --text: #222;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            margin: 0;
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: var(--accent);
-            color: var(--text);
-        }
-        body, input, textarea, button {
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-       
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-        #logo{
-            height:54px;
-            width:auto;
-            margin-right:1rem;
-            vertical-align:middle;
-            border-radius:8px;
-            background:#fff;
-            box-shadow:0 1px 6px rgba(20,83,45,0.08);
-        }
-
-
-
-        .nav-toggle.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .nav-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-  .nav-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background: var(--white);
-    box-shadow: 0 2px 8px rgba(20, 83, 45, 0.1);
-    border-radius: 8px;
-    animation: fadeIn 0.3s ease forwards;
-  }
-  .dropdown-content.show {
-    display: block;
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .nav-links a.active-page {
-    color: var(--highlight);
-    font-weight: bold;
-    position: relative;
-  }
-  .nav-links a.active-page::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: var(--highlight);
-    left: 0;
-    bottom: -4px;
-    border-radius: 4px;
-  }
-        .hero {
-            background: url('/images/headerimg1.JPG') center/cover no-repeat;
-            color: var(--white);
-            padding: 6rem 0 4rem 0;
-            text-align: center;
-            position: relative;
-        }
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .hero-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: var(--banner);
-            text-shadow: 2px 2px 8px rgba(20,83,45,0.2);
-        }
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-        #home{
-            background: linear-gradient(rgba(20,83,45,0.7),rgba(76,164,76,0.6));
-            padding-bottom: 30px;
-        }
-        .cta-btn {
-            background: var(--banner);
-            color: var(--primary);
-            padding: 0.9rem 2.2rem;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.2s, color 0.2s;
-            box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-        }
-        .cta-btn:hover {
-            background: var(--highlight);
-            color: var(--white);
-        }
-        main {
-            padding: 2.5rem 5vw 2rem 5vw;
-        }
-        .section {
-            margin-bottom: 3.5rem;
-            background: var(--white);
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(20,83,45,0.07);
-            padding: 2.5rem 2vw;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
-        }
-        .section.visible {
-            opacity: 1;
-            transform: none;
-        }
-        .section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin: 2rem 0 3rem 0;
-        }
-        .stat {
-            background: var(--banner);
-            color: var(--primary);
-            border-radius: 12px;
-            padding: 1.2rem 2rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            box-shadow: 0 1px 6px rgba(20,83,45,0.06);
-            min-width: 120px;
-            text-align: center;
-        }
-        .stat .counter {
-            font-size: 2.2rem;
-            font-weight: 900;
-            display: block;
-        }
-        .academics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-        .academic-card {
-            background: var(--accent);
-            border-radius: 12px;
-            padding: 1.5rem 1rem;
-            box-shadow: 0 1px 6px rgba(20,83,45,0.06);
-            text-align: center;
-        }
-        .academic-card h3 {
-            color: var(--secondary);
-            margin-bottom: 0.7rem;
-        }
-        .admissions {
-            text-align: center;
-        }
-        .news-list {
-            list-style: none;
-            padding: 0;
-        }
-        .news-list li {
-            margin-bottom: 0.8rem;
-            font-size: 1.08rem;
-        }
-        .testimonials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        .testimonial {
-            background: var(--accent);
-            border-radius: 12px;
-            box-shadow: 0 1px 6px rgba(20,83,45,0.06);
-            padding: 1.5rem 1rem;
-            max-width: 320px;
-            text-align: left;
-        }
-        .testimonial .author {
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 1rem;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 400px;
-            margin-bottom: 1.5rem;
-        }
-        .contact-form input, .contact-form textarea {
-            padding: 0.8rem;
-            border: 1px solid #cfd8dc;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        .contact-form textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-        .contact-form button {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 30px;
-            padding: 0.8rem 0;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .contact-form button:hover {
-            background: var(--highlight);
-            color: var(--white);
-        }
-        .contact-info {
-            font-size: 1.05rem;
-            color: var(--primary);
-        }
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 1.2rem 0;
-            font-size: 1rem;
-            margin-top: 2rem;
-        }
-       
-        @media (max-width: 700px) {
-           
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            main {
-                padding: 1.2rem 2vw;
-            }
-            .section {
-                padding: 1.2rem 2vw;
-            }
-            .stats {
-                flex-direction: column;
-                gap: 1.2rem;
-            }
-        }
-        @media (max-width: 500px) {
-            .section, .themed-section, main {
-                padding: 0.7rem 1vw;
-            }
-        }
-        
-        /* Admissions Modal Styles */
-        #admissions-modal {
-            align-items: center;
-            justify-content: center;
-        }
-        #admissions-modal > div {
-            max-width: 650px;
-            width: 95vw;
-            border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(20,83,45,0.18);
-            overflow: hidden;
-            display: flex;
-            flex-direction: row;
-            background: var(--white);
-            position: relative;
-        }
-        #admissions-modal > div > div:first-child {
-            flex: 1;
-            min-width: 160px;
-            background: url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
-            height: 260px;
-            display: block;
-        }
-        #admissions-modal > div > div:last-child {
-            flex: 1.2;
-            padding: 2.2rem 1.5rem 1.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-        @media (max-width: 600px) {
-            #admissions-modal > div {
-                flex-direction: column;
-                max-width: 98vw;
-                width: 98vw;
-                min-width: 0;
-                border-radius: 12px;
-            }
-            #admissions-modal > div > div:first-child {
-                min-width: 0;
-                width: 100%;
-                height: 120px;
-                border-radius: 12px 12px 0 0;
-            }
-            #admissions-modal > div > div:last-child {
-                padding: 1.2rem 1rem 1rem 1rem;
-            }
-            #admissions-modal {
-                padding: 0 2vw;
-            }
-            #modal-close-btn {
-                top: 10px !important;
-                right: 14px !important;
-                font-size: 1.4rem !important;
-            }
-        }
-        @media (max-width: 400px) {
-            #admissions-modal > div {
-                max-width: 100vw;
-                width: 100vw;
-                min-width: 0;
-                border-radius: 8px;
-            }
-            #admissions-modal > div > div:first-child {
-                height: 80px;
-                border-radius: 8px 8px 0 0;
-            }
-            #admissions-modal > div > div:last-child {
-                padding: 0.7rem 0.5rem 0.7rem 0.5rem;
-            }
-            #modal-close-btn {
-                top: 6px !important;
-                right: 8px !important;
-                font-size: 1.1rem !important;
-            }
-            #admissions-modal {
-                padding: 0;
-            }
-            #admissions-modal > div > div:last-child > div,
-            #admissions-modal > div > div:last-child > button {
-                font-size: 0.95rem !important;
-            }
-        }
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: none;
-        }
-        /* Social Media Bar Styles */
-        #social-media-bar {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1.1rem;
-            z-index: 9998;
-            background: rgba(134, 22, 22, 0.85);
-            border-radius: 16px 0 0 16px;
-            box-shadow: 0 2px 16px rgba(20,83,45,0.13);
-            padding: 0.7rem 0.3rem 0.7rem 0.4rem;
-            transition: right 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.2s;
-        }
-        #social-media-bar:hover {
-            right: 0.5rem;
-            box-shadow: 0 4px 24px rgba(20,83,45,0.18);
-        }
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            margin: 0 auto;
-            border-radius: 50%;
-            background: var(--white);
-            box-shadow: 0 1px 6px rgba(20,83,45,0.08);
-            transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
-            font-size: 1.5rem;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            outline: none;
-        }
-        .social-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--primary);
-            transition: fill 0.22s;
-        }
-        .social-icon.facebook:hover { background: #1877f3; }
-        .social-icon.facebook:hover svg { fill: #fff; animation: bounce 0.5s; }
-        .social-icon.twitter:hover { background: #1da1f2; }
-        .social-icon.twitter:hover svg { fill: #fff; animation: bounce 0.5s; }
-        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
-        .social-icon.instagram:hover svg { fill: #fff; animation: bounce 0.5s; }
-        .social-icon.email:hover { background: var(--highlight);}
-        .social-icon.email:hover svg { fill: #fff; animation: bounce 0.5s; }
-        @keyframes bounce {
-            0% { transform: scale(1);}
-            30% { transform: scale(1.18);}
-            60% { transform: scale(0.93);}
-            100% { transform: scale(1);}
-        }
-        /* Responsive Social Media Bar */
-       @media (max-width: 769px) {
-    #social-media-bar {
-        bottom: 0.7rem;
-        top: auto;
-        right: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-        border-radius: 16px 16px 0 0;
-        padding: 0.5rem 1rem;
-        width: auto;
-        max-width: 90vw;
-    }
-}
-
-/* Small Devices */
-@media (max-width: 500px) {
-    #social-media-bar {
-        padding: 0.4rem 0.6rem;
-        gap: 0.6rem;
-    }
-    .social-icon {
-        width: 34px;
-        height: 34px;
-    }
-    .social-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* Extra Small Devices (e.g., <375px) */
-@media (max-width: 375px) {
-    #social-media-bar {
-        gap: 0.5rem;
-        padding: 0.3rem 0.4rem;
-    }
-    .social-icon {
-        width: 30px;
-        height: 30px;
-    }
-    .social-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-}
-.advanced-welcome {
-    position: relative;
-    min-height: 420px;
-    padding: 0;
-    margin-bottom: 3.5rem;
-    overflow: hidden;
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(20,83,45,0.09);
-    background: linear-gradient(120deg, #e6efc2 60%, #ffe066 100%);
-}
-.welcome-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(20,83,45,0.08) 60%, rgba(230,239,194,0.7) 100%);
-    z-index: 1;
-}
-.welcome-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3.5rem 4vw 2.5rem 4vw;
-    gap: 2.5rem;
-}
-.welcome-left {
-    flex: 1 1 340px;
-    min-width: 270px;
-    max-width: 540px;
-}
-.welcome-right {
-    flex: 1 1 320px;
-    min-width: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1.2rem;
-}
-.welcome-left h2 {
-    font-size: 2.3rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 1.1rem;
-    line-height: 1.18;
-    letter-spacing: 1px;
-}
-.welcome-highlight {
-    color: var(--secondary);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.welcome-school {
-    color: var(--primary);
-    font-size: 2.5rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    display: block;
-    margin-top: 0.2rem;
-}
-.welcome-quote {
-    font-size: 1.13rem;
-    color: #2d3a2e;
-    background: rgba(255,255,255,0.85);
-    border-left: 5px solid var(--secondary);
-    padding: 1.1rem 1.2rem 1.1rem 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1.2rem;
-    margin-top: 0.2rem;
-    position: relative;
-    box-shadow: 0 1px 8px rgba(20,83,45,0.06);
-}
-.quote-icon {
-    color: var(--banner);
-    font-size: 1.5rem;
-    vertical-align: middle;
-    margin: 0 0.2rem;
-}
-.welcome-values {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
-}
-.welcome-values li {
-    font-size: 1.08rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-weight: 500;
-}
-.welcome-values li span {
-    color: var(--secondary);
-    font-size: 1.2rem;
-}
-.welcome-cta {
-    margin-top: 0.7rem;
-    font-size: 1.13rem;
-    padding: 0.9rem 2.3rem;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 30px;
-    font-weight: 700;
-    box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-    transition: background 0.2s, color 0.2s;
-    border: none;
-    text-decoration: none;
-    display: inline-block;
-}
-.welcome-cta:hover {
-    background: var(--highlight);
-    color: var(--white);
-}
-.welcome-img-card {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 10 / 9; /* maintains width-to-height ratio */
-    border-radius: 18px;
-    overflow: visible;
-    box-shadow: 0 4px 24px rgba(20, 83, 45, 0.13);
-    background: #fff;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.welcome-img.main-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(20, 83, 45, 0.13);
-    position: absolute;
-    left: 14%;
-    bottom: 0;
-    z-index: 2;
-    border: 4px solid var(--white);
-}
-
-.welcome-img.overlay-img {
-    width: 60%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px;
-    position: absolute;
-    left: -10%;
-    top: 5%;
-    z-index: 1;
-    border: 3px solid var(--accent);
-    box-shadow: 0 1px 8px rgba(20, 83, 45, 0.08);
-    opacity: 0.93;
-}
-
-.welcome-img.overlay-img2 {
-    width: 43%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-    position: absolute;
-    right: -36%;
-    bottom: -10%;
-    z-index: 3;
-    border: 2px solid var(--banner);
-    box-shadow: 0 1px 8px rgba(20, 83, 45, 0.08);
-    opacity: 0.93;
-}
-
-.welcome-badge {
-    margin-top: 1.7rem;
-    background: var(--banner);
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 1.07rem;
-    padding: 0.7rem 1.5rem;
-    border-radius: 22px;
-    box-shadow: 0 1px 8px rgba(20,83,45,0.08);
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    letter-spacing: 1px;
-}
-.badge-icon {
-    font-size: 1.3rem;
-    margin-right: 0.5rem;
-}
-
-
-
-
-.anniversary-countdown {
-          margin: 2rem auto 0 auto;
-          padding: 1.3rem 1.5rem 1.1rem 1.5rem;
-          background: linear-gradient(90deg, #ffe066 60%, #e6efc2 100%);
-          border-radius: 16px;
-          box-shadow: 0 2px 12px rgba(20,83,45,0.11);
-          max-width: 350px;
-          text-align: center;
-          animation: fadeInAnniv 1.2s cubic-bezier(.4,0,.2,1);
-        }
-        .countdown-title {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: var(--primary);
-          margin-bottom: 0.7rem;
-          letter-spacing: 1px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-          animation: popIn 1s cubic-bezier(.4,0,.2,1);
-        }
-        .countdown-timer {
-          display: flex;
-          justify-content: center;
-          gap: 1.1rem;
-          margin-bottom: 0.7rem;
-        }
-        .countdown-timer div {
-          background: var(--white);
-          border-radius: 10px;
-          padding: 0.6rem 0.7rem;
-          min-width: 54px;
-          box-shadow: 0 1px 6px rgba(20,83,45,0.07);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          animation: bounceIn 1.2s cubic-bezier(.4,0,.2,1);
-        }
-        .countdown-timer span {
-          display: block;
-        }
-        .countdown-timer #days,
-        .countdown-timer #hours,
-        .countdown-timer #minutes,
-        .countdown-timer #seconds {
-          font-size: 1.5rem;
-          font-weight: 800;
-          color: var(--secondary);
-          letter-spacing: 1px;
-          margin-bottom: 0.1rem;
-          transition: color 0.3s;
-        }
-        .countdown-timer .label {
-          font-size: 0.85rem;
-          color: var(--primary);
-          font-weight: 600;
-        }
-        .countdown-footer {
-          font-size: 1rem;
-          color: #444;
-          margin-top: 0.3rem;
-          animation: fadeInAnniv 1.5s cubic-bezier(.4,0,.2,1);
-        }
-        @keyframes fadeInAnniv {
-          from { opacity: 0; transform: translateY(30px);}
-          to { opacity: 1; transform: none;}
-        }
-        @keyframes popIn {
-          from { opacity: 0; transform: scale(0.85);}
-          to { opacity: 1; transform: scale(1);}
-        }
-        @keyframes bounceIn {
-          0% { transform: scale(0.7);}
-          60% { transform: scale(1.1);}
-          100% { transform: scale(1);}
-        }
-        @media (max-width: 600px) {
-          .anniversary-countdown {
-            max-width: 98vw;
-            padding: 1rem 0.5rem;
-          }
-          .countdown-timer div {
-            min-width: 38px;
-            padding: 0.4rem 0.3rem;
-          }
-          .countdown-timer #days,
-          .countdown-timer #hours,
-          .countdown-timer #minutes,
-          .countdown-timer #seconds {
-            font-size: 1.1rem;
-          }
-        }
-
-
-
-
-
-@media (max-width: 900px) {
-    .welcome-content {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 2.2rem 2vw 1.5rem 2vw;
-    }
-    .welcome-img-card {
-        display: none;
-        width: 210px;
-        height: 170px;
-    }
-    .mobile-only{
-        display: block;
-    }
-}
-@media (max-width: 600px) {
-    .advanced-welcome {
-        border-radius: 10px;
-        margin-bottom: 2rem;
-    }
-    .welcome-content {
-        padding: 1.2rem 1vw 1.2rem 1vw;
-    }
-    .welcome-left h2 {
-        font-size: 1.3rem;
-    }
-    .welcome-school {
-        font-size: 1.5rem;
-    }
-    .welcome-img-card {
-        width: 120px;
-        height: 90px;
-    }
-    .welcome-img.main-img {
-        width: 60px;
-        height: 60px;
-        left: 20px;
-    }
-    .welcome-img.overlay-img {
-        width: 38px;
-        height: 38px;
-        left: -8px;
-        top: 4px;
-    }
-    .welcome-img.overlay-img2 {
-        width: 28px;
-        height: 28px;
-        right: -6px;
-        bottom: 4px;
-    }
-    .welcome-badge {
-        font-size: 0.97rem;
-        padding: 0.5rem 1rem;
-        margin-top: 1rem;
-    }
-}
-
-/* Themed Section Styles for Facilities, Testimonials, News & Events */
-.themed-section {
-  background: linear-gradient(120deg, var(--accent) 70%, var(--banner) 100%);
-  border-radius: 18px;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 2px 12px rgba(20,83,45,0.07);
-  padding: 3rem 2vw 2.5rem 2vw;
-}
-
-.themed-section h2 {
-  color: var(--primary);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.facility-list,
-.event-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  padding: 0 1rem;
-}
-
-.facility-item,
-.testimonial-item,
-.event-item {
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(20,83,45,0.08);
-  padding: 1.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: slideIn 1.2s ease-in-out forwards;
-  border-left: 5px solid var(--secondary);
-}
-
-.facility-item:hover,
-.testimonial-item:hover,
-.event-item:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(20,83,45,0.13);
-}
-
-.facility-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-}
-
-.facility-item h3,
-.event-item h3 {
-  color: var(--secondary);
-  margin-bottom: 0.7rem;
-  font-size: 1.18rem;
-  font-weight: 700;
-}
-
-.testimonial-list{
-  display: flex;
-  gap: 2rem;
-  padding: 0 1rem;
-}
-@media (max-width: 700px) {
-  .testimonial-list {
-    flex-direction: column;
-    align-items: center;
-  }
-    
-}
-
-.testimonial-item p,
-.event-item p {
-  font-size: 1.05rem;
-  color: var(--text);
-  margin-bottom: 1rem;
-}
-
-.testimonial-item strong {
-  color: var(--primary);
-  font-size: 1.01rem;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 900px) {
-  .themed-section {
-    padding: 2rem 1vw 1.5rem 1vw;
-    border-radius: 12px;
-  }
-  .facility-item img {
-    height: 130px;
-  }
-}
-
-@media (max-width: 600px) {
-  .themed-section {
-    padding: 1.2rem 0.5vw 1.2rem 0.5vw;
-    border-radius: 8px;
-  }
-  .facility-list,
-  .testimonial-list,
-  .event-list {
-    gap: 1rem;
-    padding: 0;
-  }
-  .facility-item img {
-    height: 90px;
-  }
-  .facility-item,
-  .testimonial-item,
-  .event-item {
-    padding: 1rem;
-    border-radius: 10px;
-  }
-  .themed-section h2 {
-    font-size: 1.2rem;
-  }
-}
-
-/* Animations and effects */
-.floating-img {
-  animation: floatY 4s ease-in-out infinite;
-}
-
-.fade-in-delay {
-  opacity: 0;
-  animation: fadeIn 1.2s ease-in 1s forwards;
-}
-
-.fade-in-delay2 {
-  opacity: 0;
-  animation: fadeIn 1.2s ease-in 1.5s forwards;
-}
-
-@keyframes floatY {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Optional: improve text responsiveness */
-.welcome-section h2 {
-  font-size: 2.5rem;
-  line-height: 1.3;
-}
-.welcome-quote {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-top: 1rem;
-}
-.welcome-values li {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-/* Button hover effect */
-.cta-btn {
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.cta-btn:hover {
-  background-color: #2c3e50;
-  transform: scale(1.05);
-}
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gopherwood School | Strength for Excellence</title>
+  <meta name="description" content="Gopherwood School offers a blend of British and Nigerian curricula, nurturing academic excellence, character, and creativity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+ 
 </head>
 <body>
-    
 
-
-
-
-
-    <nav class="navbar" aria-label="Main Navigation">
-  <div class="logo">
-    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
-    Gopherwood School
-  </div>
-  <div
-    class="nav-toggle"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    tabindex="0"
-    role="button"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li class="dropdown">
-      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurricular</a>
-      <ul id="dropdownn" class="dropdown-content">
-        <li><a href="academics.html">Academic Overview</a></li>
-        <li><a href="extracurriculars.html">Extracurricular</a></li>
-      </ul>
-    </li>
-    <li><a href="admissions.html">Admissions</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-    
-
-    <header class="hero" aria-label="School Welcome Banner">
-        <div class="hero-content" id="home">
-            <h1>Welcome to Gopherwood School</h1>
-            <p>We Empower Mind and Hearts to Build Strength for Excellence</p>
-            <div id="hero-popup-text" style="font-size:1.2rem;font-weight:600;margin-top:1.5rem;background:rgba(255,255,255,0.85);color:#14532d;padding:0.7rem 1.2rem;border-radius:12px;box-shadow:0 2px 8px rgba(20,83,45,0.08);display:inline-block;opacity:0;transition:opacity 0.7s;"></div>
-            <a href="#admissions" class="cta-btn">Apply Now</a>
-        </div>
-    </header> 
-    <main>
-       
-        <!-- Welcome Section -->
-<section id="welcome" class="welcome-section advanced-welcome" aria-labelledby="welcome-heading">
-  <div class="welcome-bg"></div>
-  <div class="welcome-content">
-    <div class="welcome-left" data-aos="fade-right" data-aos-duration="1000">
-      <h2 id="welcome-heading">
-        <span class="welcome-highlight">Welcome to</span><br>
-        <span class="welcome-school">Gopherwood School</span>
-      </h2>
-
-      <p class="welcome-quote" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
-        <span class="quote-icon">&#10077;</span>
-                        Welcome to <strong>Gopherwood School</strong>, where we blend the best of British and Nigerian curricula to deliver exceptional educational excellence for your child. <br>Like the biblical Gopherwood tree that provided strength and protection, we offer a solid foundation where young minds develop and achieve their full potential.
-                        <br><br>Our certified teachers don't just educate they inspire curiosity and guide students toward academic success, while our well-equipped laboratories provide hands-on learning experiences that bring science to life. At Gopherwood, we believe every child deserves an education that's both academically rigorous and personally enriching.
-                        Experience excellence in education. Discover Gopherwood School.
-                        Where strength meets nurture, and potential becomes reality.
-                        <span class="quote-icon">&#10078;</span>
-      </p>
-
-      <ul class="welcome-values" data-aos="fade-up" data-aos-delay="400">
-        <li><span>&#10003;</span> Solid educational foundation for every child</li>
-        <li><span>&#10003;</span> Nurturing strength, resilience, and excellence</li>
-        <li><span>&#10003;</span> Guided by faith and purpose</li>
-      </ul>
-
-      <a href="#admissions" class="cta-btn welcome-cta" data-aos="zoom-in" data-aos-delay="600">Experience Gopherwood</a>
-    </div>
-
-    <div class="welcome-right" data-aos="fade-left" data-aos-duration="1000">
-      <div class="welcome-img-card">
-        <img src="images/students.jpg" alt="Gopherwood Students" class="welcome-img main-img floating-img">
-        <img src="images/building.webp" alt="School Building" class="welcome-img overlay-img fade-in-delay">
-        <img src="images/learning.jpg" alt="Learning in Action" class="welcome-img overlay-img2 fade-in-delay2">
-      </div>
-
-
-      <!-- Animated Anniversary Countdown -->
-      <!--<div class="anniversary-countdown" id="anniversary-countdown" aria-live="polite">
-        <div class="countdown-title">
-          <span role="img" aria-label="Party">🎉</span>
-          <h1>21st school Anniversary Countdown</h1>
-          <span role="img" aria-label="Party">🎉</span>
-        </div>
-        <div class="countdown-timer">
-          <div><span id="days">00</span><span class="label">Days</span></div>
-          <div><span id="hours">00</span><span class="label">Hours</span></div>
-          <div><span id="minutes">00</span><span class="label">Minutes</span></div>
-          <div><span id="seconds">00</span><span class="label">Seconds</span></div>
-        </div>
-        <div class="countdown-footer">
-          🌟 Join us as we celebrate twenty incredible years of nurturing minds, building futures, and creating lasting memories! 🌟
-        </div>
-      </div>-->
-
-    
-
-
-
-      <div class="welcome-badge" data-aos="zoom-in-up" data-aos-delay="800">
-        <span class="badge-icon">&#127891;</span>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" aria-label="Main Navigation">
+    <a href="index.html" class="nav-brand">
+      <img src="schoollogo.jpg" alt="Gopherwood School Logo">
+      <div class="nav-brand-text">
+        Gopherwood School
         <span>Strength for Excellence</span>
       </div>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Academics ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="academics.html">Academic Overview</a></li>
+          <li><a href="extracurriculars.html">Extracurricular</a></li>
+        </ul>
+      </li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" aria-label="School Welcome Banner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Now Enrolling 2026/2027 Academic Year</div>
+      <h1>Where <em>Excellence</em><br>Meets Purpose</h1>
+      <p>Gopherwood School blends the best of British and Nigerian curricula to nurture curious minds, strong characters, and exceptional futures.</p>
+      <div class="hero-actions">
+        <a href="#admissions" class="btn-primary">Apply Now →</a>
+        <a href="#welcome" class="btn-outline">Discover Our School</a>
+      </div>
     </div>
-  </div>
-</section> 
+    <br>
 
-
-
-
-
-
-
-
-
-
-        <!-- Facilities Section -->
-        <section id="facilities" class="section facilities themed-section" aria-labelledby="facilities-heading">
-            <div class="container">
-                <h2 id="facilities-heading">Our Facilities</h2>
-                <div class="facility-list">
-                    <div class="facility-item">
-                        <img src="images/library.jpg" alt="School Library" />
-                        <h3>Modern Library</h3>
-                        <p>Fosters reading and research with rich learning resources.</p>
-                    </div>
-                    <div class="facility-item">
-                        <img src="images/lab.jpg" alt="Science Lab" />
-                        <h3>Science Laboratory</h3>
-                        <p>Practical scientific exploration and learning for all ages.</p>
-                    </div>
-                    <div class="facility-item">
-                        <img src="images/ict-lab.jpg" alt="ICT Lab" />
-                        <h3>ICT Lab</h3>
-                        <p>Digital literacy and hands-on computer training.</p>
-                    </div>
-                    <div class="facility-item">
-                        <img src="images/playgnd.jpg" alt="Playground" />
-                        <h3>Playground</h3>
-                        <p>Outdoor fun for physical and social development.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Gallery/Carousel -->
-        <section id="gallery" class="section themed-section" aria-labelledby="gallery-heading">
-            <h2 id="gallery-heading">Gallery <a href="extracurriculars.html" class="cta-btn" style="margin-left:1rem;font-size:1rem;padding:0.5rem 1.2rem;vertical-align:middle;" aria-label="See all news and events" target="_blank" rel="noopener noreferrer">
-                See All
-            </a></h2>
-            <div class="gallery-carousel" tabindex="0" aria-label="School Facilities Gallery" style="position:relative;max-width:600px;margin:auto;">
-                <img src="images/headerimg3.JPG" alt="img1" class="gallery-img" style="width:100%;display:block;border-radius:16px;">
-                <img src="images/headerimg1.JPG" alt="img" class="gallery-img" >
-                <img src="images/headerimg2.jpeg" alt="img 1" class="gallery-img" >
-                <img src="images/gallery1.JPG" alt="img" class="gallery-img" >
-                <img src="images/gallery2.JPG" alt="img" class="gallery-img" >
-                <img src="images/gallery3.JPG" alt="img" class="gallery-img" >
-                <img src="images/gallery4.JPG" alt="img" class="gallery-img">
-                <img src="images/gallery5.JPG" alt="img" class="gallery-img">
-                <img src="images/gallery6.JPG" alt="img" class="gallery-img">
-               
-            </div>
-        </section>
-        <!-- Gallery Modal -->
-        <div id="gallery-modal" style="display:none;position:fixed;z-index:99999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
-          <button id="gallery-prev" aria-label="Previous" >&#10094;</button>
-          <img id="gallery-modal-img" src="" alt="Gallery enlarged" style="max-width:96vw;max-height:90vh;border-radius:12px;box-shadow:0 4px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
-          <button id="gallery-next" aria-label="Next">&#10095;</button>
-          <button id="gallery-close" aria-label="Close" style="position:absolute;top:2vh;right:3vw;background:none;border:none;font-size:2.5rem;color:#fff;cursor:pointer;z-index:2;">&times;</button>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div>
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">Years of<br>Excellence</div>
         </div>
-       
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const imgs = document.querySelectorAll('.gallery-img');
-            let idx = 0;
-            function showImg(i) {
-                imgs.forEach((img, j) => img.style.display = j === i ? 'block' : 'none');
-            }
-            document.querySelector('.gallery-prev').onclick = () => { idx = (idx-1+imgs.length)%imgs.length; showImg(idx); };
-            document.querySelector('.gallery-next').onclick = () => { idx = (idx+1)%imgs.length; showImg(idx); };
-            showImg(idx);
-        });
-        </script>
+      </div>
+      <div class="hero-stat">
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Students<br>Enrolled</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div>
+          <div class="hero-stat-num">50+</div>
+          <div class="hero-stat-label">Certified<br>Teachers</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div>
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">National<br>Awards</div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section testimonials themed-section" aria-labelledby="testimonials-heading">
-            <div class="container">
-                <h2 id="testimonials-heading">What Parents Say</h2>
-                <div class="testimonial-list">
-                    <div class="testimonial-item">
-                        <p>"Gopherwood School has been a blessing to our family. My son is more confident and focused!"</p>
-                        <strong>— Mrs. Adebayo</strong>
-                    </div>
-                    
-                    <div class="testimonial-item">
-                        <p>"I appreciate this school for its strong emphasis on discipline and structure."</p>
-                        <strong>— Mrs. Oluwalanke</strong>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"Since joining this school, my daughters have become so much more confident and outspoken. They now participate actively in class discussions and aren't afraid to express their ideas."</p>
-                        <strong>— Mrs. Bernard</strong>
-                    </div>
-                </div>
+  <main>
+
+    <!-- WELCOME -->
+    <section id="welcome" class="reveal">
+      <div class="welcome-text">
+        <p class="section-label">About Gopherwood</p>
+        <h2 class="section-title">Building Strength,<br>Shaping Futures</h2>
+        <p class="section-body">Like the biblical Gopherwood tree that provided strength and protection, we offer a solid foundation where young minds develop and achieve their full potential — guided by faith, purpose, and a passion for learning.</p>
+
+        <div class="welcome-quote-block">
+          <p>Our certified teachers don't just educate — they inspire curiosity and guide students toward academic success. Our well-equipped laboratories bring science to life, while our warm community ensures every child thrives. At Gopherwood, we believe every child deserves an education that is both academically rigorous and personally enriching.</p>
+        </div>
+
+        <ul class="welcome-values">
+          <li class="value-item">
+            <div class="value-icon">✓</div>
+            Solid educational foundation for every child
+          </li>
+          <li class="value-item">
+            <div class="value-icon">✓</div>
+            Nurturing strength, resilience, and excellence
+          </li>
+          <li class="value-item">
+            <div class="value-icon">✓</div>
+            Guided by faith, purpose, and community
+          </li>
+        </ul>
+
+        <br>
+        <a href="#admissions" class="btn-primary" style="margin-top:0.5rem;">Experience Gopherwood →</a>
+      </div>
+
+      <div class="welcome-visual">
+        <div class="welcome-img-stack">
+          <img src="images/students.jpg" alt="Gopherwood Students" class="welcome-img-main" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+          <img src="images/building.webp" alt="School Building" class="welcome-img-secondary" onerror="this.style.background='var(--forest)';this.removeAttribute('src')">
+          <div class="welcome-badge-float">🎓 Strength for Excellence</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAND -->
+    <div class="stats-band reveal">
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-number" data-target="500">0</div>
+          <div class="stat-desc">Students Enrolled</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-desc">Certified Teachers</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number" data-target="20">0</div>
+          <div class="stat-desc">Years of Excellence</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number" data-target="4">0</div>
+          <div class="stat-desc">National Awards</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACADEMICS -->
+    <section id="academics" class="reveal">
+      <div class="academics-header">
+        <div>
+          <p class="section-label">Our Programmes</p>
+          <h2 class="section-title">Academic Excellence<br>at Every Level</h2>
+        </div>
+        <p class="section-body" style="max-width:340px;">A British-Nigerian dual curriculum delivered with care and precision.</p>
+      </div>
+
+      <div class="academics-grid">
+        <div class="academic-card">
+          <div class="card-icon">🌱</div>
+          <h3>Nursery</h3>
+          <p>A nurturing start where young learners explore the world through play, creativity, and guided discovery.</p>
+        </div>
+        <div class="academic-card">
+          <div class="card-icon">📚</div>
+          <h3>Primary School</h3>
+          <p>Building strong literacy, numeracy, and character foundations through interactive, engaging lessons.</p>
+        </div>
+        <div class="academic-card">
+          <div class="card-icon">🔬</div>
+          <h3>Secondary School</h3>
+          <p>Rigorous academics preparing students for national and international examinations with confidence.</p>
+        </div>
+        <div class="academic-card">
+          <div class="card-icon">🎭</div>
+          <h3>Extracurricular</h3>
+          <p>Sports, arts, debating, music, and more — developing well-rounded, confident individuals.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section id="facilities" class="reveal">
+      <div>
+        <p class="section-label">Our Campus</p>
+        <h2 class="section-title">World-Class Facilities<br>for Modern Learners</h2>
+      </div>
+
+      <div class="facilities-layout">
+        <div class="facility-grid">
+          <div class="facility-card">
+            <img src="images/library.jpg" alt="Modern Library" onerror="this.style.height='140px';this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="facility-info">
+              <h3>Modern Library</h3>
+              <p>Rich resources for research and reading.</p>
             </div>
-        </section>
-
-        
-
-        <!-- Curriculum Section -->
-        <section id="curriculum" class="section themed-section" aria-labelledby="curriculum-heading">
-            <h2 id="curriculum-heading">Our Curriculum</h2>
-            <p>We offer a blend of British and Nigerian curricula, ensuring students receive a well-rounded education.</p>
-            <ul>
-                <li><strong>Subjects:</strong> English, Mathematics, Science, ICT, Social Studies, Arts, French, Physical Education, and more.</li>
-                <li><strong>Teaching Methods:</strong> Interactive lessons, group projects, hands-on experiments, and digital learning.</li>
-                <li><strong>Structure:</strong> Nursery, Primary, and Secondary levels with continuous assessment and support.</li>
-            </ul>
-        </section>
-
-        
-
-        <!-- Awards & Achievements Section -->
-<section id="awards" class="section awards themed-section" aria-labelledby="awards-heading">
-  <div class="container">
-    <h2 id="awards-heading">
-      Awards & Achievements
-    </h2>
-    <div class="awards-slideshow-wrapper" style="position:relative;max-width:500px;margin:auto;">
-      <div class="awards-slideshow" id="awards-slideshow" style="overflow:hidden;">
-        <div class="award-slide award-item" style="display:flex;">
-          <img src="images/awards/award1.jpg" alt="National Science Olympiad Trophy" class="award-img-enlarge" tabindex="0">
-          <div>
-            <h3>Cambridge International Education Conference</h3>
-            <p>Recognized by CIEC for commitment and contribution to improving the eduation of the Students in 2016. </p>
+          </div>
+          <div class="facility-card">
+            <img src="images/lab.jpg" alt="Science Lab" onerror="this.style.height='140px';this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="facility-info">
+              <h3>Science Laboratory</h3>
+              <p>Hands-on scientific exploration.</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <img src="images/ict-lab.jpg" alt="ICT Lab" onerror="this.style.height='140px';this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="facility-info">
+              <h3>ICT Lab</h3>
+              <p>Digital literacy for the future.</p>
+            </div>
+          </div>
+          <div class="facility-card">
+            <img src="images/playgnd.jpg" alt="Playground" onerror="this.style.height='140px';this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="facility-info">
+              <h3>Playground</h3>
+              <p>Outdoor spaces for growth and play.</p>
+            </div>
           </div>
         </div>
-        <div class="award-slide award-item" style="display:none;">
-          <img src="images/awards/award2.jpg" alt="Best School in Lagos Medal" class="award-img-enlarge" tabindex="0">
-          <div>
-            <h3>Recognition Award</h3>
-            <p>Recognized by the Directorate For Citizens' Rights on Human Rights Day, 2018  Lagos State Ministry of Education for excellence in academics and character.</p>
-          </div>
-        </div>
-        <div class="award-slide award-item" style="display:none;">
-          <img src="images/awards/award3.jpg" alt="Arts & Culture Award" class="award-img-enlarge" tabindex="0">
-          <div>
-            <h3>Annual Mathematics Quiz Competition</h3>
-            <p>Awarded for outstanding performance and 3rd place in the competition.</p>
-          </div>
-        </div>
-        <div class="award-slide award-item" style="display:none;">
-          <img src="images/awards/award4.jpg" alt="Sports Excellence Award" class="award-img-enlarge" tabindex="0">
-          <div>
-            <h3>Tunwase Spelling Bee Competition</h3>
-            <p>Awarded 1st place for outstanding performance in the Spelling Bee Competition</p>
+
+        <div class="facilities-text">
+          <p class="section-body">Our campus is designed to inspire. Every space — from the science lab to the playground — is purposefully built to support holistic development.</p>
+          <div class="facilities-highlight">
+            <h3>Equipped for the Future</h3>
+            <p>From modern ICT labs to well-stocked libraries and spacious sports facilities, we ensure every student has the tools they need to learn, grow, and excel in a rapidly changing world.</p>
           </div>
         </div>
       </div>
-      <button class="awards-prev" aria-label="Previous award" style="position:absolute;top:50%;left:0;transform:translateY(-50%);background:var(--primary);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:1.3rem;cursor:pointer;z-index:2;">&#10094;</button>
-      <button class="awards-next" aria-label="Next award" style="position:absolute;top:50%;right:0;transform:translateY(-50%);background:var(--primary);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:1.3rem;cursor:pointer;z-index:2;">&#10095;</button>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="reveal">
+      <div class="gallery-header">
+        <div>
+          <p class="section-label" style="color:var(--gold)">Life at Gopherwood</p>
+          <h2 class="section-title" style="color:white">Our School in Pictures</h2>
+        </div>
+        <a href="extracurriculars.html" class="btn-primary">See All Photos →</a>
+      </div>
+
+      <div class="gallery-track" id="gallery-grid">
+        <div class="g-cell"><img src="images/headerimg3.JPG" alt="School life" class="g-img" onerror="this.style.background='var(--mid-green)';this.removeAttribute('src')"></div>
+        <div class="g-cell"><img src="images/headerimg1.JPG" alt="Students" class="g-img" onerror="this.style.background='#2d6a4f';this.removeAttribute('src')"></div>
+        <div class="g-cell"><img src="images/gallery1.JPG" alt="Learning" class="g-img" onerror="this.style.background='#1b4332';this.removeAttribute('src')"></div>
+        <div class="g-cell"><img src="images/headerimg2.jpeg" alt="Activities" class="g-img" onerror="this.style.background='#2d6a4f';this.removeAttribute('src')"></div>
+        <div class="g-cell"><img src="images/gallery2.JPG" alt="Sports" class="g-img" onerror="this.style.background='#1b4332';this.removeAttribute('src')"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="reveal">
+      <p class="section-label">Parent Voices</p>
+      <h2 class="section-title">What Our Community Says</h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"Gopherwood School has been a blessing to our family. My son is more confident, focused, and genuinely loves learning."</p>
+          <div class="author">— Mrs. Adebayo</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"I appreciate this school for its strong emphasis on discipline, structure, and values. It's shaped my child in ways I'm proud of."</p>
+          <div class="author">— Mrs. Oluwalanke</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"Since joining Gopherwood, my daughters have become so much more confident and outspoken. They actively participate and aren't afraid to express their ideas."</p>
+          <div class="author">— Mrs. Bernard</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards" class="reveal">
+      <div class="awards-inner">
+        <p class="section-label">Recognition</p>
+        <h2 class="section-title">Awards & Achievements</h2>
+        <p class="section-body" style="margin: 0 auto; text-align:center;">Recognised locally and internationally for our commitment to educational excellence.</p>
+
+        <div class="awards-carousel">
+          <div class="award-slide active" id="award-0">
+            <img src="images/awards/award1.jpg" alt="Cambridge Award" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="award-content">
+              <h3>Cambridge International Education Conference</h3>
+              <p>Recognized by CIEC for commitment and contribution to improving student education in 2016.</p>
+            </div>
+          </div>
+          <div class="award-slide" id="award-1">
+            <img src="images/awards/award2.jpg" alt="Recognition Award" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="award-content">
+              <h3>Recognition Award</h3>
+              <p>Recognized by the Directorate For Citizens' Rights on Human Rights Day, 2018, Lagos State Ministry of Education for excellence in academics and character.</p>
+            </div>
+          </div>
+          <div class="award-slide" id="award-2">
+            <img src="images/awards/award3.jpg" alt="Mathematics Award" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="award-content">
+              <h3>Annual Mathematics Quiz Competition</h3>
+              <p>Awarded for outstanding performance and 3rd place in the competition.</p>
+            </div>
+          </div>
+          <div class="award-slide" id="award-3">
+            <img src="images/awards/award4.jpg" alt="Spelling Bee Award" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+            <div class="award-content">
+              <h3>Tunwase Spelling Bee Competition</h3>
+              <p>Awarded 1st place for outstanding performance in the Spelling Bee Competition.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="awards-nav">
+          <button id="awards-prev" aria-label="Previous award">&#10094;</button>
+          <div class="awards-dots" id="awards-dots">
+            <span class="active" data-i="0"></span>
+            <span data-i="1"></span>
+            <span data-i="2"></span>
+            <span data-i="3"></span>
+          </div>
+          <button id="awards-next" aria-label="Next award">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSIONS -->
+    <section id="admissions" class="reveal">
+      <div>
+        <p class="section-label">Join Our Community</p>
+        <h2 class="section-title">Admissions Now Open</h2>
+      </div>
+
+      <div class="admissions-layout">
+        <div class="admissions-cta-box">
+          <div class="open-badge">● Enrolling 2026/2027</div>
+          <h3>Give Your Child the Gift of Excellence</h3>
+          <p>Applications for the 2026/2027 academic year are now open. Join a community of learners, thinkers, and future leaders at Gopherwood School.</p>
+          <a href="contact.html" class="btn-primary" target="_blank" rel="noopener noreferrer">Contact Admissions →</a>
+        </div>
+
+        <div>
+          <div class="video-wrapper">
+            <video controls poster="path/to/video-thumbnail.jpg" preload="metadata" style="border-radius:20px;">
+              <source src="adminvid.mp4" type="video/mp4">
+              <p>Your browser doesn't support video. <a href="adminvid.mp4">Download instead.</a></p>
+            </video>
+          </div>
+          <p class="video-caption">Discover the magic of Gopherwood School — where curiosity blooms and every child finds their spark. Hit play to see it for yourself.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section id="curriculum" class="reveal">
+      <p class="section-label">What We Teach</p>
+      <h2 class="section-title">Our Curriculum</h2>
+      <p class="section-body" style="color:rgba(255,255,255,0.65);">A blend of British and Nigerian curricula, ensuring students receive a well-rounded, globally competitive education.</p>
+
+      <div class="curriculum-cols">
+        <div class="curriculum-col">
+          <h3>Subjects Offered</h3>
+          <ul class="curriculum-list">
+            <li>English Language & Literature</li>
+            <li>Mathematics</li>
+            <li>Sciences (Biology, Chemistry, Physics)</li>
+            <li>Information & Communication Technology</li>
+            <li>Social Studies & Civic Education</li>
+            <li>Arts, Music & Physical Education</li>
+            <li>French Language</li>
+          </ul>
+        </div>
+        <div class="curriculum-col">
+          <h3>Our Teaching Approach</h3>
+          <ul class="curriculum-list">
+            <li>Interactive lessons and group projects</li>
+            <li>Hands-on experiments and digital learning</li>
+            <li>Continuous assessment and personalised support</li>
+            <li>Nursery, Primary, and Secondary levels</li>
+            <li>Dual British & Nigerian curriculum framework</li>
+            <li>Character formation alongside academic rigour</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <p class="section-label">Reach Out</p>
+      <h2 class="section-title">Contact Us</h2>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div class="contact-detail-text">
+              <strong>Location</strong>
+              <span>2A Yinusa Adeniji St, Allen, Ikeja 100271, Lagos, Nigeria</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-detail-text">
+              <strong>Email</strong>
+              <a href="mailto:gopherwoodschool@yahoo.com" style="color: var(--mid-green);">gopherwoodschool@yahoo.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-detail-text">
+              <strong>Website</strong>
+              <span>www.gopherwoodschool.com</span>
+            </div>
+          </div>
+          <p class="section-body" style="margin-top:1rem;font-size:0.93rem;">We welcome your questions about admissions, academics, or school life. Our team is happy to help.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+          <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+          <textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
+          <button type="submit">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Gopherwood School
+        <small>Strength for Excellence · Lagos, Nigeria</small>
+      </div>
+      <div class="footer-copy">&copy; 2026 Gopherwood School. All rights reserved.</div>
     </div>
-    <div class="awards-dots" style="text-align:center;margin-top:1rem;">
-      <span class="dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--secondary);margin:0 4px;cursor:pointer;opacity:0.5;"></span>
-      <span class="dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--secondary);margin:0 4px;cursor:pointer;opacity:0.5;"></span>
-      <span class="dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--secondary);margin:0 4px;cursor:pointer;opacity:0.5;"></span>
-      <span class="dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--secondary);margin:0 4px;cursor:pointer;opacity:0.5;"></span>
+  </footer>
+
+  <!-- SOCIAL BAR -->
+  <div id="social-bar" aria-label="Social media links">
+    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener" class="s-icon" aria-label="Facebook">
+      <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener" class="s-icon" aria-label="YouTube">
+      <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gopherwood.school" target="_blank" rel="noopener" class="s-icon" aria-label="Instagram">
+      <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z"/></svg>
+    </a>
+    <a href="mailto:gopherwoodschool@yahoo.com" class="s-icon" aria-label="Email">
+      <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
+    </a>
+  </div>
+
+  <!-- ADMISSIONS MODAL -->
+  <div id="admissions-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-img" aria-hidden="true"></div>
+      <div class="modal-content">
+        <div class="modal-eyebrow">Admissions Open</div>
+        <h2 id="modal-title">Give Your Child a Quality Education</h2>
+        <p>Don't miss the opportunity. For inquiries and to schedule a school tour, please contact our admissions office.</p>
+        <a href="contact.html" class="btn-primary" id="modal-contact-btn">Contact Us →</a>
+      </div>
+      <button id="modal-close-btn" aria-label="Close admissions popup">×</button>
     </div>
   </div>
-</section>
-<!-- Award Image Modal -->
-<div id="award-modal" >
-  <img id="award-modal-img" src="" alt="Award enlarged" style="max-width:90vw;max-height:80vh;border-radius:16px;box-shadow:0 4px 32px rgba(0,0,0,0.25);background:#fff;">
-</div>
 
-        <!-- Admissions Section -->
-        <section id="admissions" class="section admissions" aria-labelledby="admissions-heading">
-            <h2 id="admissions-heading">Admissions</h2>
-            <p>Join our community of learners! Applications for the 2025/2026 academic year are now open.</p>
-            
+  <script src="script.js">
+ 
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-            <div class="video-container">
-                <div class="video-wrapper">
-                    <video class="admissions-video" controls poster="path/to/video-thumbnail.jpg" preload="metadata">
-                        <source src="adminvid.mp4" type="video/mp4">
-                        <p>Your browser doesn't support video playback. <a href="path/to/admissions-trailer.mp4">Download the video</a> instead.</p>
-                    </video>
-                    <div class="video-overlay">
-                        <div class="play-button">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="30" cy="30" r="30" fill="rgba(255, 255, 255, 0.9)"/>
-                                <polygon points="24,18 24,42 42,30" fill="#333"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <p class="video-caption">Join the adventure at Gopherwood School, a place where curiosity blooms, friendships flourish, and every child finds their spark. Hit play to see the magic!</p>
-            </div>
-    </div>
-    <a href="contact.html" class="cta-btn" target="_blank" rel="noopener noreferrer">Contact Admissions</a>
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
 
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+      document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
+    icon.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.13) rotate(-6deg)';
+        this.style.boxShadow = '0 4px 18px rgba(20,83,45,0.18)';
+    });
+    icon.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+    });
+    icon.addEventListener('mousedown', function() {
+        this.style.transform = 'scale(0.97)';
+    });
+    icon.addEventListener('mouseup', function() {
+        this.style.transform = 'scale(1.13) rotate(-6deg)';
+    });
+});
 
-        </section>
+    // Counter animation
+    const counters = document.querySelectorAll('[data-target]');
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = +el.dataset.target;
+        const suffix = target > 10 ? '+' : '';
+        let current = 0;
+        const step = target / 50;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current) + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 30);
+        countObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => countObs.observe(c));
 
-        <!-- Contact Form Section (with Formspree) -->
-        <section id="contact" class="section contact" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Us</h2>
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
-                <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
-                <textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
-    </footer>
+    // Awards carousel
+    let awardIdx = 0;
+    const awardSlides = document.querySelectorAll('.award-slide');
+    const dots = document.querySelectorAll('.awards-dots span');
 
-    <div id="social-media-bar">
-        <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener noreferrer" class="social-icon facebook" aria-label="Facebook">
-            <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
-        </a>
-        <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener noreferrer" class="social-icon youtube" aria-label="YouTube">
-            <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
-        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
-    </a>
-        <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
-            <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
-        </a>
-    </div>
+    function showAward(i) {
+      awardSlides.forEach((s, j) => s.classList.toggle('active', j === i));
+      dots.forEach((d, j) => d.classList.toggle('active', j === i));
+      awardIdx = i;
+    }
 
-    <!-- Admissions Popup Modal -->
-    <div id="admissions-modal" style="display:flex;align-items:center;justify-content:center;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(20,83,45,0.32);">
-        <div style="display:flex;flex-direction:row;max-width:650px;width:95vw;background:var(--white);border-radius:18px;box-shadow:0 8px 32px rgba(20,83,45,0.18);overflow:hidden;">
-            <div style="flex:1;min-width:160px;background:url('images/FLIER FOR COLLEGE.png') center/cover no-repeat;width:70%;height: auto; display:block;"></div>
-            <div style="flex:1.2;padding:2.2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;justify-content:center;">
-                <div style="font-size:0.98rem;font-weight:600;letter-spacing:1px;color:var(--secondary);margin-bottom:0.5rem;">ADMISSION IS OPEN!</div>
-                <div style="font-size:1.65rem;font-weight:800;color:var(--primary);line-height:1.18;margin-bottom:1.1rem;">Don't miss the opportunity to give your child the gift of a quality education.</div>
-                <div style="font-size:1.05rem;color:#444;margin-bottom:1.5rem;">For inquiries and to schedule a school tour, please contact our admissions office.</div>
-                <button id="modal-contact-btn" style="background:var(--highlight);color:var(--white);font-weight:700;font-size:1.08rem;padding:0.7rem 2.2rem;border:none;border-radius:6px;cursor:pointer;transition:background 0.2s;">CONTACT US</button>
-                <button id="modal-close-btn" aria-label="Close admissions popup" style="position:absolute;top:18px;right:22px;background:none;border:none;font-size:1.7rem;color:var(--primary);font-weight:700;cursor:pointer;line-height:1;">&times;</button>
-            </div>
-        </div>
-    </div>
+    document.getElementById('awards-prev').onclick = () => showAward((awardIdx - 1 + awardSlides.length) % awardSlides.length);
+    document.getElementById('awards-next').onclick = () => showAward((awardIdx + 1) % awardSlides.length);
+    dots.forEach(d => d.addEventListener('click', () => showAward(+d.dataset.i)));
 
+    // Auto-advance awards
+    setInterval(() => showAward((awardIdx + 1) % awardSlides.length), 5000);
 
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init();</script>
-<script src="script.js"></script>
     
+  </script> 
+
 </body>
 </html>

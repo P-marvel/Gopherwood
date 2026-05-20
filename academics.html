@@ -1,318 +1,202 @@
-<!-- Academics Page for Gopherwood School -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics - Gopherwood School</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --primary: #14532d;
-            --secondary: #4ca44c;
-            --accent: #e6efc2;
-            --banner: #ffe066;
-            --highlight: #e63946;
-            --white: #fff;
-            --text: #222;
-        }
-        html {
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-        body {
-            background: var(--accent);
-            color: var(--text);
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-            min-height: 100vh;
-        }
-        .navbar {
-            background: var(--white);
-            box-shadow: 0 2px 8px rgba(20,83,45,0.04);
-            padding: 1.2rem 3vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            height: 44px;
-            width: auto;
-            margin-right: 0.7rem;
-            border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 1px 6px rgba(20,83,45,0.08);
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--highlight);
-        }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: auto;
-        }
-        .nav-toggle span {
-            height: 3px;
-            width: 28px;
-            background: var(--primary);
-            margin: 4px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            background: var(--white);
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(20,83,45,0.07);
-            padding: 2.5rem 2vw;
-        }
-        h1 {
-            color: var(--primary);
-            font-size: 2rem;
-        }
-        .academics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .academic-card {
-            background: var(--accent);
-            border-radius: 12px;
-            padding: 1.5rem 1rem;
-            box-shadow: 0 1px 6px rgba(20,83,45,0.06);
-            text-align: center;
-        }
-        .academic-card h3 {
-            color: var(--secondary);
-            margin-bottom: 0.7rem;
-        }
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 1.2rem 0;
-            font-size: 1rem;
-            margin-top: 2rem;
-            border-radius: 0 0 18px 18px;
-        }
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            main {
-                max-width: 98vw;
-                padding: 2rem 1vw;
-            }
-            .academics-grid {
-                gap: 1rem;
-            }
-        }
-        @media (max-width: 900px) {
-            .navbar {
-                padding: 1.2rem 2vw;
-            }
-            main {
-                padding: 1.5rem 1vw;
-            }
-        }
-        @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.2rem 2vw;
-            }
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                margin-top: 0.5rem;
-                display: none;
-                background: var(--white);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-                border-radius: 0 0 12px 12px;
-                z-index: 99;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-toggle {
-                display: flex;
-            }
-            main {
-                padding: 1rem 2vw;
-            }
-            h1 {
-                font-size: 1.3rem;
-            }
-        }
-        @media (max-width: 500px) {
-            .logo img {
-                height: 32px;
-            }
-            .academic-card {
-                padding: 1rem 0.5rem;
-            }
-        }
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics - Gopherwood School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --forest: #0f3d1f; --green: #14532d; --mid-green: #4ca44c; --sage: #e6efc2; --gold: #ffe066; --red: #e63946; --white: #ffffff; --off-white: #f7f9f2; --text: #1a1a1a; --text-muted: #4a5568; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); overflow-x: hidden; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(15,61,31,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.07); transition: all 0.3s; }
+    .navbar.scrolled { height: 60px; background: rgba(15,61,31,0.99); box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand img { height: 42px; width: auto; border-radius: 6px; background: white; }
+    .nav-brand-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); line-height: 1.2; }
+    .nav-brand-text span { display: block; font-size: 0.65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0.9rem; border-radius: 8px; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active-page { color: var(--gold); background: rgba(255,224,102,0.1); }
+    .nav-links .nav-cta { background: var(--gold); color: var(--forest); font-weight: 700; }
+    .nav-links .nav-cta:hover { background: white; color: var(--forest); }
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--forest); border-radius: 12px; padding: 0.5rem; min-width: 200px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 0.6rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.88rem; background: none; }
+    .dropdown-menu a:hover { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-toggle span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--forest); padding: 1.5rem 5vw; gap: 0.25rem; border-bottom: 2px solid var(--mid-green); align-items: flex-start; } .dropdown-menu { position: static; background: rgba(255,255,255,0.05); box-shadow: none; border: none; margin-left: 1rem; } }
+
+    .page-hero { padding: 140px 5vw 80px; background: linear-gradient(135deg, var(--forest) 0%, #1a5c35 100%); position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40%; background: linear-gradient(160deg, rgba(255,224,102,0.07), transparent); clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%); pointer-events: none; }
+    .page-hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; color: white; line-height: 1.15; }
+
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 80px 5vw; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-green); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--forest); line-height: 1.15; margin-bottom: 2rem; }
+
+    /* LEVELS GRID */
+    .levels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 80px; }
+    .level-card { background: white; border-radius: 18px; padding: 2rem; border: 1.5px solid var(--sage); transition: all 0.3s; position: relative; overflow: hidden; }
+    .level-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--mid-green), var(--gold)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+    .level-card:hover { border-color: transparent; transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,61,31,0.11); }
+    .level-card:hover::before { transform: scaleX(1); }
+    .level-icon { width: 52px; height: 52px; background: var(--forest); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.3rem; }
+    .level-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--forest); margin-bottom: 0.8rem; }
+    .level-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+
+    /* CURRICULUM BAND */
+    .curriculum-band { background: var(--forest); border-radius: 24px; padding: 3.5rem; margin-bottom: 80px; }
+    .curriculum-band .section-label { color: var(--gold); }
+    .curriculum-band .section-title { color: white; }
+    .curriculum-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+    @media (max-width: 700px) { .curriculum-cols { grid-template-columns: 1fr; } }
+    .curriculum-col h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.15rem; margin-bottom: 1rem; }
+    .curriculum-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .curriculum-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.93rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
+    .curriculum-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    #social-bar { position: fixed; right: 0; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.5rem; z-index: 900; background: var(--forest); padding: 0.75rem 0.5rem; border-radius: 14px 0 0 14px; box-shadow: -4px 0 20px rgba(0,0,0,0.15); }
+    .s-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; text-decoration: none; }
+    .s-icon svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); transition: fill 0.2s; }
+    .s-icon:hover { background: var(--gold); }
+    .s-icon:hover svg { fill: var(--forest); }
+    @media (max-width: 769px) { #social-bar { top: auto; right: auto; bottom: 0; left: 50%; transform: translateX(-50%); flex-direction: row; border-radius: 14px 14px 0 0; } }
+    footer { background: var(--forest); padding: 40px 5vw 28px; color: rgba(255,255,255,0.6); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); }
+    .footer-brand small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; font-weight: 300; }
+    .footer-copy { font-size: 0.82rem; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main Navigation">
-  <div class="logo">
-    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
-    Gopherwood School
-  </div>
-  <div
-    class="nav-toggle"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    tabindex="0"
-    role="button"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="schoollogo.jpg" alt="Gopherwood School Logo">
+    <div class="nav-brand-text">Gopherwood School<span>Strength for Excellence</span></div>
+  </a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="dropdown">
-      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurricular</a>
-      <ul id="dropdownn" class="dropdown-content">
+      <a href="#" class="active-page">Academics ▾</a>
+      <ul class="dropdown-menu">
         <li><a href="academics.html">Academic Overview</a></li>
         <li><a href="extracurriculars.html">Extracurricular</a></li>
       </ul>
     </li>
     <li><a href="admissions.html">Admissions</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
 
-    <main>
-        <h1>Academics</h1>
-        <div class="academics-grid">
-                <div class="academic-card">
-                    <h3>Creche</h3>
-                    <p>Creche focuses on foundational skills through play-based learning, covering basic language development, early math concepts (colors, shapes,), and sensory exploration activities. The extracurricular curriculum emphasizes social-emotional development, motor skills, and creative expression to prepare children for formal schooling.</p>
-                </div>
-                <div class="academic-card">
-                    <h3>Pre-School</h3>
-                    <p>Playgroup introduces structured learning through group activities, focusing on vocabulary building, basic concepts (big/small, colors), and social skills like taking turns and following simple routines. Learning happens through repetitive songs, hands-on exploration, and short-attention-span activities that bridge home care with formal preschool education.</p>
-                </div>
-                <div class="academic-card">
-                    <h3>Foundation School</h3>
-                    <p>Nursery curriculum includes traditional subjects like math, language skills, and PSED (KUW) integrated through play-based learning centers, with children introduced to animals, nature, cleanliness, and hygiene concepts.</p>
-                </div>
-                <div class="academic-card">
-                    <h3>Primary School</h3>
-                    <p>Primary school curriculum focuses on core subjects such as Numeracy, science, language arts, and social studies, emphasizing critical thinking and problem-solving skills. Early Childhood Curriculum Subjects include English, Literacy, Numeracy, computing, humanities, history, drama, music, French, library, physical education, art, science, and religious education. </p>
-                </div>
-                <div class="academic-card">
-                    <h3>College</h3>
-                    <p>Secondary education is divided into 3 years of Junior Secondary School (JSS) and 3 years of Senior Secondary School (SSS), with students taking subjects such as Mathematics, English, Sciences, and Cultural and Creative arts (CCA) during JSS. Senior secondary offers both academic and vocational tracks, preparing students for tertiary education through specialized subject combinations and certification examinations.</p>
-                </div>
-            </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
-    </footer>
-    <div id="social-media-bar">
-    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
-        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
-    </a>
-    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
-        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
-        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
-    </a>
-    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
-        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
-    </a>
+<div class="page-hero">
+  <div class="page-hero-label">Our Programmes</div>
+  <h1>Academics at<br>Gopherwood School</h1>
 </div>
 
-    <script>
-   const navToggle = document.getElementById("nav-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const dropdown = document.querySelector(".dropdown");
-  const dropdownContent = document.querySelector(".dropdown-content");
-  const currentPage = window.location.pathname.split("/").pop();
+<div class="page-content">
 
-  navToggle.addEventListener("click", () => {
-    const expanded = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", !expanded);
-    navLinks.classList.toggle("active");
-    navToggle.classList.toggle("open");
-  });
+  <div class="reveal">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Academic Levels</h2>
+  </div>
 
-  document.addEventListener("click", (e) => {
-    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-      navLinks.classList.remove("active");
-      navToggle.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", false);
-      dropdownContent.classList.remove("show");
-    }
-  });
+  <div class="levels-grid reveal">
+    <div class="level-card">
+      <div class="level-icon">🍼</div>
+      <h3>Crèche</h3>
+      <p>Focuses on foundational skills through play-based learning, covering basic language development, early math concepts (colours, shapes), and sensory exploration. The curriculum emphasises social-emotional development, motor skills, and creative expression to prepare children for formal schooling.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-icon">🌱</div>
+      <h3>Pre-School</h3>
+      <p>Introduces structured learning through group activities, focusing on vocabulary building, basic concepts, and social skills like taking turns and following simple routines. Learning happens through repetitive songs, hands-on exploration, and short-attention-span activities.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-icon">🏫</div>
+      <h3>Foundation School</h3>
+      <p>The Nursery curriculum includes traditional subjects like maths, language skills, and PSED integrated through play-based learning centres. Children are introduced to animals, nature, cleanliness, and hygiene concepts under Montessori-trained teachers.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-icon">📚</div>
+      <h3>Primary School</h3>
+      <p>Focuses on core subjects such as Numeracy, Science, Language Arts, and Social Studies, emphasising critical thinking and problem-solving. Subjects include English, Literacy, Computing, Humanities, History, Drama, Music, French, PE, Art, Science, and Religious Education.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-icon">🎓</div>
+      <h3>College</h3>
+      <p>Secondary education is divided into 3 years of JSS and 3 years of SSS. Students take Mathematics, English, Sciences, and CCA during JSS. Senior secondary offers both academic and vocational tracks, preparing students for tertiary education through specialised subject combinations and certification examinations.</p>
+    </div>
+  </div>
 
-  dropdown.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownContent.classList.toggle("show");
-  });
+  <div class="curriculum-band reveal">
+    <p class="section-label">Our Approach</p>
+    <h2 class="section-title">Curriculum & Teaching</h2>
+    <div class="curriculum-cols">
+      <div class="curriculum-col">
+        <h3>Subjects Offered</h3>
+        <ul class="curriculum-list">
+          <li>English Language & Literature</li>
+          <li>Mathematics & Numeracy</li>
+          <li>Sciences (Biology, Chemistry, Physics)</li>
+          <li>Information & Communication Technology</li>
+          <li>Social Studies & Civic Education</li>
+          <li>Arts, Music & Physical Education</li>
+          <li>French Language</li>
+          <li>Religious & Moral Education</li>
+        </ul>
+      </div>
+      <div class="curriculum-col">
+        <h3>Teaching Methods</h3>
+        <ul class="curriculum-list">
+          <li>Interactive lessons and group projects</li>
+          <li>Hands-on experiments and digital learning</li>
+          <li>Continuous assessment and personalised support</li>
+          <li>Play-based learning in early years</li>
+          <li>British & Nigerian dual curriculum framework</li>
+          <li>Montessori-trained early childhood teachers</li>
+          <li>Character formation alongside academic rigour</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-page");
-    }
-  });
-        // Social icons animation
-        document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.13) rotate(-6deg)';
-                this.style.boxShadow = '0 4px 18px rgba(20,83,45,0.18)';
-            });
-            icon.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
-            });
-            icon.addEventListener('mousedown', function() {
-                this.style.transform = 'scale(0.97)';
-            });
-            icon.addEventListener('mouseup', function() {
-                this.style.transform = 'scale(1.13) rotate(-6deg)';
-            });
-        });
-    
-    </script>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Gopherwood School<small>Strength for Excellence · Lagos, Nigeria</small></div>
+    <div class="footer-copy">&copy; 2025 Gopherwood School. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="social-bar">
+  <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener" class="s-icon" aria-label="Facebook"><svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z"/></svg></a>
+  <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener" class="s-icon" aria-label="YouTube"><svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg></a>
+  <a href="https://www.instagram.com/gopherwood.school" target="_blank" rel="noopener" class="s-icon" aria-label="Instagram"><svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z"/></svg></a>
+  <a href="mailto:gopherwoodschool@yahoo.com" class="s-icon" aria-label="Email"><svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg></a>
+</div>
+
+<script src="script.js">
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', open); });
+  document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 }).observe(el));
+</script>
 </body>
 </html>

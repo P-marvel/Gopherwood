@@ -1,475 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extracurriculars - Gopherwood School</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --primary: #14532d;
-            --secondary: #4ca44c;
-            --accent: #e6efc2;
-            --banner: #ffe066;
-            --highlight: #e63946;
-            --white: #fff;
-            --text: #222;
-        }
-        body {
-            margin: 0;
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: var(--accent);
-            color: var(--text);
-        }
-        
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-        }
-        #logo {
-            height: 44px;
-            width: auto;
-            margin-right: 1rem;
-            border-radius: 8px;
-            background: #fff;
-        }
-        
-        main {
-            max-width: 1100px;
-            margin: 2rem auto;
-            background: var(--white);
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(20,83,45,0.07);
-            padding: 2.5rem 2vw;
-        }
-        h1 {
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-        .activity-card {
-            background: var(--accent);
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow 0.2s;
-        }
-        .activity-card:hover {
-            box-shadow: 0 4px 18px rgba(20,83,45,0.13);
-        }
-        .activity-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .activity-content {
-            padding: 1.2rem 1rem 1.2rem 1rem;
-            text-align: center;
-        }
-        .activity-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        .activity-desc {
-            font-size: 1.02rem;
-            color: var(--text);
-        }
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-        .dropdown {
-            position: relative;
-        }
-        .dropbtn::after {
-            content: " ▼";
-            font-size: 0.7em;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: var(--white);
-            min-width: 180px;
-            box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-            border-radius: 0 0 12px 12px;
-            z-index: 1000;
-            margin-top: 0.5rem;
-            left: 0;
-            padding: 0.5rem 0;
-        }
-        .dropdown-content li {
-            list-style: none;
-        }
-        .dropdown-content a {
-            color: var(--primary);
-            padding: 0.7rem 1.2rem;
-            display: block;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.15s;
-        }
-        .dropdown-content a:hover {
-            background: var(--accent);
-        }
-        .dropdown:hover .dropdown-content,
-        .dropdown:focus-within .dropdown-content {
-            display: block;
-        }
-        @media (max-width: 900px) {
-    .navbar {
-        padding: 1.2rem 2vw;
-    }
-    main {
-        padding: 1.5rem 1vw;
-    }
-}
-@media (max-width: 700px) {
-   
-    main {
-        padding: 1rem 2vw;
-    }
-    h1 {
-        font-size: 1.3rem;
-    }
-}
-@media (max-width: 500px) {
-    #logo {
-        height: 32px;
-    }
-    main {
-        padding: 0.5rem 0.5vw;
-    }
-    .activity-img {
-        height: 120px;
-    }
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extracurriculars - Gopherwood School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --forest: #0f3d1f; --mid-green: #4ca44c; --sage: #e6efc2; --gold: #ffe066; --red: #e63946; --white: #ffffff; --off-white: #f7f9f2; --text: #1a1a1a; --text-muted: #4a5568; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); overflow-x: hidden; }
+
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(15,61,31,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.07); transition: all 0.3s; }
+    .navbar.scrolled { height: 60px; background: rgba(15,61,31,0.99); box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand img { height: 42px; width: auto; border-radius: 6px; background: white; }
+    .nav-brand-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); line-height: 1.2; }
+    .nav-brand-text span { display: block; font-size: 0.65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0.9rem; border-radius: 8px; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active-page { color: var(--gold); background: rgba(255,224,102,0.1); }
+    .nav-links .nav-cta { background: var(--gold); color: var(--forest); font-weight: 700; }
+    .nav-links .nav-cta:hover { background: white; color: var(--forest); }
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--forest); border-radius: 12px; padding: 0.5rem; min-width: 200px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 0.6rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.88rem; background: none; }
+    .dropdown-menu a:hover { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-toggle span { width: 24px; height: 2px; background: white; border-radius: 2px; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--forest); padding: 1.5rem 5vw; gap: 0.25rem; border-bottom: 2px solid var(--mid-green); align-items: flex-start; } .dropdown-menu { position: static; background: rgba(255,255,255,0.05); box-shadow: none; border: none; margin-left: 1rem; } }
+
+    .page-hero { padding: 140px 5vw 80px; background: linear-gradient(135deg, var(--forest) 0%, #1a5c35 100%); position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40%; background: linear-gradient(160deg, rgba(255,224,102,0.07), transparent); clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%); pointer-events: none; }
+    .page-hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 1rem; }
+    .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.73); font-weight: 300; max-width: 480px; line-height: 1.7; }
+
+    .page-content { max-width: 1200px; margin: 0 auto; padding: 80px 5vw 100px; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-green); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--forest); line-height: 1.15; margin-bottom: 2.5rem; }
+
+    /* ACTIVITY GRID */
+    .activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .activities-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .activities-grid { grid-template-columns: 1fr; } }
+
+    .activity-card { background: white; border-radius: 18px; overflow: hidden; border: 1.5px solid var(--sage); transition: all 0.3s; display: flex; flex-direction: column; }
+    .activity-card:hover { border-color: var(--mid-green); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(15,61,31,0.12); }
+
+    /* Slideshow */
+    .slideshow-wrap { position: relative; overflow: hidden; height: 220px; }
+    .slideshow-wrap img { width: 100%; height: 220px; object-fit: cover; display: none; position: absolute; top: 0; left: 0; transition: opacity 0.5s; }
+    .slideshow-wrap img.active { display: block; }
+    .slide-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
+    .slide-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s; border: none; }
+    .slide-dot.active { background: var(--gold); }
+    .expand-btn { position: absolute; top: 10px; right: 10px; background: rgba(15,61,31,0.7); color: white; border: none; border-radius: 8px; width: 32px; height: 32px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 5; }
+    .expand-btn:hover { background: var(--mid-green); }
+
+    .activity-body { padding: 1.5rem; flex: 1; }
+    .activity-body h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--forest); margin-bottom: 0.6rem; }
+    .activity-body p { font-size: 0.93rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+    /* FULLSCREEN MODAL */
+    #img-modal { display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; flex-direction: column; }
+    #img-modal.active { display: flex; }
+    .modal-img-full { max-width: 90vw; max-height: 80vh; border-radius: 14px; object-fit: contain; }
+    .modal-close-fs { position: absolute; top: 20px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; background: none; border: none; line-height: 1; transition: color 0.2s; }
+    .modal-close-fs:hover { color: var(--gold); }
+    .modal-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(15,61,31,0.7); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .modal-nav:hover { background: var(--mid-green); }
+    #modal-prev { left: 20px; }
+    #modal-next { right: 20px; }
+    @media (max-width: 600px) { .modal-nav { width: 38px; height: 38px; font-size: 1.2rem; } #modal-prev { left: 8px; } #modal-next { right: 8px; } }
+
+    #social-bar { position: fixed; right: 0; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.5rem; z-index: 900; background: var(--forest); padding: 0.75rem 0.5rem; border-radius: 14px 0 0 14px; }
+    .s-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; text-decoration: none; }
+    .s-icon svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); transition: fill 0.2s; }
+    .s-icon:hover { background: var(--gold); }
+    .s-icon:hover svg { fill: var(--forest); }
+    @media (max-width: 769px) { #social-bar { top: auto; right: auto; bottom: 0; left: 50%; transform: translateX(-50%); flex-direction: row; border-radius: 14px 14px 0 0; } }
+
+    footer { background: var(--forest); padding: 40px 5vw 28px; color: rgba(255,255,255,0.6); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); }
+    .footer-brand small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; font-weight: 300; }
+    .footer-copy { font-size: 0.82rem; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main Navigation">
-  <div class="logo">
-    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
-    Gopherwood School
-  </div>
-  <div
-    class="nav-toggle"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    tabindex="0"
-    role="button"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="schoollogo.jpg" alt="Gopherwood School Logo">
+    <div class="nav-brand-text">Gopherwood School<span>Strength for Excellence</span></div>
+  </a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="dropdown">
-      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurricular</a>
-      <ul id="dropdownn" class="dropdown-content">
+      <a href="#" class="active-page">Academics ▾</a>
+      <ul class="dropdown-menu">
         <li><a href="academics.html">Academic Overview</a></li>
         <li><a href="extracurriculars.html">Extracurricular</a></li>
       </ul>
     </li>
     <li><a href="admissions.html">Admissions</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
 
-    <!-- Social Media Bar -->
-    <div id="social-media-bar">
-        <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
-            <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
-        </a>
-        <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
-            <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
-            <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
-        </a>
-        <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
-            <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
-        </a>
+<div class="page-hero">
+  <div class="page-hero-label">Beyond the Classroom</div>
+  <h1>Extracurricular<br>Activities</h1>
+  <p>We believe holistic development happens everywhere, on the field, on stage, in the art room, and beyond.</p>
+</div>
+
+<div class="page-content">
+  <p class="section-label reveal">Student Life</p>
+  <h2 class="section-title reveal">What We Do Outside Class</h2>
+
+  <div class="activities-grid reveal">
+
+    <!-- Sports -->
+    <div class="activity-card">
+      <div class="slideshow-wrap" data-card="0">
+        <img src="images/sports1.JPG" alt="Sports" class="active slide">
+        <!--<img src="images/sports2.JPG" alt="Sports 2" class="slide">
+        <img src="images/sports3.JPG" alt="Sports 3" class="slide"> -->
+        <div class="slide-dots"></div>
+        <button class="expand-btn" title="View fullscreen">⤢</button>
+      </div>
+      <div class="activity-body">
+        <h3>Sports & Athletics</h3>
+        <p>From football to track and field, our sports programme builds teamwork, discipline, and physical fitness in every student.</p>
+      </div>
     </div>
-    <main>
-        <h1>Extracurricular Activities</h1>
-        <div class="activities-grid">
-            <div class="activity-card">
-                <div class="slideshow-container">
-                    <img src="images/sports1.jpg" class="activity-img slide" alt="Sports 1">
-                    <!--<img src="images/sports2.jpg" class="activity-img slide" alt="Sports 2" style="display:none;">
-                    <img src="images/sports3.jpg" class="activity-img slide" alt="Sports 3" style="display:none;">-->
-                </div>
-                <div class="activity-content">
-                    <div class="activity-title">Sports & Athletics</div>
-                    <div class="activity-desc">Students participate in football, athletics, and inter-house sports, promoting teamwork and healthy living.</div>
-                </div>
-            </div>
-            <div class="activity-card">
-                <div class="slideshow-container">
-                    <img src="images/music1.JPG" class="activity-img slide" alt="Music 1" style="display:block;">
-                    <img src="images/music2.JPG" class="activity-img slide" alt="Music 2" style="display:none;">
-                    <img src="images/music3.JPG" class="activity-img slide" alt="Music 3" style="display:none;">
-                </div>
-                <div class="activity-content">
-                    <div class="activity-title">Music & Choir</div>
-                    <div class="activity-desc">Our music club and choir nurture talent in singing and instruments, with regular performances at school events.</div>
-                </div>
-            </div>
-            <div class="activity-card">
-                <div class="slideshow-container">
-                    <img src="images/arts5.JPG" class="activity-img slide" alt="Art 1" style="display:block;">
-                    <img src="images/arts2.JPG" class="activity-img slide" alt="Art 2" style="display:none;">
-                    <img src="images/arts3.JPG" class="activity-img slide" alt="Art 3" style="display:none;">
-                    <img src="images/arts1.JPG" class="activity-img slide" alt="Art 4" style="display:none;">
-                </div>
-                <div class="activity-content">
-                    <div class="activity-title">Art & Cultural Creativity</div>
-                    <div class="activity-desc">Cultural Creativity and Display is an exciting extracurricular program where students explore, create, and showcase artistic expressions from various cultures through traditional crafts, performances, storytelling, and visual arts.</div>
-                </div>
-            </div>
-            <div class="activity-card">
-                <div class="slideshow-container">
-                    <img src="images/stem1.jpg" class="activity-img slide" alt="STEM 1" style="display:block;">
-                    <!--<img src="images/stem2.jpg" class="activity-img slide" alt="STEM 2" style="display:none;">
-                    <img src="images/stem3.jpg" class="activity-img slide" alt="STEM 3" style="display:none;">-->
-                </div>
-                <div class="activity-content">
-                    <div class="activity-title">STEAM Club</div>
-                    <div class="activity-desc">Hands-on science, technology, engineering, and math projects help students develop problem-solving and innovation skills.</div>
-                </div>
-            </div>
-            <div class="activity-card">
-                <div class="slideshow-container">
-                    <img src="images/drama1.jpg" class="activity-img slide" alt="Drama 1" style="display:block;">
-                    <img src="images/drama2.JPG" class="activity-img slide" alt="Drama 2" style="display:none;">
-                    <img src="images/drama3.JPG" class="activity-img slide" alt="Drama 3" style="display:none;">
-                    <img src="images/drama5.JPG" class="activity-img slide" alt="Drama 4" style="display:none;">
-                    <img src="images/drama4.jpg" class="activity-img slide" alt="Drama 5" style="display:none;">
-                </div>
-                <div class="activity-content">
-                    <div class="activity-title">Drama & Debate</div>
-                    <div class="activity-desc">Drama and debate clubs build confidence and communication skills through stage performances and competitions.</div>
-                </div>
-            </div>
-            <div class="activity-card">
-                <div class="slideshow-container">
-                    <img src="images/fieldtrip1.jpg" class="activity-img slide" alt="Field Trip 1" style="display:block;">
-                    <img src="images/fieldtrip2.jpg" class="activity-img slide" alt="Field Trip 2" style="display:none;">
-                    <img src="images/fieldtrip3.jpg" class="activity-img slide" alt="Field Trip 3" style="display:none;">
-                    <img src="images/fieldtrip4.jpg" class="activity-img slide" alt="Field Trip 3" style="display:none;">
-                </div>
-                <div class="activity-content">
-                    <div class="activity-title">Field Trips & Excursions</div>
-                    <div class="activity-desc">Educational trips and excursions broaden students' horizons and connect classroom learning to the real world.</div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <!-- Fullscreen Modal for Images -->
-    <div id="img-modal" class="img-modal">
-        <span class="close-modal" id="close-modal">&times;</span>
-        <img class="modal-img" id="modal-img" src="" alt="">
-        <button class="modal-prev" id="modal-prev">&#10094;</button>
-        <button class="modal-next" id="modal-next">&#10095;</button>
+
+    <!-- Music & Arts -->
+    <div class="activity-card">
+      <div class="slideshow-wrap" data-card="1">
+        <img src="images/music1.JPG" alt="Music" class="active slide">
+        <img src="images/music2.JPG" alt="Music 2" class="slide">
+        <img src="images/music3.JPG" alt="Music 3" class="slide">
+        <img src="images/arts1.JPG" alt="Arts 1" class="slide">
+        <img src="images/arts2.JPG" alt="Arts 2" class="slide">
+        <img src="images/arts3.JPG" alt="Arts 3" class="slide">
+        <img src="images/arts4.JPG" alt="Arts 4" class="slide">
+        <img src="images/arts5.JPG" alt="Arts 5" class="slide">
+        <div class="slide-dots"></div>
+        <button class="expand-btn" title="View fullscreen">⤢</button>
+      </div>
+      <div class="activity-body">
+        <h3>Music & Arts</h3>
+        <p>Students explore their creative side through music, fine arts, and cultural performances that celebrate expression and talent.</p>
+      </div>
     </div>
-    <footer style="background:var(--primary);color:var(--white);text-align:center;padding:1.2rem 0;font-size:1rem;margin-top:2rem;">
-        &copy; 2025 Gopherwood School. All rights reserved.
-    </footer>
-    <style>
-    /* ...existing styles... */
-    .img-modal {
-        display: none;
-        position: fixed;
-        z-index: 2000;
-        left: 0; top: 0; width: 100vw; height: 100vh;
-        background: rgba(0,0,0,0.92);
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        transition: opacity 0.2s;
-    }
-    .img-modal.active {
-        display: flex;
-    }
-    .modal-img {
-        max-width: 90vw;
-        max-height: 80vh;
-        border-radius: 12px;
-        box-shadow: 0 4px 32px rgba(0,0,0,0.25);
-        margin-bottom: 1.5rem;
-        background: #fff;
-        object-fit: contain;
-    }
-    .close-modal {
-        position: absolute;
-        top: 24px;
-        right: 36px;
-        color: #fff;
-        font-size: 2.5rem;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 2100;
-        transition: color 0.2s;
-    }
-    .close-modal:hover { color: var(--highlight);}
-    .modal-prev, .modal-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(20,83,45,0.7);
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        width: 48px;
-        height: 48px;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 2100;
-        opacity: 0.85;
-        transition: background 0.2s, opacity 0.2s;
-    }
-    .modal-prev:hover, .modal-next:hover {
-        background: var(--highlight);
-        opacity: 1;
-    }
-    .modal-prev { left: 32px; }
-    .modal-next { right: 32px; }
-    @media (max-width: 700px) {
-        .modal-img { max-width: 98vw; max-height: 60vh; }
-        .close-modal { top: 10px; right: 16px; font-size: 2rem; }
-        .modal-prev, .modal-next { width: 38px; height: 38px; font-size: 1.5rem; }
-        .modal-prev { left: 8px; }
-        .modal-next { right: 8px; }
-    }
-    </style>
-    <script>
-   const navToggle = document.getElementById("nav-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const dropdown = document.querySelector(".dropdown");
-  const dropdownContent = document.querySelector(".dropdown-content");
-  const currentPage = window.location.pathname.split("/").pop();
 
-  navToggle.addEventListener("click", () => {
-    const expanded = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", !expanded);
-    navLinks.classList.toggle("active");
-    navToggle.classList.toggle("open");
+    <!-- Clubs & Societies -->
+    <div class="activity-card">
+      <div class="slideshow-wrap" data-card="2">
+        <img src="images/club1.JPG" alt="Clubs" class="active slide">
+        <div class="slide-dots"></div>
+        <button class="expand-btn" title="View fullscreen">⤢</button>
+      </div>
+      <div class="activity-body">s
+        <h3>Clubs & Societies</h3>
+        <p>Our vibrant clubs from science to journalism give students the chance to pursue their passions and develop leadership skills.</p>
+      </div>
+    </div>
+
+    <!-- Drama & Debate -->
+    <div class="activity-card">
+      <div class="slideshow-wrap" data-card="3">
+        <img src="images/drama1.JPG" alt="Drama" class="active slide">
+        <img src="images/drama2.JPG" alt="Drama 2" class="slide">
+        <img src="images/drama3.JPG" alt="Drama 3" class="slide">
+        <img src="images/drama5.JPG" alt="Drama 4" class="slide">
+        <img src="images/drama4.jpg" alt="Drama 5" class="slide">
+        <div class="slide-dots"></div>
+        <button class="expand-btn" title="View fullscreen">⤢</button>
+      </div>
+      <div class="activity-body">
+        <h3>Drama & Debate</h3>
+        <p>Drama and debate clubs build confidence and communication skills through stage performances and spirited competitions.</p>
+      </div>
+    </div>
+
+    <!-- Field Trips -->
+    <div class="activity-card">
+      <div class="slideshow-wrap" data-card="4">
+        <img src="images/fieldtrip1.jpg" alt="Field Trip" class="active slide">
+        <img src="images/fieldtrip2.jpg" alt="Field Trip 2" class="slide">
+        <img src="images/fieldtrip3.jpg" alt="Field Trip 3" class="slide">
+        <img src="images/fieldtrip4.jpg" alt="Field Trip 4" class="slide">
+        <div class="slide-dots"></div>
+        <button class="expand-btn" title="View fullscreen">⤢</button>
+      </div>
+      <div class="activity-body">
+        <h3>Field Trips & Excursions</h3>
+        <p>Educational trips and excursions broaden students' horizons and connect classroom learning to the real world in exciting ways.</p>
+      </div>
+    </div>
+
+    <!-- CTA card -->
+    <div class="activity-card" style="background: var(--forest); border-color: var(--forest); justify-content: center;">
+      <div class="activity-body" style="padding: 2.5rem;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;">Join Us</p>
+        <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Want Your Child to Be Part of This?</h3>
+        <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.8rem;">Enrol today and let your child thrive academically, creatively, and socially at Gopherwood School.</p>
+        <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:var(--forest);font-weight:700;font-size:0.92rem;padding:0.8rem 1.6rem;border-radius:10px;text-decoration:none;transition:all 0.25s;">Contact Admissions →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FULLSCREEN IMAGE MODAL -->
+<div id="img-modal">
+  <button class="modal-close-fs" id="modal-close">×</button>
+  <button class="modal-nav" id="modal-prev">&#10094;</button>
+  <img class="modal-img-full" id="modal-img" src="" alt="">
+  <button class="modal-nav" id="modal-next">&#10095;</button>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Gopherwood School<small>Strength for Excellence · Lagos, Nigeria</small></div>
+    <div class="footer-copy">&copy; 2026 Gopherwood School. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="social-bar">
+  <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener" class="s-icon" aria-label="Facebook"><svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z"/></svg></a>
+  <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener" class="s-icon" aria-label="YouTube"><svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg></a>
+  <a href="https://www.instagram.com/gopherwood.school" target="_blank" rel="noopener" class="s-icon" aria-label="Instagram"><svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z"/></svg></a>
+  <a href="mailto:gopherwoodschool@yahoo.com" class="s-icon" aria-label="Email"><svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg></a>
+</div>
+
+<script src="script.js" >
+  // Navbar
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', open); });
+  document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 }).observe(el));
+
+  // Slideshows
+  document.querySelectorAll('.slideshow-wrap').forEach(wrap => {
+    const slides = wrap.querySelectorAll('.slide');
+    const dotsEl = wrap.querySelector('.slide-dots');
+    let cur = 0;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => showSlide(i));
+      dotsEl.appendChild(dot);
+    });
+
+    function showSlide(i) {
+      slides[cur].classList.remove('active');
+      dotsEl.children[cur].classList.remove('active');
+      cur = i;
+      slides[cur].classList.add('active');
+      dotsEl.children[cur].classList.add('active');
+    }
+
+    setInterval(() => showSlide((cur + 1) % slides.length), 4000);
+
+    // Expand button
+    const btn = wrap.querySelector('.expand-btn');
+    btn.addEventListener('click', () => openFsModal(Array.from(slides), cur));
   });
 
-  document.addEventListener("click", (e) => {
-    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-      navLinks.classList.remove("active");
-      navToggle.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", false);
-      dropdownContent.classList.remove("show");
-    }
+  // Fullscreen modal
+  const fsModal = document.getElementById('img-modal');
+  const fsImg = document.getElementById('modal-img');
+  let fsSlides = [], fsIdx = 0;
+
+  function openFsModal(slides, startIdx) {
+    fsSlides = slides.map(s => s.src);
+    fsIdx = startIdx;
+    fsImg.src = fsSlides[fsIdx];
+    fsModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.getElementById('modal-close').onclick = () => { fsModal.classList.remove('active'); document.body.style.overflow = ''; };
+  document.getElementById('modal-prev').onclick = e => { e.stopPropagation(); fsIdx = (fsIdx - 1 + fsSlides.length) % fsSlides.length; fsImg.src = fsSlides[fsIdx]; };
+  document.getElementById('modal-next').onclick = e => { e.stopPropagation(); fsIdx = (fsIdx + 1) % fsSlides.length; fsImg.src = fsSlides[fsIdx]; };
+  fsModal.addEventListener('click', e => { if (e.target === fsModal) { fsModal.classList.remove('active'); document.body.style.overflow = ''; } });
+  document.addEventListener('keydown', e => {
+    if (!fsModal.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') document.getElementById('modal-prev').click();
+    if (e.key === 'ArrowRight') document.getElementById('modal-next').click();
+    if (e.key === 'Escape') document.getElementById('modal-close').click();
   });
-
-  dropdown.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownContent.classList.toggle("show");
-  });
-
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-page");
-    }
-  });
-
-        // Slideshow logic for each activity card (auto only, no buttons)
-        document.querySelectorAll('.slideshow-container').forEach(function(container) {
-            let slides = container.querySelectorAll('.slide');
-            let current = 0;
-            function showSlide(idx) {
-                slides.forEach((img, i) => {
-                    img.style.display = (i === idx) ? 'block' : 'none';
-                });
-            }
-            showSlide(current);
-            setInterval(function() {
-                current = (current + 1) % slides.length;
-                showSlide(current);
-            }, 4000);
-        });
-
-        // Modal logic for fullscreen image viewing
-        const modal = document.getElementById('img-modal');
-        const modalImg = document.getElementById('modal-img');
-        const closeModal = document.getElementById('close-modal');
-        const modalPrev = document.getElementById('modal-prev');
-        const modalNext = document.getElementById('modal-next');
-        let currentSlides = [];
-        let currentIdx = 0;
-
-        // Open modal on image click
-        document.querySelectorAll('.slideshow-container .slide').forEach(function(img) {
-            img.style.cursor = "pointer";
-            img.addEventListener('click', function() {
-                // Find all slides in this container
-                const slides = Array.from(this.parentElement.querySelectorAll('.slide'));
-                currentSlides = slides;
-                currentIdx = slides.indexOf(this);
-                showModalImg();
-                modal.classList.add('active');
-            });
-        });
-
-        function showModalImg() {
-            if(currentSlides.length > 0) {
-                modalImg.src = currentSlides[currentIdx].src;
-                modalImg.alt = currentSlides[currentIdx].alt;
-            }
-        }
-
-        modalPrev.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if(currentSlides.length > 0) {
-                currentIdx = (currentIdx - 1 + currentSlides.length) % currentSlides.length;
-                showModalImg();
-            }
-        });
-        modalNext.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if(currentSlides.length > 0) {
-                currentIdx = (currentIdx + 1) % currentSlides.length;
-                showModalImg();
-            }
-        });
-        closeModal.addEventListener('click', function() {
-            modal.classList.remove('active');
-        });
-        modal.addEventListener('click', function(e) {
-            if(e.target === modal) modal.classList.remove('active');
-        });
-        // Keyboard navigation for modal
-        document.addEventListener('keydown', function(e) {
-            if(!modal.classList.contains('active')) return;
-            if(e.key === "ArrowLeft") modalPrev.click();
-            if(e.key === "ArrowRight") modalNext.click();
-            if(e.key === "Escape") closeModal.click();
-        });
-    
-    </script>
+</script>
 </body>
 </html>

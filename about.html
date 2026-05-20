@@ -1,508 +1,434 @@
-<!-- About Page for Gopherwood School -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Gopherwood School</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --primary: #14532d;
-            --secondary: #4ca44c;
-            --accent: #e6efc2;
-            --banner: #ffe066;
-            --highlight: #e63946;
-            --white: #fff;
-            --text: #222;
-        }
-        html {
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-        body {
-            background: var(--accent);
-            color: var(--text);
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-        }
-        .navbar {
-            background: var(--white);
-            box-shadow: 0 2px 8px rgba(20,83,45,0.04);
-            padding: 1.2rem 3vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            height: 44px;
-            width: auto;
-            margin-right: 0.7rem;
-            border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 1px 6px rgba(20,83,45,0.08);
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--highlight);
-        }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: auto;
-        }
-        .nav-toggle span {
-            height: 3px;
-            width: 28px;
-            background: var(--primary);
-            margin: 4px 0;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            background: var(--white);
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(20,83,45,0.07);
-            padding: 2.5rem 2vw;
-        }
-        h1 {
-            color: var(--primary);
-        }
-        .values {
-            margin: 2rem 0;
-        }
-        .values span {
-            display: inline-block;
-            background: var(--banner);
-            color: var(--primary);
-            border-radius: 8px;
-            padding: 0.5rem 1.2rem;
-            margin: 0.3rem;
-            font-weight: 700;
-        }
-.mng-sec {
-    margin: 2.5rem 0 0 0;
-}
-
-.mng-sec h2 {
-    color: var(--primary);
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Container layout */
-.mng-profile-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    padding: 0 1rem;
-}
-
-/* Profile card */
-.mng-profile {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    background: var(--white);
-    border-radius: 14px;
-    box-shadow: 0 2px 12px rgba(20,83,45,0.07);
-    padding: 1.5rem;
-    max-width: 700px;
-    width: 100%;
-}
-
-/* Profile image */
-.mng-profile-img {
-    width: 150px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 15%;
-    box-shadow: 0 1px 6px rgba(20,83,45,0.08);
-    background: var(--accent);
-    flex-shrink: 0;
-}
-
-/* Text beside image */
-.mng-text {
-    padding-left: 1.5rem;
-    flex: 1;
-    text-align: left;
-}
- 
-
-/* Name/title/bio */
-.mng-profile h3 {
-    color: var(--primary);
-    font-size: 1.1rem;
-    margin: 0.5rem 0 0.2rem 0;
-}
-
-.mng-title {
-    color: var(--secondary);
-    font-size: 0.98rem;
-    margin: 0;
-}
-
-.mng-profile-bio {
-    font-size: 0.95rem;
-    color: var(--text);
-    margin: 0.5rem 0 0 0;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 700px) {
-    .mng-profile {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.2rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Gopherwood School</title>
+  <meta name="description" content="Learn about Gopherwood School — our story, mission, values, and the people who lead us.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #0f3d1f;
+      --green: #14532d;
+      --mid-green: #4ca44c;
+      --sage: #e6efc2;
+      --gold: #ffe066;
+      --white: #ffffff;
+      --off-white: #f7f9f2;
+      --text: #1a1a1a;
+      --text-muted: #4a5568;
     }
 
-    .mng-profile-img {
-        width: 80%;
-        margin: 0 auto;
-        border-radius: 10%;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); overflow-x: hidden; }
+
+    /* ── NAVBAR ── */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(15,61,31,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.07); transition: all 0.3s ease; }
+    .navbar.scrolled { height: 60px; background: rgba(15,61,31,0.99); box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand img { height: 42px; width: auto; border-radius: 6px; background: white; }
+    .nav-brand-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.5px; line-height: 1.2; }
+    .nav-brand-text span { display: block; font-size: 0.65rem; font-family: 'DM Sans', sans-serif; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0.9rem; border-radius: 8px; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--gold); background: rgba(255,224,102,0.1); }
+    .nav-links .nav-cta { background: var(--gold); color: var(--forest); font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 8px; }
+    .nav-links .nav-cta:hover { background: white; color: var(--forest); }
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--forest); border-radius: 12px; padding: 0.5rem; min-width: 200px; box-shadow: 0 12px 32px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 0.6rem 1rem; color: rgba(255,255,255,0.8); font-size: 0.88rem; }
+    .dropdown-menu a:hover { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-toggle span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--forest); padding: 1.5rem 5vw; gap: 0.25rem; border-bottom: 2px solid var(--mid-green); align-items: flex-start; }
+      .dropdown-menu { position: static; background: rgba(255,255,255,0.05); box-shadow: none; border: none; margin-left: 1rem; }
     }
 
-    .mng-text {
-        padding: 1.2rem 0 0 0;
-        text-align: center;
+    /* ── PAGE HERO ── */
+    .page-hero { background: linear-gradient(160deg, rgba(15,61,31,0.95) 0%, rgba(20,83,45,0.88) 100%); padding: 140px 5vw 80px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(255,224,102,0.07) 0%, transparent 60%); pointer-events: none; }
+    .page-hero-content { position: relative; z-index: 2; max-width: 600px; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,224,102,0.15); border: 1px solid rgba(255,224,102,0.35); color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 1rem; animation: fadeUp 0.7s 0.1s ease both; }
+    .page-hero h1 em { font-style: normal; color: var(--gold); }
+    .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.7; font-weight: 300; animation: fadeUp 0.7s 0.2s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── SHARED ── */
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-green); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; color: var(--forest); line-height: 1.15; margin-bottom: 1.2rem; }
+    .section-body { font-size: 1rem; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+
+    /* ── ABOUT SECTION ── */
+    .about-section {
+      padding: 80px 5vw;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 6vw;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-}
 
 
+    .about-quote {
+      background: var(--forest); border-radius: 20px; padding: 2.5rem;
+      color: white; position: relative; overflow: hidden; margin-top: 2rem;
+    }
+    .about-quote::before { content: '"'; position: absolute; top: -0.5rem; left: 1.2rem; font-family: 'Playfair Display', serif; font-size: 8rem; color: rgba(255,224,102,0.1); line-height: 1; pointer-events: none; }
+    .about-quote p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.82); position: relative; z-index: 1; font-weight: 300; }
 
+    .about-visual { position: relative; }
+    .about-img-wrap { border-radius: 20px; overflow: hidden; box-shadow: 0 24px 60px rgba(15,61,31,0.18); }
+    .about-img-wrap img { width: 100%; height: 460px; object-fit: cover; display: block; }
 
+    .about-badge {
+      position: absolute; bottom: -1.5rem; left: -1rem;
+      background: var(--gold); color: var(--forest);
+      font-weight: 700; font-size: 0.9rem; padding: 1rem 1.5rem;
+      border-radius: 16px; box-shadow: 0 8px 24px rgba(255,224,102,0.4);
+      border: 3px solid var(--off-white);
+    }
+    .about-badge span { display: block; font-size: 0.72rem; font-weight: 400; margin-top: 0.15rem; opacity: 0.7; }
 
+    @media (max-width: 860px) {
+      .about-section { grid-template-columns: 1fr; }
+      .about-visual { margin-top: 3rem; }
+      .about-img-wrap img { height: 300px; }
+      .about-badge { bottom: 1rem; left: 1rem; }
+    }
 
+    /* ── MISSION/VALUES/AIMS ── */
+    .mvv-section {
+      background: var(--forest);
+      padding: 80px 5vw;
+    }
+    .mvv-section .section-label { color: var(--gold); }
+    .mvv-section .section-title { color: white; }
 
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 1.2rem 0;
-            font-size: 1rem;
-            margin-top: 2rem;
-            border-radius: 0 0 18px 18px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            main {
-                max-width: 98vw;
-                padding: 2rem 1vw;
-            }
-        }
-        @media (max-width: 900px) {
-            .navbar {
-                padding: 1.2rem 2vw;
-            }
-            main {
-                padding: 1.5rem 1vw;
-            }
-        }
-        @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.2rem 2vw;
-            }
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                margin-top: 0.5rem;
-                display: none;
-                background: var(--white);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                box-shadow: 0 2px 8px rgba(20,83,45,0.08);
-                border-radius: 0 0 12px 12px;
-                z-index: 99;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-toggle {
-                display: flex;
-            }
-            main {
-                padding: 1rem 2vw;
-            }
-            h1 {
-                font-size: 1.3rem;
-            }
-        }
-        @media (max-width: 500px) {
-            .logo img {
-                height: 32px;
-            }
-            main > div, .values {
-                gap: 0.7rem;
-            }
-            section[style*='background: var(--white)'] {
-                padding: 1rem 0.5rem !important;
-            }
-            h2, h3 {
-                font-size: 1.1rem !important;
-            }
-        }
-        .sectionn{
-            flex:1 1 300px; 
-            min-width:280px; 
-            background: var(--white); 
-            border-radius: 14px; 
-            box-shadow: 0 2px 12px rgba(20,83,45,0.07); 
-            padding: 2rem 1.5rem; 
-            margin-bottom: 2rem;
-        }
-        #mov{
-            display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;
-        }
-        
-    </style>
+    .mvv-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 2rem;
+      transition: background 0.25s;
+    }
+    .mvv-card:hover { background: rgba(255,255,255,0.09); }
+
+    .mvv-card-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .mvv-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--gold); margin-bottom: 1.2rem; }
+    .mvv-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .mvv-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.55; }
+    .mvv-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; margin-top: 0.05rem; }
+
+    @media (max-width: 860px) { .mvv-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .mvv-grid { grid-template-columns: 1fr; } }
+
+    /* ── MANAGEMENT ── */
+    .management-section { padding: 80px 5vw; background: white; }
+    .management-inner { max-width: 1100px; margin: 0 auto; }
+
+    .profiles-list { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 3rem; }
+
+    .profile-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      background: var(--off-white);
+      border-radius: 20px;
+      padding: 2.2rem;
+      border: 1.5px solid transparent;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--mid-green), var(--gold));
+      transform: scaleX(0); transition: transform 0.3s; transform-origin: left;
+    }
+    .profile-card:hover { border-color: var(--sage); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(15,61,31,0.08); }
+    .profile-card:hover::before { transform: scaleX(1); }
+
+    .profile-img-wrap { position: relative; }
+    .profile-img {
+      width: 160px; height: 180px; object-fit: cover;
+      border-radius: 14px; display: block;
+      box-shadow: 0 8px 24px rgba(15,61,31,0.12);
+      background: var(--sage);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .profile-img:hover { transform: scale(1.03); }
+
+    .profile-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--forest); font-weight: 700; margin-bottom: 0.2rem; }
+    .profile-role { font-size: 0.8rem; font-weight: 700; color: var(--mid-green); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; }
+    .profile-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+
+    @media (max-width: 700px) {
+      .profile-card { grid-template-columns: 1fr; }
+      .profile-img { width: 100%; height: 220px; border-radius: 12px; }
+    }
+
+    /* Profile photo modal */
+    #profile-modal {
+      display: none; position: fixed; z-index: 9999; inset: 0;
+      background: rgba(0,0,0,0.85);
+      align-items: center; justify-content: center;
+    }
+    #profile-modal img { max-width: 90vw; max-height: 80vh; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,0.4); }
+    #profile-modal-close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 2.5rem; color: white; cursor: pointer; line-height: 1; }
+
+    /* Footer */
+    footer { background: var(--forest); padding: 40px 5vw 28px; color: rgba(255,255,255,0.6); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); }
+    .footer-brand small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.3rem; font-weight: 300; }
+    .footer-copy { font-size: 0.82rem; }
+
+    /* Social bar */
+    #social-bar { position: fixed; right: 0; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.5rem; z-index: 900; background: var(--forest); padding: 0.75rem 0.5rem; border-radius: 14px 0 0 14px; box-shadow: -4px 0 20px rgba(0,0,0,0.15); }
+    .s-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; text-decoration: none; }
+    .s-icon svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); transition: fill 0.2s; }
+    .s-icon:hover { background: var(--gold); }
+    .s-icon:hover svg { fill: var(--forest); }
+    @media (max-width: 769px) { #social-bar { top: auto; right: auto; bottom: 0; left: 50%; transform: translateX(-50%); flex-direction: row; border-radius: 14px 14px 0 0; } }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main Navigation">
-  <div class="logo">
-    <img id="logo" src="schoollogo.jpg" alt="Gopherwood School Logo">
-    Gopherwood School
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" aria-label="Main Navigation">
+    <a href="index.html" class="nav-brand">
+      <img src="schoollogo.jpg" alt="Gopherwood School Logo">
+      <div class="nav-brand-text">
+        Gopherwood School
+        <span>Strength for Excellence</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Academics ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="academics.html">Academic Overview</a></li>
+          <li><a href="extracurriculars.html">Extracurricular</a></li>
+        </ul>
+      </li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="page-eyebrow">Our Story</div>
+      <h1>About <em>Gopherwood</em><br>School</h1>
+      <p>Named after the biblical Gopherwood tree, a symbol of strength, durability, and enduring purpose. We build resilient young minds for an extraordinary world.</p>
+    </div>
   </div>
-  <div
-    class="nav-toggle"
-    id="nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    tabindex="0"
-    role="button"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section reveal">
+    <div class="about-text">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">Strength,<br>Purpose & Excellence</h2>
+      <p class="section-body">Gopherwood School is named after the biblical Gopherwood tree from Genesis 6:14, which symbolizes strength, durability, and protection. The school is a premier educational institution focused on nurturing students through innovative teaching, holistic development, and academic excellence in a supportive, inclusive environment.</p>
+
+      <div class="about-quote">
+        <p>Like the biblical wood that withstood the great flood, we build resilient students with strong character who can navigate life's challenges. We shape tomorrow's leaders by developing not just academic skills, but also character, creativity, critical thinking, and compassion, making us more than a school, but a community dedicated to building strong, capable individuals who will positively impact the world.</p>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-img-wrap">
+        <img src="images/students.jpg" alt="Gopherwood Students" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+      </div>
+      <div class="about-badge">
+        🎓 Est. 20+ Years
+        <span>of Excellence in Lagos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / VALUES / AIMS -->
+  <section class="mvv-section reveal">
+    <p class="section-label">What Guides Us</p>
+    <h2 class="section-title">Mission, Values &amp; Aims</h2>
+
+    <div class="mvv-grid">
+      <div class="mvv-card">
+        <div class="mvv-card-icon"></div>
+        <h3>Our Core Values</h3>
+        <ul class="mvv-list">
+          <li>Excellence</li>
+          <li>Forgiveness</li>
+          <li>Love</li>
+          <li>Integrity</li>
+          <li>Service</li>
+          <li>Tolerance</li>
+        </ul>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-card-icon"></div>
+        <h3>Our Mission</h3>
+        <ul class="mvv-list">
+          <li>To provide an impeccable British education in a Nigerian cultural setting.</li>
+          <li>To equip adequately and properly motivated, confident, stable, and balanced individuals that can match their peers in any sphere globally.</li>
+        </ul>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-card-icon"></div>
+        <h3>Our Aims</h3>
+        <ul class="mvv-list">
+          <li>To establish a happy, secure, well-ordered, and stimulating environment.</li>
+          <li>To promote respect for others, their property, and their environment.</li>
+          <li>To develop good working habits and encourage an inquiring mind.</li>
+          <li>To provide a broad and stimulating curriculum.</li>
+          <li>To help students use language effectively and develop a love for reading.</li>
+          <li>To encourage positive relationships between home, school, and community.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT -->
+  <section class="management-section reveal">
+    <div class="management-inner">
+      <p class="section-label">Our Leaders</p>
+      <h2 class="section-title">Meet Our Management</h2>
+
+      <div class="profiles-list">
+
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img src="images/bello.jpeg" alt="Mrs Grace Omoyemi Bello" class="profile-img" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Mrs Grace Omoyemi Bello</div>
+            <div class="profile-role">Proprietress</div>
+            <p class="profile-bio">Mrs. Grace Omoyemi Bello is a dedicated educator with over thirty-five years of experience. She began her teaching career in 1989 at Corona School, Victoria Island, and rose to the role of Junior Sectional Head. She later served as a pioneer staff member at Lekki British Junior School and Head Teacher at Lead-Forte Gate Montessori School.<br><br>She holds an M.Sc. in Educational Psychology from the University of Lagos and a B.Sc. in Physics Education from Obafemi Awolowo University. Mrs. Bello has attended several international courses in Africa and Europe, reflecting her commitment to excellence and continuous growth in education.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img src="images/principal.jpg" alt="Mrs Apata A.I" class="profile-img" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Mrs Apata A.I</div>
+            <div class="profile-role">Principal</div>
+            <p class="profile-bio">As a dedicated educational leader, Mrs. Apata A.I has been serving with Gopherwood School for over eleven years with a passion for fostering academic excellence and raising a total child.<br><br>With her years of experience in education, she has developed a deep understanding of what makes a school community thrive. She holds a B.Sc. in Accounting and a PGD in Education, and has attended several seminars and lectures on education psychology and management. She is committed to continually providing a world-class education that prepares students for success in college, careers, and beyond.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img src="images/admin.jpg" alt="Mrs Ngwu Florence" class="profile-img" onerror="this.style.background='var(--sage)';this.removeAttribute('src')">
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">Mrs. Ngwu Florence</div>
+            <div class="profile-role">Administrator</div>
+            <p class="profile-bio">As Administrator and Secretary of the School, Mrs. Ngwu Florence is a resourceful and dedicated professional who loves contributing to the growth of young learners through excellent school administration and management, with strong customer relations and organisational skills.<br><br>She holds a B.Sc. in Industrial Relations and Personnel Management from Lagos State University, and a Diploma in Computer Studies from Real Vision Computer Institute, Lagos. She has attended numerous seminars and lectures in her field.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Gopherwood School
+        <small>Strength for Excellence · Lagos, Nigeria</small>
+      </div>
+      <div class="footer-copy">&copy; 2026 Gopherwood School. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- SOCIAL BAR -->
+  <div id="social-bar" aria-label="Social media links">
+    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" rel="noopener" class="s-icon" aria-label="Facebook">
+      <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" rel="noopener" class="s-icon" aria-label="YouTube">
+      <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gopherwood.school" target="_blank" rel="noopener" class="s-icon" aria-label="Instagram">
+      <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z"/></svg>
+    </a>
+    <a href="mailto:gopherwoodschool@yahoo.com" class="s-icon" aria-label="Email">
+      <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
+    </a>
   </div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li class="dropdown">
-      <a href="#dropdownn" class="dropbtn" aria-haspopup="true" aria-expanded="false">Academics & Extracurricular</a>
-      <ul id="dropdownn" class="dropdown-content">
-        <li><a href="academics.html">Academic Overview</a></li>
-        <li><a href="extracurriculars.html">Extracurricular</a></li>
-      </ul>
-    </li>
-    <li><a href="admissions.html">Admissions</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
 
-    <main>
-         <section id="about" class="sectionn about" style="color: var(--text)black;">
-            <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">About Us</h2>
-            <p> <strong>Gopherwood School</strong> is named after the biblical Gopherwood tree from Genesis 6:14, which symbolizes strength, durability, and protection. The school is a premier educational institution focused on nurturing students through innovative teaching, holistic development, and academic excellence in a supportive, inclusive environment.
-<br><br>Like the biblical wood that withstood the great flood, the school aims to build resilient students with strong character who can navigate life's challenges. The institution emphasizes providing a solid educational foundation, embracing innovation while maintaining timeless principles, and creating a safe space where every student can discover their potential.
-<br><br>The school's commitment is to shape tomorrow's leaders by developing not just academic skills, but also character, creativity, critical thinking, and compassion—making it more than just an educational institution, but a community dedicated to building strong, capable individuals who will positively impact the world.</p>
-        </section>
-        <div id="mov">
-            <section class="sectionn" >
-                <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">OUR CORE VALUES</h2>
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li  style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Excellence</li>
-                    <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Forgiveness</li>
-                    <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Love</li>
-                    <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Integrity</li>
-                    <li style="display:flex;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Service</li>
-                    <li style="display:flex;align-items:center;padding:0.5rem 0;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>Tolerance</li>
-                </ul>
-            </section>
-            <section class="sectionn" >
-                <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">OUR MISSION</h2>
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To provide an impeccable British education in a Nigerian cultural setting.</li>
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To equip adequately and properly motivated, confident, stable, and balanced individuals that can match their peers in any sphere globally.</li>
-                </ul>
-            </section>
-            <section class="sectionn" >
-                <h2 style="color: var(--primary); font-size: 1.4rem; margin-top:0;">OUR AIMS ARE</h2>
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To establish a very happy, secure, well-ordered, and stimulating environment.</li>
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To promote respect for others, their property, and their environment.</li>
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To develop good working habits, and encourage an inquiring mind.</li>
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To provide a broad and stimulating curriculum.</li>
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid #e6efc2;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To help use language effectively and develop love for books and reading.</li>
-                    <li style="display:flex;align-items:flex-start;padding:0.5rem 0;"><span style="color:var(--secondary);font-size:1.2rem;margin-right:0.7rem;">&#9654;</span>To encourage a positive relationship between home, school, and the wider community.</li>
-                </ul>
-            </section>
-        </div>
-        <!-- Management Profiles Section -->
-        <section class="mng-sec" >
-            <h2>Meet Our Management</h2>
-            <div class="mng-profile-container" >
-                <div class="mng-profile" >
-                    <div >
-                        <img src="images/bello.jpeg" alt="Propritress" class="mng-profile-img" >
-                    </div>
-                    <div class="mng-text">
-                    <h3 >Mrs Grace Omoyemi Bello</h3>
-                    <p class="mng-title" >Propritress</p>
-                    <p class="mng-profile-bio" >Mrs. Grace Omoyemi Bello is a dedicated educator with over thirty-five years of experience. She began her teaching career in 1989 at Corona School, Victoria Island, and rose to the role of Junior Sectional Head. She later served as a pioneer staff member at Lekki British Junior School and Head Teacher at Lead-Forte Gate Montessori School.
+  <!-- PROFILE MODAL -->
+  <div id="profile-modal" role="dialog" aria-modal="true">
+    <button id="profile-modal-close" aria-label="Close">×</button>
+    <img id="profile-modal-img" src="" alt="Profile photo">
+  </div>
 
-She holds an M.Sc. in Educational Psychology from the University of Lagos and a B.Sc. in Physics Education from Obafemi Awolowo University. Mrs. Bello has attended several international courses in Africa and Europe, reflecting her commitment to excellence and continuous growth in education.</p>
-                </div>
-                </div>
+  <script src="script.js">
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 
+    // Mobile nav
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
 
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-                <div id="" class="mng-profile">
-                    <div >
-                        <img style="float: right;" src="images/principal.jpg" alt="Principal" class="mng-profile-img">
-                    </div>
-                    <div id="left-text" class="mng-text">
-                        <h3 >Mrs Apata A.I</h3>
-                        <p class="mng-title">Principal</p>
-                        <p class="mng-profile-bio">As a dedicated  educational leader, Mrs. Apata.A.l has been serving with Gopherwood school for over eleven years with a passion for fostering academic excellence and raising a total child.
-
-With her years of experience in education, she has developed a deep understanding of what makes a school community thrive. .
-
-She holds a B.Sc in Accounting and a PGD in Education. She has attended several seminars and lectures on Education psychology and management.
-She is committed to continually provide a world-class education that prepares students for success in college, careers, and beyond.</p>
-                    </div>
-
-                </div>
-
-
-
-                <div class="mng-profile" >
-                    <div >
-                        <img src="images/admin.jpg" alt="Ngwu Florence" class="mng-profile-img">
-                    </div>
-                    <div class="mng-text">
-                    <h3 >Mrs. Ngwu Florence</h3>
-                    <p class="mng-title">Administrator</p>
-                    <p class="mng-profile-bio">As an Administrator and Secretary of the School, Mrs. Ngwu Florence is a resourceful and exciting woman who loves contributing to the growth of little children in school administration and management with good customer relations, excellent interpersonal and good organizational skills. School administration and facility management is dynamic especially in the face of the ever growing technological breakthroughs in the world, now characterized by the computer age. She holds a B.Sc in Industrial Relations and Personnel Management from Lagos State University, Lagos. She also attended Real Vision Computer Institute, Lagos for a Diploma Program in Computer Studies. She has attended several seminars and lectures.</p>
-                </div>
-                </div>
-            </div>
-        </section>
-        <!-- Profile Picture Modal -->
-        <div id="profile-modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); justify-content:center; align-items:center;">
-            <span id="close-profile-modal" style="position:absolute;top:30px;right:40px;font-size:2.5rem;color:#fff;cursor:pointer;">&times;</span>
-            <img id="profile-modal-img" src="" alt="Profile" style="max-width:90vw;max-height:80vh;border-radius:16px;box-shadow:0 4px 32px rgba(0,0,0,0.25);background:#fff;">
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 Gopherwood School. All rights reserved.</p>
-    </footer>
-    <div id="social-media-bar">
-    <a href="https://www.facebook.com/gopherwood.ikeja" target="_blank" class="social-icon facebook" aria-label="Facebook">
-        <svg viewBox="0 0 32 32"><path d="M29 0h-26c-1.7 0-3 1.3-3 3v26c0 1.7 1.3 3 3 3h13v-12h-4v-5h4v-4c0-4.1 2.5-6.3 6.1-6.3 1.8 0 3.6.3 3.6.3v4h-2c-2 0-2.6 1.2-2.6 2.5v3h5l-1 5h-4v12h7c1.7 0 3-1.3 3-3v-26c0-1.7-1.3-3-3-3z" /></svg>
-    </a>
-    <a href="https://www.youtube.com/@gopherwoodschool8683" target="_blank" class="social-icon youtube" aria-label="YouTube">
-        <svg viewBox="0 0 32 32"><path d="M31.67 8.67a4 4 0 0 0-2.8-2.83C26.07 5.33 16 5.33 16 5.33s-10.07 0-12.87.51A4 4 0 0 0 .33 8.67C0 11.47 0 16 0 16s0 4.53.33 7.33a4 4 0 0 0 2.8 2.83c2.8.51 12.87.51 12.87.51s10.07 0 12.87-.51a4 4 0 0 0 2.8-2.83C32 20.53 32 16 32 16s0-4.53-.33-7.33zM12.8 21.2V10.8l8.53 5.2z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/gopherwood.school" target="_blank" class="social-icon instagram" aria-label="Instagram">
-        <svg viewBox="0 0 32 32"><path d="M16 7.3a8.7 8.7 0 1 0 0 17.4 8.7 8.7 0 0 0 0-17.4zm0 14.3a5.6 5.6 0 1 1 0-11.2 5.6 5.6 0 0 1 0 11.2zm10.7-14.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm5.7 2c-.1-1.2-.3-2.1-.7-2.9a5.8 5.8 0 0 0-2.9-2.9c-.8-.4-1.7-.6-2.9-.7-1.2-.1-1.6-.1-4.7-.1s-3.5 0-4.7.1c-1.2.1-2.1.3-2.9.7a5.8 5.8 0 0 0-2.9 2.9c-.4.8-.6 1.7-.7 2.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.2.3 2.1.7 2.9a5.8 5.8 0 0 0 2.9 2.9c.8.4 1.7.6 2.9.7 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.2-.1 2.1-.3 2.9-.7a5.8 5.8 0 0 0 2.9-2.9c.4-.8.6-1.7.7-2.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7zm-2.2 11.4a3.7 3.7 0 0 1-2.1 2.1c-.6.2-1.2.4-2.5.5-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.3-.1-1.9-.3-2.5-.5a3.7 3.7 0 0 1-2.1-2.1c-.2-.6-.4-1.2-.5-2.5-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.3.3-1.9.5-2.5a3.7 3.7 0 0 1 2.1-2.1c.6-.2 1.2-.4 2.5-.5 1.2-.1 1.6-.1 4.6-.1s3.4 0 4.6.1c1.3.1 1.9.3 2.5.5a3.7 3.7 0 0 1 2.1 2.1c.2.6.4 1.2.5 2.5.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.3-.3 1.9-.5 2.5z" /></svg>
-    </a>
-    <a href="mailto:gopherwoodschool@yahoo.com" class="social-icon email" aria-label="Email">
-        <svg viewBox="0 0 32 32"><path d="M2 6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2h-28zm0 2h28v2.7l-14 8.8-14-8.8v-2.7zm0 5.2l13.3 8.4c.4.3 1 .3 1.4 0l13.3-8.4v10.8c0 .6-.4 1-1 1h-26c-.6 0-1-.4-1-1v-10.8z"/></svg>
-    </a>
-</div>
-
-    <script>
-    const navToggle = document.getElementById("nav-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const dropdown = document.querySelector(".dropdown");
-  const dropdownContent = document.querySelector(".dropdown-content");
-  const currentPage = window.location.pathname.split("/").pop();
-
-  navToggle.addEventListener("click", () => {
-    const expanded = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", !expanded);
-    navLinks.classList.toggle("active");
-    navToggle.classList.toggle("open");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-      navLinks.classList.remove("active");
-      navToggle.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", false);
-      dropdownContent.classList.remove("show");
-    }
-  });
-
-  dropdown.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownContent.classList.toggle("show");
-  });
-
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active-page");
-    }
-  });
-        // Social icons animation
-        document.querySelectorAll('#social-media-bar .social-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.13) rotate(-6deg)';
-                this.style.boxShadow = '0 4px 18px rgba(20,83,45,0.18)';
-            });
-            icon.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
-            });
-            icon.addEventListener('mousedown', function() {
-                this.style.transform = 'scale(0.97)';
-            });
-            icon.addEventListener('mouseup', function() {
-                this.style.transform = 'scale(1.13) rotate(-6deg)';
-            });
-        });
-
-        // Profile picture modal logic
-        document.querySelectorAll('.management-profile-img').forEach(function(img) {
-            img.addEventListener('click', function() {
-                document.getElementById('profile-modal-img').src = this.src;
-                document.getElementById('profile-modal').style.display = 'flex';
-            });
-        });
-        document.getElementById('close-profile-modal').onclick = function() {
-            document.getElementById('profile-modal').style.display = 'none';
-        };
-        document.getElementById('profile-modal').onclick = function(e) {
-            if(e.target === this) this.style.display = 'none';
-        };
-    
-    </script>
+    // Profile photo modal
+    const profileModal = document.getElementById('profile-modal');
+    const profileModalImg = document.getElementById('profile-modal-img');
+    document.querySelectorAll('.profile-img').forEach(img => {
+      img.addEventListener('click', () => {
+        profileModalImg.src = img.src;
+        profileModalImg.alt = img.alt;
+        profileModal.style.display = 'flex';
+      });
+    });
+    document.getElementById('profile-modal-close').onclick = () => profileModal.style.display = 'none';
+    profileModal.addEventListener('click', e => { if (e.target === profileModal) profileModal.style.display = 'none'; });
+  </script>
 </body>
 </html>
