@@ -186,6 +186,46 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
     .reveal.visible { opacity: 1; transform: none; }
 
+    /* Yearbook download card */
+    .yearbook-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--green) 100%);
+      border-radius: 18px;
+      padding: 1.8rem 2.2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 30px rgba(15,61,31,0.18);
+    }
+    .yearbook-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
+      background: rgba(255,224,102,0.15);
+      border: 1px solid rgba(255,224,102,0.35);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .yearbook-icon svg { width: 28px; height: 28px; fill: var(--gold); }
+    .yearbook-text h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white;
+      margin-bottom: 0.3rem; font-weight: 700;
+    }
+    .yearbook-text p { font-size: 0.92rem; color: rgba(255,255,255,0.7); font-weight: 300; line-height: 1.5; }
+    .yearbook-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--gold); color: var(--forest);
+      font-weight: 700; font-size: 0.9rem; padding: 0.8rem 1.5rem;
+      border-radius: 8px; text-decoration: none; white-space: nowrap;
+      transition: all 0.25s;
+    }
+    .yearbook-btn:hover { background: white; transform: translateY(-1px); }
+    .yearbook-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    @media (max-width: 700px) {
+      .yearbook-card { grid-template-columns: 1fr; text-align: center; padding: 1.8rem 1.5rem; }
+      .yearbook-icon { margin: 0 auto; }
+      .yearbook-btn { justify-self: center; }
+    }
+
     @media (max-width: 860px) {
       .featured-post { grid-template-columns: 1fr; }
       .featured-img { min-height: 240px; }
@@ -240,6 +280,21 @@
     <p class="section-label reveal">From Our Community</p>
     <h2 class="section-title reveal">What's Happening</h2>
 
+    <!-- Yearbook download -->
+    <!--<div class="yearbook-card reveal">
+      <div class="yearbook-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 2H8c-1.1 0-2 .9-2 2v2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2v-2h1c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 4h11v12h-1V8c0-1.1-.9-2-2-2H8V4zm8 16H5V8h11v12z"/></svg>
+      </div>
+      <div class="yearbook-text">
+        <h3>2025/2026 End-of-Year Book</h3>
+        <p>Relive the year's highlights, milestones, and memories. Download the full yearbook below.</p>
+      </div>
+      <a href="files/yearbook-2025-2026.pdf" download class="yearbook-btn">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download PDF
+      </a>
+    </div> -->
+
     <!-- Featured post rendered by JS -->
     <div id="featured-container" class="reveal"></div>
 
@@ -287,49 +342,59 @@
     </div>
   </div>
 
-  <script  src="script.js" >
-     const currentPage = window.location.pathname.split('/').pop();
+  <script>
+    const currentPage = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-links a').forEach((link) => {
       if (link.getAttribute('href') === currentPage) {
         link.classList.add('active-page');
       }
     });
-    // Blog data
+
+    // Blog data — content carried over from the old design
     const blogPosts = [
       {
         title: "Admissions Open for 2026/2027 Session",
         date: "",
         category: "Admissions",
-        img: "images/second flier.png",
+        img: "images/FLIER FOR COLLEGE.png",
         featured: true,
         linkTo: "admissions.html",
         preview: "We are now accepting applications for the next academic session. Explore our holistic curriculum, vibrant community, and excellent facilities.",
         content: `<p>We are now accepting applications for the next academic session. Explore our holistic curriculum, vibrant community, and excellent facilities.</p>
-          <ul><li>Modern classrooms and labs</li><li>Experienced, caring teachers</li><li>Rich extracurricular activities</li></ul>
+          <ul>
+            <li>Modern classrooms and labs</li>
+            <li>Experienced, caring teachers</li>
+            <li>Rich extracurricular activities</li>
+          </ul>
           <p><a href="admissions.html" style="color:var(--mid-green);font-weight:700;">Apply Now</a> or visit our campus for a tour.</p>`
       },
       {
         title: "Family Fun Day at Omu Resort, Lekki",
         date: "March 2025",
-        category: "Community",
+        category: "Family Fun Day",
         img: "images/funday.jpg",
-        preview: "Our annual Family Fun Day at the Omu Resort in Lekki was an incredible success, bringing together students, parents, and teachers for a day of joy.",
+        preview: "Our annual Family Fun Day at the Omu Resort in Lekki was an incredible success, bringing together students, parents, and teachers for a day of joy, laughter, and unforgettable memories.",
         content: `<p>Our annual Family Fun Day at the Omu Resort in Lekki was an incredible success, bringing together students, parents, and teachers for a day of joy, laughter, and unforgettable memories.</p>
+          <h2>Highlights of the Day</h2>
           <h3>Team Building Activities</h3>
-          <p>Families participated in exciting recreational activities like swimming and roller coaster rides that brought out everyone's team spirit and created lots of laughter.</p>
+          <p>Families participated in exciting recreational activities like swimming, roller coaster rides, that brought out everyone's team spirit and created lots of laughter.</p>
           <h3>Strengthened Community Bonds</h3>
           <p>The informal setting allowed teachers and parents to connect beyond the classroom, strengthening the partnership that benefits our children's education and development.</p>
           <p>Thank you to all the families, teachers, and volunteers who made this day special. Until next year's Family Fun Day, we'll treasure these precious memories of our wonderful school community coming together!</p>`
       },
       {
-        title: "Annual Inter-house Sports Competition",
+        title: "Annual inter-house Sports Competition",
         date: "November 2024",
-        category: "Sports",
+        category: "Inter-house Sport",
         img: "images/interhouse.jpg",
-        preview: "Students competed with spirit and teamwork in our annual inter-house sports competition, showcasing talent and school pride across all houses.",
-        content: `<p>Students competed with spirit and teamwork in our annual inter-house sports competition, showcasing talent and school pride across all houses.</p>
-          <ul><li>Track and field events for all age groups</li><li>Team relay races and tug-of-war</li><li>Outstanding sportsmanship on display</li></ul>
-          <p>We invite parents and students to join us for next year's competition and cheer on our athletes!</p>`
+        preview: "The Mayor of Lagos officially opened our state-of-the-art Arts Center. The facility will nurture creativity in music, drama, and fine arts, providing students with world-class resources and opportunities for self-expression.",
+        content: `<p>The Mayor of Lagos officially opened our state-of-the-art Arts Center. The facility will nurture creativity in music, drama, and fine arts, providing students with world-class resources and opportunities for self-expression.</p>
+          <ul>
+            <li>Modern music studios and art rooms</li>
+            <li>Drama theatre with 200-seat capacity</li>
+            <li>Workshops with visiting artists</li>
+          </ul>
+          <p>We invite parents and students to explore the new center and join our creative programs!</p>`
       }
     ];
 
@@ -360,7 +425,7 @@
           </div>`;
       }
 
-      postsGrid.innerHTML = regular.map((post, i) => {
+      postsGrid.innerHTML = regular.map((post) => {
         const idx = blogPosts.indexOf(post);
         return `
           <div class="post-card" data-index="${idx}">
